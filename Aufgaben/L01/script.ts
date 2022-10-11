@@ -17,7 +17,7 @@ let prädikate: string[] = [
     "jagt"
 ];
 
-let objekte: string[] =[
+let objekte: string[] = [
     "die Gegner",
     "seinen Sohn Zagreus",
     "in New York",
