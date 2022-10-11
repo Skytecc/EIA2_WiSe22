@@ -26,12 +26,6 @@ let objekte: string[] =[
     "die kalte Nacht"
 ];
 
-function ausgabeArray(test: string[]): string[]{
-    for (let i: number = 6; i < test.length; i--);
-    return test;
-
-}
-
 console.log(subjekte);
 console.log(prädikate);
 console.log(objekte);

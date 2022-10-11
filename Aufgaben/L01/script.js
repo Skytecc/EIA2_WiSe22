@@ -23,11 +23,6 @@ let objekte = [
     "Edward",
     "die kalte Nacht"
 ];
-function ausgabeArray(test) {
-    for (let i = 6; i < test.length; i--)
-        ;
-    return test;
-}
 console.log(subjekte);
 console.log(prädikate);
 console.log(objekte);
