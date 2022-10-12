@@ -26,21 +26,39 @@ let objekte: string[] = [
     "die kalte Nacht"
 ];
 
-console.log(subjekte);
-console.log(prädikate);
-console.log(objekte);
+// console.log(subjekte);
+// console.log(prädikate);
+// console.log(objekte);
 
 
 for (let i: number = 6; i > 0; i-- ) {
-        console.log(i);
-        console.log(getVerse(subjekte, prädikate, objekte));
+       // console.log(i);
+       // console.log(getVerse(subjekte, prädikate, objekte));
+       console.log(getVerse(subjekte, prädikate, objekte));
+       
 
     }
 
 function getVerse(_arr01: string[], _arr02: string[], _arr03: string[]): string {
-        let a: string = _arr01[1];
 
-        return a;
+
+    let randomNumber01: number = Math.floor(Math.random() * _arr01.length);
+    let randomNumber02: number = Math.floor(Math.random() * _arr02.length);
+    let randomNumber03: number = Math.floor(Math.random() * _arr03.length);
+
+    let a: string = _arr01[randomNumber01];
+    let b: string = _arr02[randomNumber02];
+    let c: string = _arr03[randomNumber03];
+
+    _arr01.splice(randomNumber01, 1);
+
+
+    let vers: string = a + " " + b + " " + c;
+
+    return vers;
+
     }
+
+
 
     
