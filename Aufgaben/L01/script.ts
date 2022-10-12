@@ -1,4 +1,3 @@
-
 let subjekte: string[] = [
     "Octane", 
     "Lifeline", 
