@@ -30,11 +30,17 @@ console.log(subjekte);
 console.log(prädikate);
 console.log(objekte);
 
-/*function getVerse(arr01: string[], arr02: string[], arr03[]: string): string[] {
 
-    for (let i: number = )
-    return;
-}*/
+for (let i: number = 6; i > 0; i-- ) {
+        console.log(i);
+        console.log(getVerse(subjekte, prädikate, objekte));
 
+    }
 
+function getVerse(_arr01: string[], _arr02: string[], _arr03: string[]): string {
+        let a: string = _arr01[1];
 
+        return a;
+    }
+
+    
