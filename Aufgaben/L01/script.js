@@ -23,9 +23,12 @@ let objekte = [
     "Edward",
     "die kalte Nacht"
 ];
-for (let i = 6; i > 0; i--) {
-    console.log(getVerse(subjekte, prädikate, objekte));
-}
+var ZufallsGedicht;
+(function (ZufallsGedicht) {
+    for (let i = 6; i > 0; i--) {
+        console.log(getVerse(subjekte, prädikate, objekte));
+    }
+})(ZufallsGedicht || (ZufallsGedicht = {}));
 function getVerse(_arr01, _arr02, _arr03) {
     let randomNumber01 = Math.floor(Math.random() * _arr01.length);
     let randomNumber02 = Math.floor(Math.random() * _arr02.length);

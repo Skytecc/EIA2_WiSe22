@@ -26,9 +26,13 @@ let objekte: string[] = [
     "die kalte Nacht"
 ];
 
+namespace ZufallsGedicht {
+
 for (let i: number = 6; i > 0; i-- ) {
        console.log(getVerse(subjekte, prädikate, objekte));
     }
+
+}
 
 function getVerse(_arr01: string[], _arr02: string[], _arr03: string[]): string {
 
