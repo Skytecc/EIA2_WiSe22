@@ -8,6 +8,7 @@ namespace L02_Event_Inspector {
 
         document.addEventListener("click",logInfo);
         document.addEventListener("keyup",logInfo);
+        //document.addEventListener("mousemove",setInfoBox);
 
     }
 

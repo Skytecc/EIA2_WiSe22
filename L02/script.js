@@ -7,6 +7,7 @@ var L02_Event_Inspector;
         let button = document.getElementById("button");
         document.addEventListener("click", logInfo);
         document.addEventListener("keyup", logInfo);
+        //document.addEventListener("mousemove",setInfoBox);
     }
     function logInfo(_event) {
         console.log(_event);
