@@ -18,7 +18,7 @@ namespace L02_Event_Inspector {
         div0.addEventListener("keyup",logInfo);
         div1.addEventListener("keyup",logInfo);
 
-        document.addEventListener("mousemove",setInfoBox);
+        //document.addEventListener("mousemove",setInfoBox);
 
     }
 
@@ -28,12 +28,12 @@ namespace L02_Event_Inspector {
 
     function setInfoBox(_event: MouseEvent): void {
         //console.log(_event);
-        let x: number = _event.offsetX;
-        let y: number = _event.offsetY;
-
         let xPosition: number = _event.clientX;
         let yPostion: number = _event.clientY;
         let coor: string = "(" + String(yPostion) + String(xPosition) + ")";
+
+        let x: number = _event.offsetX;
+        let y: number = _event.offsetY;
 
         //console.log(xPosition + yPostion);
         let info: HTMLElement = <HTMLElement>_event.target;
@@ -44,19 +44,9 @@ namespace L02_Event_Inspector {
         infoString = coor; 
 
         infoBox.textContent = infoString;
-        infoBox.style.top =  y + "px";
-        infoBox.style.left =  x + "px";
-
-        info.addEventListener("mousemove", removePosition);
+        infoBox.style.top =  yPostion + "px";
+        infoBox.style.left =  xPosition + "px";
 
     }
-
-    function removePosition(_event: MouseEvent): void {
-        let target: Node = <Node>_event.target;
-        let parent: Node = <Node>target.parentNode;
-        parent.removeChild(target);
-    }
-
-    
 
 }

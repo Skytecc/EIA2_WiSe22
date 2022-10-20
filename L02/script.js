@@ -15,32 +15,26 @@ var L02_Event_Inspector;
         document.addEventListener("keyup", logInfo);
         div0.addEventListener("keyup", logInfo);
         div1.addEventListener("keyup", logInfo);
-        document.addEventListener("mousemove", setInfoBox);
+        //document.addEventListener("mousemove",setInfoBox);
     }
     function logInfo(_event) {
         console.log(_event);
     }
     function setInfoBox(_event) {
         //console.log(_event);
-        let x = _event.offsetX;
-        let y = _event.offsetY;
         let xPosition = _event.clientX;
         let yPostion = _event.clientY;
         let coor = "(" + String(yPostion) + String(xPosition) + ")";
+        let x = _event.offsetX;
+        let y = _event.offsetY;
         //console.log(xPosition + yPostion);
         let info = _event.target;
         let infoBox = document.createElement("span");
         info.appendChild(infoBox);
         infoString = coor;
         infoBox.textContent = infoString;
-        infoBox.style.top = y + "px";
-        infoBox.style.left = x + "px";
-        info.addEventListener("mousemove", removePosition);
-    }
-    function removePosition(_event) {
-        let target = _event.target;
-        let parent = target.parentNode;
-        parent.removeChild(target);
+        infoBox.style.top = yPostion + "px";
+        infoBox.style.left = xPosition + "px";
     }
 })(L02_Event_Inspector || (L02_Event_Inspector = {}));
 //# sourceMappingURL=script.js.map
