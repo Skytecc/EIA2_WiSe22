@@ -17,6 +17,9 @@ var L02_Event_Inspector;
         document.addEventListener("mousemove", setInfoBox);
     }
     function logInfo(_event) {
+        console.log(_event.type);
+        console.log(_event.target);
+        console.log(_event.currentTarget);
         console.log(_event);
     }
     function setInfoBox(_event) {
