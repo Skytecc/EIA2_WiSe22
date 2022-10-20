@@ -8,6 +8,9 @@ namespace L02_Event_Inspector {
         let button: HTMLElement = <HTMLElement>document.getElementById("button");
         let div0: HTMLElement = <HTMLElement>document.getElementById("div0");
         let div1: HTMLElement = <HTMLElement>document.getElementById("div1");
+
+        button.addEventListener("click", CustomEvent);
+
         document.addEventListener("click",logInfo);
         div0.addEventListener("click",logInfo);
         div1.addEventListener("click",logInfo);
@@ -31,7 +34,7 @@ namespace L02_Event_Inspector {
         //console.log(_event);
         let xPosition: number = _event.clientX;
         let yPostion: number = _event.clientY;
-        let coor: string = "(" + String(yPostion) + "y" + String(xPosition) + "x" + ")";
+        let coor: string = "(" + "x" + String(xPosition) + String(yPostion) + "y" + ")";
 
         //console.log(xPosition + yPostion);
         let infoBox: HTMLElement = <HTMLElement>document.getElementById("span1");
