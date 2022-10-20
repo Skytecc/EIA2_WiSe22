@@ -8,8 +8,6 @@ namespace L02_Event_Inspector {
         let button: HTMLElement = <HTMLElement>document.getElementById("button");
         let div0: HTMLElement = <HTMLElement>document.getElementById("div0");
         let div1: HTMLElement = <HTMLElement>document.getElementById("div1");
-        //let span1: HTMLElement = <HTMLElement>document.getElementById("span1");
-
         document.addEventListener("click",logInfo);
         div0.addEventListener("click",logInfo);
         div1.addEventListener("click",logInfo);
@@ -18,7 +16,7 @@ namespace L02_Event_Inspector {
         div0.addEventListener("keyup",logInfo);
         div1.addEventListener("keyup",logInfo);
 
-        //document.addEventListener("mousemove",setInfoBox);
+        document.addEventListener("mousemove",setInfoBox);
 
     }
 
@@ -30,22 +28,15 @@ namespace L02_Event_Inspector {
         //console.log(_event);
         let xPosition: number = _event.clientX;
         let yPostion: number = _event.clientY;
-        let coor: string = "(" + String(yPostion) + String(xPosition) + ")";
-
-        let x: number = _event.offsetX;
-        let y: number = _event.offsetY;
+        let coor: string = "(" + String(yPostion) + "y" + String(xPosition) + "x" + ")";
 
         //console.log(xPosition + yPostion);
-        let info: HTMLElement = <HTMLElement>_event.target;
-        let infoBox: HTMLSpanElement = document.createElement("span");
-
-        info.appendChild(infoBox);
-
+        let infoBox: HTMLElement = <HTMLElement>document.getElementById("span1");
         infoString = coor; 
 
         infoBox.textContent = infoString;
-        infoBox.style.top =  yPostion + "px";
-        infoBox.style.left =  xPosition + "px";
+        infoBox.style.top =  yPostion + 10 + "px";
+        infoBox.style.left =  xPosition + 10 + "px";
 
     }
 

@@ -8,14 +8,13 @@ var L02_Event_Inspector;
         let button = document.getElementById("button");
         let div0 = document.getElementById("div0");
         let div1 = document.getElementById("div1");
-        //let span1: HTMLElement = <HTMLElement>document.getElementById("span1");
         document.addEventListener("click", logInfo);
         div0.addEventListener("click", logInfo);
         div1.addEventListener("click", logInfo);
         document.addEventListener("keyup", logInfo);
         div0.addEventListener("keyup", logInfo);
         div1.addEventListener("keyup", logInfo);
-        //document.addEventListener("mousemove",setInfoBox);
+        document.addEventListener("mousemove", setInfoBox);
     }
     function logInfo(_event) {
         console.log(_event);
@@ -24,17 +23,13 @@ var L02_Event_Inspector;
         //console.log(_event);
         let xPosition = _event.clientX;
         let yPostion = _event.clientY;
-        let coor = "(" + String(yPostion) + String(xPosition) + ")";
-        let x = _event.offsetX;
-        let y = _event.offsetY;
+        let coor = "(" + String(yPostion) + "y" + String(xPosition) + "x" + ")";
         //console.log(xPosition + yPostion);
-        let info = _event.target;
-        let infoBox = document.createElement("span");
-        info.appendChild(infoBox);
+        let infoBox = document.getElementById("span1");
         infoString = coor;
         infoBox.textContent = infoString;
-        infoBox.style.top = yPostion + "px";
-        infoBox.style.left = xPosition + "px";
+        infoBox.style.top = yPostion + 10 + "px";
+        infoBox.style.left = xPosition + 10 + "px";
     }
 })(L02_Event_Inspector || (L02_Event_Inspector = {}));
 //# sourceMappingURL=script.js.map

@@ -37,7 +37,10 @@ h1 {
 
 span {
     position: fixed;
-    font-size: 30px;
-    width: 50px;
-    height: 50px;
+    font-size: 18px;
+    font-family: sans-serif;
+    background-color: cornflowerblue;
+    border: 2px solid black;
+    width: 150px;
+    height: 100px;
 }
