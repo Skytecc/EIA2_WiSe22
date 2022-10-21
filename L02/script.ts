@@ -4,22 +4,24 @@ namespace L02_Event_Inspector {
     window.addEventListener("load", handleLoad);
 
     function handleLoad(_event: Event): void {
-
+        
+        let body: HTMLElement = <HTMLElement>document.querySelector("body");
         let button: HTMLElement = <HTMLElement>document.getElementById("button");
         let div0: HTMLElement = <HTMLElement>document.getElementById("div0");
         let div1: HTMLElement = <HTMLElement>document.getElementById("div1");
 
-        button.addEventListener("click", CustomEvent);
+        button.addEventListener("click", customEvent);
 
-        document.addEventListener("click",logInfo);
-        div0.addEventListener("click",logInfo);
-        div1.addEventListener("click",logInfo);
+        body.addEventListener("click", logInfo);
+        document.addEventListener("click", logInfo);
+        div0.addEventListener("click", logInfo);
+        div1.addEventListener("click", logInfo);
 
-        document.addEventListener("keyup",logInfo);
-        div0.addEventListener("keyup",logInfo);
-        div1.addEventListener("keyup",logInfo);
+        document.addEventListener("keyup", logInfo);
+        div0.addEventListener("keyup", logInfo);
+        div1.addEventListener("keyup", logInfo);
 
-        document.addEventListener("mousemove",setInfoBox);
+        document.addEventListener("mousemove", setInfoBox);
 
     }
 
@@ -34,16 +36,20 @@ namespace L02_Event_Inspector {
         //console.log(_event);
         let xPosition: number = _event.clientX;
         let yPostion: number = _event.clientY;
-        let coor: string = "(" + "x" + String(xPosition) + String(yPostion) + "y" + ")";
+        let coor: string = "(" + "x" + String(xPosition) + ";" + String(yPostion) + "y" + ")" + "<br>" + "Target Object: " + "<br>" + _event.target;
 
         //console.log(xPosition + yPostion);
         let infoBox: HTMLElement = <HTMLElement>document.getElementById("span1");
         infoString = coor; 
 
-        infoBox.textContent = infoString;
+        infoBox.innerHTML = infoString;
         infoBox.style.top =  yPostion + 10 + "px";
         infoBox.style.left =  xPosition + 10 + "px";
 
+    }
+
+    function customEvent(_event: MouseEvent): void {
+        let 
     }
 
 }
