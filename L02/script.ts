@@ -11,6 +11,7 @@ namespace L02_Event_Inspector {
         let div1: HTMLElement = <HTMLElement>document.getElementById("div1");
 
         button.addEventListener("click", customEvent);
+        document.addEventListener("customEventWorking",showCustomEvent);
 
         body.addEventListener("click", logInfo);
         document.addEventListener("click", logInfo);
@@ -49,7 +50,14 @@ namespace L02_Event_Inspector {
     }
 
     function customEvent(_event: MouseEvent): void {
-        let 
+        let event: CustomEvent = new CustomEvent("customEventWorking", {bubbles: true});
+
+        _event.target?.dispatchEvent(event);
+
+    }
+
+    function showCustomEvent(_event: Event): void {
+        console.log(_event);
     }
 
 }

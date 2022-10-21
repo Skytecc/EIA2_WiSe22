@@ -10,6 +10,7 @@ var L02_Event_Inspector;
         let div0 = document.getElementById("div0");
         let div1 = document.getElementById("div1");
         button.addEventListener("click", customEvent);
+        document.addEventListener("customEventWorking", showCustomEvent);
         body.addEventListener("click", logInfo);
         document.addEventListener("click", logInfo);
         div0.addEventListener("click", logInfo);
@@ -38,7 +39,11 @@ var L02_Event_Inspector;
         infoBox.style.left = xPosition + 10 + "px";
     }
     function customEvent(_event) {
-        let;
+        let event = new CustomEvent("customEventWorking", { bubbles: true });
+        _event.target?.dispatchEvent(event);
+    }
+    function showCustomEvent(_event) {
+        console.log(_event);
     }
 })(L02_Event_Inspector || (L02_Event_Inspector = {}));
 //# sourceMappingURL=script.js.map
