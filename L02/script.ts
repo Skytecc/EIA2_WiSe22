@@ -11,7 +11,7 @@ namespace L02_Event_Inspector {
         let div1: HTMLElement = <HTMLElement>document.getElementById("div1");
 
         button.addEventListener("click", customEvent);
-        document.addEventListener("customEventWorking",showCustomEvent);
+        document.addEventListener("customEventWorking", showCustomEvent);
 
         body.addEventListener("click", logInfo);
         document.addEventListener("click", logInfo);
