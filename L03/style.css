@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.app {
+    position: fixed;
+    background-color: antiquewhite;
+    width: 387px;
+    height: 667px;
+
+}
