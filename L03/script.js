@@ -1,4 +1,11 @@
 "use strict";
+/*
+Aufgabe: <L03_Einkaufsliste>
+Name: <Cindy Nguyen>
+Matrikel: <271131>
+Datum: <13.10.2022>
+Quellen: <->
+*/
 var L03_Einkaufsliste;
 (function (L03_Einkaufsliste) {
     let dateInput = document.getElementById("date");

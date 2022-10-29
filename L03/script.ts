@@ -1,3 +1,10 @@
+/*
+Aufgabe: <L03_Einkaufsliste>
+Name: <Cindy Nguyen>
+Matrikel: <271131>
+Datum: <13.10.2022>
+Quellen: <->
+*/
 namespace L03_Einkaufsliste {
 
     let dateInput: HTMLInputElement = <HTMLInputElement>document.getElementById("date");
