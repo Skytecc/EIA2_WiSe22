@@ -1,9 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 .app {
-    position: fixed;
-    background-color: antiquewhite;
+    position: relative;
+    background-color: rgb(186, 211, 211);
     width: 387px;
     height: 667px;
+    margin: auto;
+
+}
+
+.header p {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-size: 34px;
+    font-family: "Lato", sans-serif;
+    background-color: rgb(111, 114, 112);
+    width: auto;
+}
+
+.add {
+    text-align: center;
+    margin: auto;
+    background-color: rgb(111, 114, 112);
+    width: auto;
+    height: 130px;
+}
+
+input {
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-left: 15px;
+    border-radius: 5px;
+    border: none;
+    width: 100px;
+    height: 25px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+    
+    opacity: 1;
 
 }
