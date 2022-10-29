@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Einakufsliste</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -17,13 +19,18 @@
         </div>
 
         <div id="container1" class="add">
-            <input type="text" name="Name" id="name" placeholder="Name">
-            <input type="number" name="Anzahl" id="numbers" placeholder="Anzahl">
-            <input type="date" name="Datum" id="date" value="">
-            <input type="text" name="Kommentar" id="comment" placeholder="Kommentar">
-            <input type="text" name="test" id="">
-            
+            <input type="text" name="Name" id="name" class="inputBtn" placeholder="Name">
+            <input type="number" name="Anzahl" id="numbers" class="inputBtn" placeholder="Anzahl">
+            <input type="date" name="Datum" id="date" class="inputBtn" value="">
+            <input type="text" name="Kommentar" id="comment" class="inputBtn" placeholder="Kommentar"> 
+            <button class="addBtn" id="button"> Add <i class="fa-solid fa-cart-shopping icon"></i> </button>          
         </div>
+
+        <ul id="list">
+            <li> <input type="checkbox" class="checkbox"> <span>Apfel - Anzahl: 10 - 29.10.2022 - Es gab nur 5 </span> <i class="fa-solid fa-pen-to-square icon2 edit"></i> <i class="fa-regular fa-square-minus icon2 delete"></i> </li>
+            <li> <input type="checkbox" class="checkbox"> <span>Brot - Anzahl: 2 - 29.10.2022 - Toast </span> <i class="fa-solid fa-pen-to-square icon2 edit"></i> <i class="fa-regular fa-square-minus icon2 delete"></i> </li>
+        </ul>
+
 
     </div>
     
