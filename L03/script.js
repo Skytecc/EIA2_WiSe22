@@ -13,20 +13,26 @@ var L03_Einkaufsliste;
     window.addEventListener("load", handleload);
     function handleload() {
         let addBtn = document.getElementById("button");
-        let editBtn = document.querySelector(".edit");
-        let deleteBtn = document.querySelector(".delete");
-        let checkbox = document.querySelector(".checkbox");
+        let editBtn = document.querySelectorAll(".edit");
+        let deleteBtn = document.querySelectorAll(".trash");
+        let checkboxes = document.querySelectorAll(".checkbox");
         addBtn.addEventListener("click", adding);
-        editBtn.addEventListener("click", editing);
-        deleteBtn.addEventListener("click", deleting);
-        checkbox.addEventListener("click", checkBoxChecking);
+        editBtn.forEach(edit => {
+            edit.addEventListener("click", editing);
+        });
+        deleteBtn.forEach(trash => {
+            trash.addEventListener("click", trashing);
+        });
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener("click", checkBoxChecking);
+        });
     }
     function checkBoxChecking() {
-        let checkbox = document.querySelector(".checkbox");
-        if (checkbox.checked == true) {
+        let checkboxes = document.querySelector(".checkbox");
+        if (checkboxes.checked == true) {
             console.log("checked");
         }
-        else if (checkbox.checked == false) {
+        else if (checkboxes.checked == false) {
             console.log("unchecked");
         }
     }
@@ -36,7 +42,7 @@ var L03_Einkaufsliste;
     function adding() {
         console.log("add");
     }
-    function deleting() {
+    function trashing() {
         console.log("delete");
     }
 })(L03_Einkaufsliste || (L03_Einkaufsliste = {}));

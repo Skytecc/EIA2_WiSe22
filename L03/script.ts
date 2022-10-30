@@ -15,25 +15,33 @@ namespace L03_Einkaufsliste {
 
     function handleload(): void {
         let addBtn: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
-        let editBtn: HTMLElement = <HTMLElement>document.querySelector(".edit");
-        let deleteBtn: HTMLElement = <HTMLElement>document.querySelector(".delete");
+        let editBtn: NodeListOf<HTMLElement> = document.querySelectorAll(".edit");
+        let deleteBtn: NodeListOf<HTMLElement> = document.querySelectorAll(".trash");
 
-        let checkbox: HTMLInputElement = <HTMLInputElement> document.querySelector(".checkbox");
+        let checkboxes: NodeListOf<HTMLInputElement> = document.querySelectorAll(".checkbox");
 
         addBtn.addEventListener("click", adding);
-        editBtn.addEventListener("click", editing);
-        deleteBtn.addEventListener("click", deleting);
-        checkbox.addEventListener("click", checkBoxChecking);
+        editBtn.forEach(edit => {
+            edit.addEventListener("click", editing);
+        });
+        
+        deleteBtn.forEach(trash => {
+            trash.addEventListener("click", trashing);
+        });
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener("click", checkBoxChecking);
+        });
 
     }
 
     function checkBoxChecking (): void {
-        let checkbox: HTMLInputElement = <HTMLInputElement> document.querySelector(".checkbox");
+        let checkboxes: HTMLInputElement = <HTMLInputElement> document.querySelector(".checkbox");
         
-        if (checkbox.checked == true) {
+        if (checkboxes.checked == true) {
 
             console.log("checked");
-        } else if (checkbox.checked == false) {
+        } else if (checkboxes.checked == false) {
             console.log("unchecked");
         }
         
@@ -47,7 +55,7 @@ namespace L03_Einkaufsliste {
         console.log("add");
     }
 
-    function deleting(): void {
+    function trashing(): void {
         console.log("delete");
     }
 
