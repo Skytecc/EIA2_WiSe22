@@ -9,21 +9,21 @@
 
 }
 
-.header p {
+.header h1 {
     position: relative;
     margin: auto;
     text-align: center;
     color: white;
     font-size: 34px;
     font-family: "Lato", sans-serif;
-    background-color: rgb(111, 114, 112);
+    background: linear-gradient(90deg, rgb(44, 44, 44), rgb(80, 80, 80));
     width: auto;
 }
 
 .add {
     text-align: center;
     margin: auto;
-    background-color: rgb(111, 114, 112);
+    background: linear-gradient(45deg, rgb(168, 168, 168), rgb(107, 107, 107));
     width: auto;
     height: auto;
 }
@@ -82,7 +82,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .icon2 {
-    margin-left: 10px ;
+    margin-right: 10px;
     float: right;
     font-size: 20px;
     
@@ -100,8 +100,8 @@ ul li {
     font-size: 16px;
     position: relative;
     font-family: "Lato", sans-serif;
-    background-color: white;
-    height: 50px;
+    background: linear-gradient(75deg, rgb(133, 187, 189), rgb(23, 179, 106));
+    height: auto;
     border: 1px outset rgb(214, 214, 214);
     border-left: hidden;
     border-right: hidden;
@@ -117,5 +117,12 @@ p {
     position: relative;
     display: inline;
     margin-right: 20px;
+}
+
+.showComment {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    border-left: 5px solid rgb(241, 131, 29);
 }
 
