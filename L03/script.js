@@ -15,12 +15,23 @@ var L03_Einkaufsliste;
         let addBtn = document.getElementById("button");
         let editBtn = document.querySelector(".edit");
         let deleteBtn = document.querySelector(".delete");
+        let checkbox = document.querySelector(".checkbox");
         addBtn.addEventListener("click", adding);
         editBtn.addEventListener("click", editing);
         deleteBtn.addEventListener("click", deleting);
+        checkbox.addEventListener("click", checkBoxChecking);
+    }
+    function checkBoxChecking() {
+        let checkbox = document.querySelector(".checkbox");
+        if (checkbox.checked == true) {
+            console.log("checked");
+        }
+        else if (checkbox.checked == false) {
+            console.log("unchecked");
+        }
     }
     function editing() {
-        console.log("test");
+        console.log("Edit");
     }
     function adding() {
         console.log("add");
