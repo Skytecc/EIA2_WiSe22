@@ -20,15 +20,20 @@
 
         <div id="container1" class="add">
             <input type="text" name="Name" id="name" class="inputBtn" placeholder="Name">
-            <input type="number" name="Anzahl" id="numbers" class="inputBtn" placeholder="Anzahl">
-            <input type="date" name="Datum" id="date" class="inputBtn" value="">
-            <input type="text" name="Kommentar" id="comment" class="inputBtn" placeholder="Kommentar"> 
+            <input type="number" name="Amount" id="numbers" class="inputBtn" placeholder="Amount">
+            <input type="date" name="date" id="date" class="inputBtn" value="">
+            <textarea name="comment" id="comment" class="commentbox" cols="30" rows="10" placeholder="comment"></textarea>
+            <br>
             <button class="addBtn" id="button"> Add <i class="fa-solid fa-cart-shopping icon"></i> </button>          
         </div>
 
         <ul id="list">
-            <li> <input type="checkbox" class="checkbox"> <span>Apfel - Anzahl: 10 - 29.10.2022 - Es gab nur 5 </span> <i class="fa-solid fa-pen-to-square icon2 edit"></i> <i class="fa-regular fa-square-minus icon2 delete"></i> </li>
-            <li> <input type="checkbox" class="checkbox"> <span>Brot - Anzahl: 2 - 29.10.2022 - Toast </span> <i class="fa-solid fa-pen-to-square icon2 edit"></i> <i class="fa-regular fa-square-minus icon2 delete"></i> </li>
+            <li> <input type="checkbox" class="checkbox"> 
+                 <div class="itemList"> 
+                    <p class="showName">Banane</p> <p class="showAmount">4</p> 
+                    <div class="fa-solid fa-pen-to-square icon2 edit"></div> <div class="fa-regular fa-square-minus icon2 delete"></div> 
+                </div></li>
+            <li> <input type="checkbox" class="checkbox">  <div class="fa-solid fa-pen-to-square icon2 edit"></div> <div class="fa-regular fa-square-minus icon2 delete"></div> </li>
         </ul>
 
 
