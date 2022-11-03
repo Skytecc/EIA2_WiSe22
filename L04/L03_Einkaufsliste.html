@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einakufsliste</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="app">
+
+        <div class="header"> 
+            <h1>Einkaufsliste</h1>
+        </div>
+
+        <div id="container1" class="add">
+            <input type="text" name="Name" id="name" class="inputBtn" placeholder="Name">
+            <input type="number" name="Amount" id="numbers" class="inputBtn" placeholder="Amount">
+            <input type="date" name="date" id="date" class="inputBtn" value="">
+            <textarea name="comment" id="comment" class="commentbox" cols="30" rows="10" placeholder="comment"></textarea>
+            <br>
+            <button class="addBtn" id="button"> Add <i class="fa-solid fa-cart-shopping icon"></i> </button>          
+        </div>
+
+        <ul id="list">
+            <li> <input type="checkbox" class="checkbox"> 
+                 <div class="itemList"> 
+                    <p class="showName">Banane</p> <p class="showAmount">4</p> <p class="showDate">30.10.2022</p>
+                    <br>
+                    <div class="showComment">Für den Milchshake</div>
+                    <div class="fa-regular fa-square-minus icon2 trash"></div> <div class="fa-solid fa-pen-to-square icon2 edit"></div>
+                </div></li>
+            <li> <input type="checkbox" class="checkbox"> 
+                 <div class="itemList"> 
+                    <p class="showName">Apfel</p> <p class="showAmount">8</p> <p class="showDate">30.10.2022</p>
+                    <br>
+                    <div class="showComment">Für den Smoothie</div>
+                    <div class="fa-regular fa-square-minus icon2 trash"></div> <div class="fa-solid fa-pen-to-square icon2 edit"></div>
+                </div></li>
+        </ul>
+
+
+    </div>
+    
+</body>
+</html>
