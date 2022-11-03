@@ -7,9 +7,9 @@ Quellen: <->
 */
 namespace L03_Einkaufsliste {
 
-    let dateInput: HTMLInputElement = <HTMLInputElement>document.getElementById("date");
+    /*let dateInput: HTMLInputElement = <HTMLInputElement>document.getElementById("date");
     
-    dateInput.value = new Date().toISOString().substring(0, 10);
+    dateInput.value = new Date().toISOString().substring(0, 10);*/
 
     window.addEventListener("load", handleload);
 
