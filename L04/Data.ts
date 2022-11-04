@@ -1,20 +1,22 @@
 namespace L04_Einkaufsliste {
-    interface Item {
+    export interface Item {
         name: string;
         amount: number;
         date: string;
         comment: string;
     }
 
-    interface currentList {
+    export interface DataList {
         [showList: string]: Item[];
     }
 
-    let currentItems: currentList  = {
+    export let currentItems: DataList  = {
         
-        list: [
+        existingList: [
             { name: "Banane", amount: 4, date: "30.10.2022", comment: "Für den Milchshake"},
-            { name: "Apfel", amount: 8, date: "30.10.2022", comment: "Für den smoothie"}
-        ]
+            { name: "Apfel", amount: 8.00, date: "30.10.2022", comment: "Für den smoothie"}
+        ],
+
+        newList: []
     };
 }

@@ -27,6 +27,7 @@ var L04_Einkaufsliste;
         checkboxes.forEach(checkbox => {
             checkbox.addEventListener("click", checkBoxChecking);
         });
+        L04_Einkaufsliste.generateItems(L04_Einkaufsliste.currentItems);
     }
     function checkBoxChecking() {
         let checkboxes = document.querySelector(".checkbox");

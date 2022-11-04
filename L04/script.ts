@@ -32,6 +32,8 @@ namespace L04_Einkaufsliste {
         checkboxes.forEach(checkbox => {
             checkbox.addEventListener("click", checkBoxChecking);
         });
+        
+        generateItems(currentItems);
 
     }
 
