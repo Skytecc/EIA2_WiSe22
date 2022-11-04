@@ -36,7 +36,7 @@ namespace L04_Einkaufsliste {
         return null;
     }
 
-    function createNewList (_items: Item[]): HTMLElement | null{
+    function createNewList (_items: Item[]): HTMLElement | null {
     
         return null;
     }
