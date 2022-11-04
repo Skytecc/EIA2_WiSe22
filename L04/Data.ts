@@ -14,9 +14,11 @@ namespace L04_Einkaufsliste {
         
         existingList: [
             { name: "Banane", amount: 4, date: "30.10.2022", comment: "Für den Milchshake"},
-            { name: "Apfel", amount: 8.00, date: "30.10.2022", comment: "Für den smoothie"}
-        ],
-
-        newList: []
+            { name: "Apfel", amount: 8.00, date: "30.10.2022", comment: "Für den Smoothie"}
+        ]
     };
+
+
+    export let inputName: HTMLInputElement = <HTMLInputElement> document.querySelector("#name");
+
 }

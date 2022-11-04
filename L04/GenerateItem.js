@@ -25,8 +25,5 @@ var L04_Einkaufsliste;
     function createExistingList(_items) {
         return null;
     }
-    function createNewList(_items) {
-        return null;
-    }
 })(L04_Einkaufsliste || (L04_Einkaufsliste = {}));
 //# sourceMappingURL=GenerateItem.js.map
