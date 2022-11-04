@@ -3,7 +3,7 @@
 Aufgabe: <L03_Einkaufsliste>
 Name: <Cindy Nguyen>
 Matrikel: <271131>
-Datum: <13.10.2022>
+Datum: <30.10.2022>
 Quellen: <->
 */
 var L03_Einkaufsliste;

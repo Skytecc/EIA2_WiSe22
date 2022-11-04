@@ -3,11 +3,11 @@
 Aufgabe: <L03_Einkaufsliste>
 Name: <Cindy Nguyen>
 Matrikel: <271131>
-Datum: <13.10.2022>
+Datum: <>
 Quellen: <->
 */
-var L03_Einkaufsliste;
-(function (L03_Einkaufsliste) {
+var L04_Einkaufsliste;
+(function (L04_Einkaufsliste) {
     /*let dateInput: HTMLInputElement = <HTMLInputElement>document.getElementById("date");
     
     dateInput.value = new Date().toISOString().substring(0, 10);*/
@@ -46,5 +46,5 @@ var L03_Einkaufsliste;
     function trashing() {
         console.log("delete");
     }
-})(L03_Einkaufsliste || (L03_Einkaufsliste = {}));
+})(L04_Einkaufsliste || (L04_Einkaufsliste = {}));
 //# sourceMappingURL=script.js.map

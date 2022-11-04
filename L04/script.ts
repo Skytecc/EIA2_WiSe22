@@ -2,10 +2,10 @@
 Aufgabe: <L03_Einkaufsliste>
 Name: <Cindy Nguyen>
 Matrikel: <271131>
-Datum: <13.10.2022>
+Datum: <>
 Quellen: <->
 */
-namespace L03_Einkaufsliste {
+namespace L04_Einkaufsliste {
 
     /*let dateInput: HTMLInputElement = <HTMLInputElement>document.getElementById("date");
     
