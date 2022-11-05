@@ -11,17 +11,9 @@ namespace L04_Einkaufsliste {
 
             let group: HTMLElement | null = null;
 
-            switch (showList) {
-                case "existingList":
-                    group = createExistingList(items);
-                    break;
-                    case "newList":
-                        //group = createNewList();
-                        break;
-                    
-            
-                default:
-                    break;
+            if(showList) {
+                group = createExistingList(items);
+
             }
 
             let unlistedList: HTMLUListElement | null = document.querySelector("ul#" + showList);
@@ -32,8 +24,18 @@ namespace L04_Einkaufsliste {
     }
 
     function createExistingList (_items: Item[]): HTMLElement | null {
+        let group: HTMLLIElement = document.createElement("li");
+        for(let item of _items) {
+            let checkbox: HTMLInputElement = document.createElement("input");
+            checkbox.type = "checkbox";
+            let textP: HTMLParagraphElement = document.createElement("p");
+            textP.innerHTML = "test";
+
+            group.appendChild(checkbox);
+            group.appendChild(textP);
+        }
     
-        return null;
+        return group;
     }
 }
 
