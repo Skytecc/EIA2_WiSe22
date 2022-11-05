@@ -1,32 +1,7 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var L04_Einkaufsliste;
 (function (L04_Einkaufsliste) {
-    function createNewList(_event) {
-        let li = document.createElement("li");
-        let test = L04_Einkaufsliste.existingItems[1].name;
-        li.innerHTML = test;
-        console.log(test);
-    }
-    L04_Einkaufsliste.createNewList = createNewList;
-    function newItem01() {
-        let ulList = document.getElementById("addList");
-        let li = document.createElement("li");
-        let inputValueName = document.getElementById("name");
-        let inputValueAmount = document.getElementById("amount");
-        let inputValueDate = document.getElementById("date");
-        let nameInput = document.createElement("p");
-        nameInput.innerHTML = inputValueName.value;
-        nameInput.classList.add("showName");
-        let amountInput = document.createElement("p");
-        amountInput.innerHTML = inputValueAmount.value;
-        let dateInput = document.createElement("p");
-        dateInput.innerHTML = inputValueDate.value;
-        li.appendChild(nameInput);
-        li.appendChild(amountInput);
-        li.appendChild(dateInput);
-        ulList.appendChild(li);
-    }
-    L04_Einkaufsliste.newItem01 = newItem01;
     function newItem02() {
         let ulList = document.getElementById("addList");
         let li = document.createElement("li");
@@ -52,9 +27,30 @@ var L04_Einkaufsliste;
         div.appendChild(dateInput);
         div.appendChild(linebreak);
         div.appendChild(divComment);
+        let divTrash = document.createElement("div");
+        divTrash.classList.add("fa-regular", "fa-square-minus", "icon2", "trash");
+        let divEdit = document.createElement("div");
+        divEdit.classList.add("fa-solid", "fa-pen-to-square", "icon2", "edit");
+        div.appendChild(divTrash);
+        div.appendChild(divEdit);
+        divTrash.addEventListener("click", remove);
+        divEdit.addEventListener("click", edit(divEdit, divTrash, div));
         li.appendChild(div);
         ulList.appendChild(li);
     }
     L04_Einkaufsliste.newItem02 = newItem02;
+    function remove() {
+        let ulList = document.getElementById("addList");
+        let li = document.querySelector("#addList li");
+        ulList.removeChild(li);
+    }
+    function edit(_editIcon, _trashIcon, _div) {
+        let li = document.querySelector("#addList li");
+        _div.replaceChild();
+        li.setAttribute("contenteditable", "true");
+        /*_inputAmount.contentEditable; , _inputAmount: HTMLInputElement, _inputDate: HTMLInputElement, _textComment: HTMLTextAreaElement
+        _inputDate.contentEditable;
+        _textComment.contentEditable;*/
+    }
 })(L04_Einkaufsliste || (L04_Einkaufsliste = {}));
 //# sourceMappingURL=GenerateItem.js.map
