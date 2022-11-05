@@ -112,6 +112,14 @@ namespace L04_Einkaufsliste {
 
     }
 
+    function edit2(): void {
+        let li: HTMLElement = <HTMLElement>document.querySelector("#addList li");
+        let p: NodeListOf<HTMLParagraphElement> = document.querySelectorAll("#addList li p");
+        let divComment: HTMLDivElement = <HTMLDivElement>document.querySelector("#addList li div .showComment");
+
+        li.setAttribute("contentEditable", "true");
+    }
+
 
 }
 
