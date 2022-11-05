@@ -115,8 +115,9 @@ ul li {
 
 p {
     position: relative;
-    display: inline;
+    display: inline-block;
     margin-right: 20px;
+
 }
 
 .showComment {
