@@ -1,4 +1,4 @@
-import { discoverPlugins } from "typedoc/dist/lib/utils";
+//import { discoverPlugins } from "typedoc/dist/lib/utils";
 
 namespace L04_Einkaufsliste {
     
@@ -49,7 +49,7 @@ namespace L04_Einkaufsliste {
         div.appendChild(divEdit);
 
         divTrash.addEventListener("click", remove);
-        divEdit.addEventListener("click", edit(divEdit, divTrash, div));
+        divEdit.addEventListener("click", edit);
 
 
         li.appendChild(div);
@@ -68,10 +68,10 @@ namespace L04_Einkaufsliste {
 
     }
 
-    function edit (_editIcon: HTMLMediaElement, _trashIcon: HTMLDivElement, _div: HTMLDivElement): void {
+    function edit (): void {
         let li: HTMLElement = <HTMLElement> document.querySelector("#addList li");
 
-        _div.replaceChild()
+        // create another icon for contenteditable false click Event
 
         li.setAttribute("contenteditable", "true");
 
@@ -79,5 +79,7 @@ namespace L04_Einkaufsliste {
         _inputDate.contentEditable;
         _textComment.contentEditable;*/
     }
+
+    
 }
 

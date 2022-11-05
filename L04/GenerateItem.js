@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+//import { discoverPlugins } from "typedoc/dist/lib/utils";
 var L04_Einkaufsliste;
 (function (L04_Einkaufsliste) {
     function newItem02() {
@@ -34,7 +34,7 @@ var L04_Einkaufsliste;
         div.appendChild(divTrash);
         div.appendChild(divEdit);
         divTrash.addEventListener("click", remove);
-        divEdit.addEventListener("click", edit(divEdit, divTrash, div));
+        divEdit.addEventListener("click", edit);
         li.appendChild(div);
         ulList.appendChild(li);
     }
@@ -44,9 +44,9 @@ var L04_Einkaufsliste;
         let li = document.querySelector("#addList li");
         ulList.removeChild(li);
     }
-    function edit(_editIcon, _trashIcon, _div) {
+    function edit() {
         let li = document.querySelector("#addList li");
-        _div.replaceChild();
+        // create another icon for contenteditable false click Event
         li.setAttribute("contenteditable", "true");
         /*_inputAmount.contentEditable; , _inputAmount: HTMLInputElement, _inputDate: HTMLInputElement, _textComment: HTMLTextAreaElement
         _inputDate.contentEditable;
