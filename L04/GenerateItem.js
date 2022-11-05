@@ -1,31 +1,54 @@
 "use strict";
 var L04_Einkaufsliste;
 (function (L04_Einkaufsliste) {
-    function generateItems(_currentItems) {
-        for (let showList in _currentItems) {
-            //console.log(showList);
-            let items = _currentItems[showList];
-            let group = null;
-            if (showList) {
-                group = createExistingList(items);
-            }
-            let unlistedList = document.querySelector("ul#" + showList);
-            if (unlistedList && group)
-                unlistedList.appendChild(group);
-        }
+    function createNewList(_event) {
+        let li = document.createElement("li");
+        let test = L04_Einkaufsliste.existingItems[1].name;
+        li.innerHTML = test;
+        console.log(test);
     }
-    L04_Einkaufsliste.generateItems = generateItems;
-    function createExistingList(_items) {
-        let group = document.createElement("li");
-        for (let item of _items) {
-            let checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            let textP = document.createElement("p");
-            textP.innerHTML = "test";
-            group.appendChild(checkbox);
-            group.appendChild(textP);
-        }
-        return group;
+    L04_Einkaufsliste.createNewList = createNewList;
+    function newItem01() {
+        let ulList = document.getElementById("addList");
+        let li = document.createElement("li");
+        let inputValueName = document.getElementById("name");
+        let inputValueAmount = document.getElementById("amount");
+        let inputValueDate = document.getElementById("date");
+        let nameInput = document.createElement("p");
+        nameInput.innerHTML = inputValueName.value;
+        nameInput.classList.add("showName");
+        let amountInput = document.createElement("p");
+        amountInput.innerHTML = inputValueAmount.value;
+        let dateInput = document.createElement("p");
+        dateInput.innerHTML = inputValueDate.value;
+        li.appendChild(nameInput);
+        li.appendChild(amountInput);
+        li.appendChild(dateInput);
+        ulList.appendChild(li);
     }
+    L04_Einkaufsliste.newItem01 = newItem01;
+    function newItem02() {
+        let ulList = document.getElementById("addList");
+        let li = document.createElement("li");
+        let div = document.createElement("div");
+        div.classList.add("itemList");
+        let inputValueName = document.getElementById("name");
+        let inputValueAmount = document.getElementById("amount");
+        let inputValueDate = document.getElementById("date");
+        let nameInput = document.createElement("p");
+        nameInput.innerHTML = inputValueName.value;
+        nameInput.classList.add("showName");
+        let amountInput = document.createElement("p");
+        amountInput.innerHTML = inputValueAmount.value;
+        let dateInput = document.createElement("p");
+        dateInput.innerHTML = inputValueDate.value;
+        div.appendChild(nameInput);
+        div.appendChild(amountInput);
+        div.appendChild(dateInput);
+        div.appendChild(linebreak);
+        li.appendChild(div);
+        ulList.appendChild(li);
+    }
+    L04_Einkaufsliste.newItem02 = newItem02;
 })(L04_Einkaufsliste || (L04_Einkaufsliste = {}));
 //# sourceMappingURL=GenerateItem.js.map

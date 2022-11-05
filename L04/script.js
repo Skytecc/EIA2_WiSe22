@@ -17,7 +17,8 @@ var L04_Einkaufsliste;
         let editBtn = document.querySelectorAll(".edit");
         let deleteBtn = document.querySelectorAll(".trash");
         let checkboxes = document.querySelectorAll(".checkbox");
-        addBtn.addEventListener("click", adding);
+        addBtn.addEventListener("click", L04_Einkaufsliste.newItem02);
+        addBtn.addEventListener("click", L04_Einkaufsliste.createNewList);
         editBtn.forEach(edit => {
             edit.addEventListener("click", editing);
         });
@@ -27,7 +28,6 @@ var L04_Einkaufsliste;
         checkboxes.forEach(checkbox => {
             checkbox.addEventListener("click", checkBoxChecking);
         });
-        L04_Einkaufsliste.generateItems(L04_Einkaufsliste.currentItems);
     }
     function checkBoxChecking() {
         let checkboxes = document.querySelector(".checkbox");

@@ -1,41 +1,73 @@
 namespace L04_Einkaufsliste {
     
-    export function generateItems(_currentItems: DataList) {
+    export function createNewList (_event: Event): void {
+    let li: HTMLLIElement = document.createElement("li");
+
+    let test = existingItems[1].name;
+
+    li.innerHTML = test;
+
+    console.log(test);
         
-        
-
-        for (let showList in _currentItems) {
-
-            //console.log(showList);
-            let items: Item[] =  _currentItems[showList];
-
-            let group: HTMLElement | null = null;
-
-            if(showList) {
-                group = createExistingList(items);
-
-            }
-
-            let unlistedList: HTMLUListElement | null = document.querySelector("ul#" + showList);
-
-            if (unlistedList && group)
-            unlistedList.appendChild(group);
-        }
     }
 
-    function createExistingList (_items: Item[]): HTMLElement | null {
-        let group: HTMLLIElement = document.createElement("li");
-        for(let item of _items) {
-            let checkbox: HTMLInputElement = document.createElement("input");
-            checkbox.type = "checkbox";
-            let textP: HTMLParagraphElement = document.createElement("p");
-            textP.innerHTML = "test";
+    export function newItem01(): void {
+        let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
+        let li: HTMLLIElement = document.createElement("li");
+        
+        let inputValueName: HTMLInputElement = <HTMLInputElement> document.getElementById("name");
+        let inputValueAmount: HTMLInputElement = <HTMLInputElement> document.getElementById("amount");
+        let inputValueDate: HTMLInputElement = <HTMLInputElement> document.getElementById("date");
+        
+        let nameInput: HTMLParagraphElement = document.createElement("p");
+        nameInput.innerHTML = inputValueName.value;
+        nameInput.classList.add("showName");
 
-            group.appendChild(checkbox);
-            group.appendChild(textP);
-        }
-    
-        return group;
+        let amountInput: HTMLParagraphElement = document.createElement("p");
+        amountInput.innerHTML = inputValueAmount.value;
+
+        let dateInput: HTMLParagraphElement = document.createElement("p");
+        dateInput.innerHTML = inputValueDate.value;
+
+        li.appendChild(nameInput);
+        li.appendChild(amountInput);
+        li.appendChild(dateInput);
+
+        ulList.appendChild(li);
+
+    }
+
+    export function newItem02(): void {
+        let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
+        let li: HTMLLIElement = document.createElement("li");
+        let div: HTMLDivElement = document.createElement("div");
+        div.classList.add("itemList");
+        
+        
+        
+        let inputValueName: HTMLInputElement = <HTMLInputElement> document.getElementById("name");
+        let inputValueAmount: HTMLInputElement = <HTMLInputElement> document.getElementById("amount");
+        let inputValueDate: HTMLInputElement = <HTMLInputElement> document.getElementById("date");
+        
+        let nameInput: HTMLParagraphElement = document.createElement("p");
+        nameInput.innerHTML = inputValueName.value;
+        nameInput.classList.add("showName");
+
+        let amountInput: HTMLParagraphElement = document.createElement("p");
+        amountInput.innerHTML = inputValueAmount.value;
+
+        let dateInput: HTMLParagraphElement = document.createElement("p");
+        dateInput.innerHTML = inputValueDate.value;
+
+        div.appendChild(nameInput);
+        div.appendChild(amountInput);
+        div.appendChild(dateInput);
+        div.appendChild(linebreak);
+
+        li.appendChild(div);
+        ulList.appendChild(li);
+
+
     }
 }
 

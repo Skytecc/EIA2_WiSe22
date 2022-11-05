@@ -6,7 +6,21 @@ namespace L04_Einkaufsliste {
         comment: string;
     }
 
-    export interface DataList {
+    export let existingItems: Item[] = [
+        {
+            name: "Banane",
+            amount: 4,
+            date: "30.10.2022",
+            comment: "Für den Milchshake"
+        },
+
+        { name: "Apfel", 
+        amount: 8.00, 
+        date: "30.10.2022", 
+        comment: "Für den Smoothie"}
+    ];
+
+    /*export interface DataList {
         [showList: string]: Item[];
     }
 
@@ -16,9 +30,5 @@ namespace L04_Einkaufsliste {
             { name: "Banane", amount: 4, date: "30.10.2022", comment: "Für den Milchshake"},
             { name: "Apfel", amount: 8.00, date: "30.10.2022", comment: "Für den Smoothie"}
         ]
-    };
-
-
-    export let inputName: HTMLInputElement = <HTMLInputElement> document.querySelector("#name");
-
+    };*/
 }

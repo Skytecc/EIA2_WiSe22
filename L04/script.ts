@@ -20,7 +20,10 @@ namespace L04_Einkaufsliste {
 
         let checkboxes: NodeListOf<HTMLInputElement> = document.querySelectorAll(".checkbox");
 
-        addBtn.addEventListener("click", adding);
+        addBtn.addEventListener("click", newItem02);
+
+
+        addBtn.addEventListener("click", createNewList);
         editBtn.forEach(edit => {
             edit.addEventListener("click", editing);
         });
@@ -33,7 +36,6 @@ namespace L04_Einkaufsliste {
             checkbox.addEventListener("click", checkBoxChecking);
         });
         
-        generateItems(currentItems);
 
     }
 
