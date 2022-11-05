@@ -6,7 +6,6 @@ namespace L04_Einkaufsliste {
         let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
         let li: HTMLLIElement = document.createElement("li");
 
-        let divNewIcon: HTMLDivElement = <HTMLDivElement>document.querySelector(".editOff");
 
         let div: HTMLDivElement = document.createElement("div");
         div.classList.add("itemList");
@@ -51,8 +50,6 @@ namespace L04_Einkaufsliste {
 
         divTrash.addEventListener("click", remove);
         divEdit.addEventListener("click", edit);
-       
-       // divNewIcon.addEventListener("click", editOff);
 
 
         li.appendChild(div);
@@ -83,28 +80,31 @@ namespace L04_Einkaufsliste {
         });
 
 
-        let divNewIcon: HTMLDivElement = document.createElement("div");
-        divNewIcon.classList.add("fa-solid", "fa-square-check", "icon2", "editOff");
-        li.appendChild(divNewIcon);
+        let newIcon: HTMLElement = document.createElement("i");
+        newIcon.classList.add("fa-solid", "fa-square-check", "icon2", "editOff");
+        li.appendChild(newIcon);
+
+        let offIcon: HTMLElement | null = <HTMLElement>document.querySelector(".editOff");
+
+        offIcon.addEventListener("click", editOff);
 
 
         // create another icon for contenteditable false click Event
-
-
-        /*_inputAmount.contentEditable; , _inputAmount: HTMLInputElement, _inputDate: HTMLInputElement, _textComment: HTMLTextAreaElement
-        _inputDate.contentEditable;
-        _textComment.contentEditable;*/
     }
 
     export function editOff(): void {
         let li: HTMLElement = <HTMLElement>document.querySelector("#addList li");
         let p: NodeListOf<HTMLParagraphElement> = document.querySelectorAll("#addList li p");
+        let divComment: HTMLDivElement = <HTMLDivElement>document.querySelector("#addList li div .showComment");
+
 
         let divNewIcon: HTMLDivElement = <HTMLDivElement>document.querySelector(".editOff");
         divNewIcon.classList.add("fa-solid", "fa-square-check", "icon2", "editOff");
 
+        divComment.setAttribute("contentEditable", "false");
+
+
         p.forEach((e) => {
-            e.removeAttribute("contentEditable");
             e.setAttribute("contentEditable", "false");
         });
 

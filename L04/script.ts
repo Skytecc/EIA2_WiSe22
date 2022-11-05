@@ -15,14 +15,11 @@ namespace L04_Einkaufsliste {
 
     function handleload(): void {
         let addBtn: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
-        let divNewIcon: HTMLDivElement = <HTMLDivElement>document.querySelector(".editOff");
-
 
         addBtn.addEventListener("click", newItem02);
 
         test01();
 
-        divNewIcon.addEventListener("click", editOff);
     }
 
 

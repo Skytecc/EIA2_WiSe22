@@ -5,7 +5,6 @@ var L04_Einkaufsliste;
     function newItem02() {
         let ulList = document.getElementById("addList");
         let li = document.createElement("li");
-        let divNewIcon = document.querySelector(".editOff");
         let div = document.createElement("div");
         div.classList.add("itemList");
         let linebreak = document.createElement("br");
@@ -36,7 +35,6 @@ var L04_Einkaufsliste;
         div.appendChild(divEdit);
         divTrash.addEventListener("click", remove);
         divEdit.addEventListener("click", edit);
-        // divNewIcon.addEventListener("click", editOff);
         li.appendChild(div);
         ulList.appendChild(li);
     }
@@ -54,21 +52,21 @@ var L04_Einkaufsliste;
         p.forEach((e) => {
             e.setAttribute("contentEditable", "true");
         });
-        let divNewIcon = document.createElement("div");
-        divNewIcon.classList.add("fa-solid", "fa-square-check", "icon2", "editOff");
-        li.appendChild(divNewIcon);
+        let newIcon = document.createElement("i");
+        newIcon.classList.add("fa-solid", "fa-square-check", "icon2", "editOff");
+        li.appendChild(newIcon);
+        let offIcon = document.querySelector(".editOff");
+        offIcon.addEventListener("click", editOff);
         // create another icon for contenteditable false click Event
-        /*_inputAmount.contentEditable; , _inputAmount: HTMLInputElement, _inputDate: HTMLInputElement, _textComment: HTMLTextAreaElement
-        _inputDate.contentEditable;
-        _textComment.contentEditable;*/
     }
     function editOff() {
         let li = document.querySelector("#addList li");
         let p = document.querySelectorAll("#addList li p");
+        let divComment = document.querySelector("#addList li div .showComment");
         let divNewIcon = document.querySelector(".editOff");
         divNewIcon.classList.add("fa-solid", "fa-square-check", "icon2", "editOff");
+        divComment.setAttribute("contentEditable", "false");
         p.forEach((e) => {
-            e.removeAttribute("contentEditable");
             e.setAttribute("contentEditable", "false");
         });
         li.removeChild(divNewIcon);

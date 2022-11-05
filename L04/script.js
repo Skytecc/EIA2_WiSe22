@@ -14,10 +14,8 @@ var L04_Einkaufsliste;
     window.addEventListener("load", handleload);
     function handleload() {
         let addBtn = document.getElementById("button");
-        let divNewIcon = document.querySelector(".editOff");
         addBtn.addEventListener("click", L04_Einkaufsliste.newItem02);
         L04_Einkaufsliste.test01();
-        divNewIcon.addEventListener("click", L04_Einkaufsliste.editOff);
     }
 })(L04_Einkaufsliste || (L04_Einkaufsliste = {}));
 //# sourceMappingURL=script.js.map

@@ -127,7 +127,7 @@ p {
     border-left: 5px solid rgb(241, 131, 29);
 }
 
-[contenteditable] {
+[contenteditable="true"] {
     outline: 2px solid blue;
   }
 
