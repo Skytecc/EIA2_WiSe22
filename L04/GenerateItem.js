@@ -65,12 +65,14 @@ var L04_Einkaufsliste;
     function edit() {
         let inputContainer = document.querySelector("#container1");
         let p = document.querySelectorAll("#addList li p");
-        let divComment = document.querySelector("#addList li div .showComment");
+        let divComment = document.querySelectorAll("#addList li div .showComment");
         let editIcon = document.querySelectorAll(".edit");
+        divComment.forEach((comment) => {
+            comment.setAttribute("contentEditable", "true");
+        });
         editIcon.forEach(elementEditIcon => {
             elementEditIcon.classList.add("invisible");
         });
-        divComment.setAttribute("contentEditable", "true");
         p.forEach((e) => {
             e.setAttribute("contentEditable", "true");
         });
@@ -84,14 +86,16 @@ var L04_Einkaufsliste;
     function editOff() {
         let inputContainer = document.querySelector("#container1");
         let p = document.querySelectorAll("#addList li p");
-        let divComment = document.querySelector("#addList li div .showComment");
+        let divComment = document.querySelectorAll("#addList li div .showComment");
         // making editIcon visible again
         let editIcon = document.querySelectorAll(".edit");
         editIcon.forEach(elementEditIcon => {
             elementEditIcon.classList.remove("invisible");
         });
         let divNewIcon = document.querySelector(".editOff");
-        divComment.setAttribute("contentEditable", "false");
+        divComment.forEach((comment) => {
+            comment.setAttribute("contentEditable", "true");
+        });
         p.forEach((e) => {
             e.setAttribute("contentEditable", "false");
         });

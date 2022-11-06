@@ -97,15 +97,17 @@ namespace L04_Einkaufsliste {
     function edit(): void {
         let inputContainer: HTMLElement = <HTMLElement>document.querySelector("#container1");
         let p: NodeListOf<HTMLParagraphElement> = document.querySelectorAll("#addList li p");
-        let divComment: HTMLDivElement = <HTMLDivElement>document.querySelector("#addList li div .showComment");
+        let divComment: NodeListOf<HTMLDivElement> = document.querySelectorAll("#addList li div .showComment");
 
         let editIcon: NodeListOf<HTMLElement> = document.querySelectorAll(".edit");
+
+        divComment.forEach((comment) => {
+            comment.setAttribute("contentEditable", "true");
+        });
         
         editIcon.forEach(elementEditIcon => {
             elementEditIcon.classList.add("invisible");
         });
-
-        divComment.setAttribute("contentEditable", "true");
 
         p.forEach((e) => {
             e.setAttribute("contentEditable", "true");
@@ -127,7 +129,8 @@ namespace L04_Einkaufsliste {
     export function editOff(): void {
         let inputContainer: HTMLElement = <HTMLElement>document.querySelector("#container1");
         let p: NodeListOf<HTMLParagraphElement> = document.querySelectorAll("#addList li p");
-        let divComment: HTMLDivElement = <HTMLDivElement>document.querySelector("#addList li div .showComment");
+        let divComment: NodeListOf<HTMLDivElement> = document.querySelectorAll("#addList li div .showComment");
+
 
         // making editIcon visible again
         let editIcon: NodeListOf<HTMLElement> = document.querySelectorAll(".edit");
@@ -138,7 +141,9 @@ namespace L04_Einkaufsliste {
 
         let divNewIcon: HTMLDivElement = <HTMLDivElement>document.querySelector(".editOff");
 
-        divComment.setAttribute("contentEditable", "false");
+        divComment.forEach((comment) => {
+            comment.setAttribute("contentEditable", "true");
+        });
 
 
         p.forEach((e) => {
