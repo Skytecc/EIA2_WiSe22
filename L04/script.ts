@@ -18,7 +18,7 @@ namespace L04_Einkaufsliste {
 
         addBtn.addEventListener("click", newItem02);
 
-        test01();
+        showInterface();
 
     }
 

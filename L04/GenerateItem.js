@@ -16,7 +16,6 @@ var L04_Einkaufsliste;
         let textValueComment = document.getElementById("comment");
         let nameInput = document.createElement("p");
         nameInput.innerHTML = inputValueName.value;
-        nameInput.classList.add("showName");
         let amountInput = document.createElement("p");
         amountInput.innerHTML = inputValueAmount.value;
         let dateInput = document.createElement("p");
