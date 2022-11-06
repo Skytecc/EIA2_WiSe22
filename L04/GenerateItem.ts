@@ -63,8 +63,32 @@ namespace L04_Einkaufsliste {
         let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
         let li: HTMLElement = <HTMLElement>document.querySelector("#addList li");
 
-
+        // selfComment = In dieser Line, da es sonst es nicht außerhalb im Editmode deleted wegen load
         ulList.removeChild(li);
+
+        let divNewIcon: HTMLDivElement = <HTMLDivElement>document.querySelector(".editOff");
+        let inputContainer: HTMLElement = <HTMLElement>document.querySelector("#container1");
+
+        inputContainer.removeChild(divNewIcon);
+
+        let p: NodeListOf<HTMLParagraphElement> = document.querySelectorAll("#addList li p");
+        let divComment: HTMLDivElement = <HTMLDivElement>document.querySelector("#addList li div .showComment");
+
+        divComment.setAttribute("contentEditable", "false");
+
+
+        p.forEach((e) => {
+            e.setAttribute("contentEditable", "false");
+        });
+
+        let editIcon: NodeListOf<HTMLElement> = document.querySelectorAll(".edit");
+        
+        editIcon.forEach(elementEditIcon => {
+            elementEditIcon.classList.remove("invisible");
+        });
+
+        inputContainer.removeChild(divNewIcon);
+
 
     }
 
@@ -103,6 +127,7 @@ namespace L04_Einkaufsliste {
         let p: NodeListOf<HTMLParagraphElement> = document.querySelectorAll("#addList li p");
         let divComment: HTMLDivElement = <HTMLDivElement>document.querySelector("#addList li div .showComment");
 
+        // making editIcon visible again
         let editIcon: NodeListOf<HTMLElement> = document.querySelectorAll(".edit");
         
         editIcon.forEach(elementEditIcon => {
@@ -110,7 +135,6 @@ namespace L04_Einkaufsliste {
         });
 
         let divNewIcon: HTMLDivElement = <HTMLDivElement>document.querySelector(".editOff");
-        divNewIcon.classList.add("fa-solid", "fa-square-check", "editOff");
 
         divComment.setAttribute("contentEditable", "false");
 

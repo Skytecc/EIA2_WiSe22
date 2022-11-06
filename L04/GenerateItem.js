@@ -42,7 +42,22 @@ var L04_Einkaufsliste;
     function remove() {
         let ulList = document.getElementById("addList");
         let li = document.querySelector("#addList li");
+        // selfComment = In dieser Line, da es sonst es nicht außerhalb im Editmode deleted wegen load
         ulList.removeChild(li);
+        let divNewIcon = document.querySelector(".editOff");
+        let inputContainer = document.querySelector("#container1");
+        inputContainer.removeChild(divNewIcon);
+        let p = document.querySelectorAll("#addList li p");
+        let divComment = document.querySelector("#addList li div .showComment");
+        divComment.setAttribute("contentEditable", "false");
+        p.forEach((e) => {
+            e.setAttribute("contentEditable", "false");
+        });
+        let editIcon = document.querySelectorAll(".edit");
+        editIcon.forEach(elementEditIcon => {
+            elementEditIcon.classList.remove("invisible");
+        });
+        inputContainer.removeChild(divNewIcon);
     }
     function edit() {
         let inputContainer = document.querySelector("#container1");
@@ -67,12 +82,12 @@ var L04_Einkaufsliste;
         let inputContainer = document.querySelector("#container1");
         let p = document.querySelectorAll("#addList li p");
         let divComment = document.querySelector("#addList li div .showComment");
+        // making editIcon visible again
         let editIcon = document.querySelectorAll(".edit");
         editIcon.forEach(elementEditIcon => {
             elementEditIcon.classList.remove("invisible");
         });
         let divNewIcon = document.querySelector(".editOff");
-        divNewIcon.classList.add("fa-solid", "fa-square-check", "editOff");
         divComment.setAttribute("contentEditable", "false");
         p.forEach((e) => {
             e.setAttribute("contentEditable", "false");

@@ -8,9 +8,8 @@ Quellen: <Stackoverflow, W3schools>
 */
 var L04_Einkaufsliste;
 (function (L04_Einkaufsliste) {
-    /*let dateInput: HTMLInputElement = <HTMLInputElement>document.getElementById("date");
-    
-    dateInput.value = new Date().toISOString().substring(0, 10);*/
+    let dateInput = document.getElementById("date");
+    dateInput.value = new Date().toISOString().substring(0, 10);
     window.addEventListener("load", handleload);
     function handleload() {
         let addBtn = document.getElementById("button");
