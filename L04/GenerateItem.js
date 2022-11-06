@@ -94,7 +94,7 @@ var L04_Einkaufsliste;
         });
         let divNewIcon = document.querySelector(".editOff");
         divComment.forEach((comment) => {
-            comment.setAttribute("contentEditable", "true");
+            comment.setAttribute("contentEditable", "false");
         });
         p.forEach((e) => {
             e.setAttribute("contentEditable", "false");

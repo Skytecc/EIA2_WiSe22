@@ -142,7 +142,7 @@ namespace L04_Einkaufsliste {
         let divNewIcon: HTMLDivElement = <HTMLDivElement>document.querySelector(".editOff");
 
         divComment.forEach((comment) => {
-            comment.setAttribute("contentEditable", "true");
+            comment.setAttribute("contentEditable", "false");
         });
 
 
