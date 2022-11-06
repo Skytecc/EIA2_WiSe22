@@ -69,9 +69,15 @@ namespace L04_Einkaufsliste {
     }
 
     function edit(): void {
-        let li: HTMLElement = <HTMLElement>document.querySelector("#addList li");
+        let inputContainer: HTMLElement = <HTMLElement>document.querySelector("#container1");
         let p: NodeListOf<HTMLParagraphElement> = document.querySelectorAll("#addList li p");
         let divComment: HTMLDivElement = <HTMLDivElement>document.querySelector("#addList li div .showComment");
+
+        let editIcon: NodeListOf<HTMLElement> = document.querySelectorAll(".edit");
+        
+        editIcon.forEach(elementEditIcon => {
+            elementEditIcon.classList.add("invisible");
+        });
 
         divComment.setAttribute("contentEditable", "true");
 
@@ -82,7 +88,7 @@ namespace L04_Einkaufsliste {
 
         let newIcon: HTMLElement = document.createElement("i");
         newIcon.classList.add("fa-solid", "fa-square-check", "icon2", "editOff");
-        li.appendChild(newIcon);
+        inputContainer.appendChild(newIcon);
 
         let offIcon: HTMLElement | null = <HTMLElement>document.querySelector(".editOff");
 
@@ -93,13 +99,18 @@ namespace L04_Einkaufsliste {
     }
 
     export function editOff(): void {
-        let li: HTMLElement = <HTMLElement>document.querySelector("#addList li");
+        let inputContainer: HTMLElement = <HTMLElement>document.querySelector("#container1");
         let p: NodeListOf<HTMLParagraphElement> = document.querySelectorAll("#addList li p");
         let divComment: HTMLDivElement = <HTMLDivElement>document.querySelector("#addList li div .showComment");
 
+        let editIcon: NodeListOf<HTMLElement> = document.querySelectorAll(".edit");
+        
+        editIcon.forEach(elementEditIcon => {
+            elementEditIcon.classList.remove("invisible");
+        });
 
         let divNewIcon: HTMLDivElement = <HTMLDivElement>document.querySelector(".editOff");
-        divNewIcon.classList.add("fa-solid", "fa-square-check", "icon2", "editOff");
+        divNewIcon.classList.add("fa-solid", "fa-square-check", "editOff");
 
         divComment.setAttribute("contentEditable", "false");
 
@@ -108,18 +119,8 @@ namespace L04_Einkaufsliste {
             e.setAttribute("contentEditable", "false");
         });
 
-        li.removeChild(divNewIcon);
+        inputContainer.removeChild(divNewIcon);
 
     }
-
-    function edit2(): void {
-        let li: HTMLElement = <HTMLElement>document.querySelector("#addList li");
-        let p: NodeListOf<HTMLParagraphElement> = document.querySelectorAll("#addList li p");
-        let divComment: HTMLDivElement = <HTMLDivElement>document.querySelector("#addList li div .showComment");
-
-        li.setAttribute("contentEditable", "true");
-    }
-
-
 }
 

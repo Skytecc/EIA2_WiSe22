@@ -45,31 +45,39 @@ var L04_Einkaufsliste;
         ulList.removeChild(li);
     }
     function edit() {
-        let li = document.querySelector("#addList li");
+        let inputContainer = document.querySelector("#container1");
         let p = document.querySelectorAll("#addList li p");
         let divComment = document.querySelector("#addList li div .showComment");
+        let editIcon = document.querySelectorAll(".edit");
+        editIcon.forEach(elementEditIcon => {
+            elementEditIcon.classList.add("invisible");
+        });
         divComment.setAttribute("contentEditable", "true");
         p.forEach((e) => {
             e.setAttribute("contentEditable", "true");
         });
         let newIcon = document.createElement("i");
         newIcon.classList.add("fa-solid", "fa-square-check", "icon2", "editOff");
-        li.appendChild(newIcon);
+        inputContainer.appendChild(newIcon);
         let offIcon = document.querySelector(".editOff");
         offIcon.addEventListener("click", editOff);
         // create another icon for contenteditable false click Event
     }
     function editOff() {
-        let li = document.querySelector("#addList li");
+        let inputContainer = document.querySelector("#container1");
         let p = document.querySelectorAll("#addList li p");
         let divComment = document.querySelector("#addList li div .showComment");
+        let editIcon = document.querySelectorAll(".edit");
+        editIcon.forEach(elementEditIcon => {
+            elementEditIcon.classList.remove("invisible");
+        });
         let divNewIcon = document.querySelector(".editOff");
-        divNewIcon.classList.add("fa-solid", "fa-square-check", "icon2", "editOff");
+        divNewIcon.classList.add("fa-solid", "fa-square-check", "editOff");
         divComment.setAttribute("contentEditable", "false");
         p.forEach((e) => {
             e.setAttribute("contentEditable", "false");
         });
-        li.removeChild(divNewIcon);
+        inputContainer.removeChild(divNewIcon);
     }
     L04_Einkaufsliste.editOff = editOff;
 })(L04_Einkaufsliste || (L04_Einkaufsliste = {}));

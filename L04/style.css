@@ -60,7 +60,7 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     font-family: "Lato", sans-serif;
     font-size: 16px;
-    margin-left: 20px;
+    margin-left: 30px;
     margin-top: 20px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -84,8 +84,15 @@ input[type=number]::-webkit-outer-spin-button {
 .icon2 {
     margin-right: 10px;
     float: right;
-    font-size: 20px;
-    
+    font-size: 20px;   
+}
+
+.editOff {
+    margin-right: 10px;
+    margin-top: 10px;
+    float: right;
+    font-size: 35px;
+
 }
 
 ul {
@@ -130,6 +137,10 @@ p {
 [contenteditable="true"] {
     outline: 2px solid blue;
   }
+
+.invisible {
+    visibility: hidden;
+}
 
 
 
