@@ -5,6 +5,8 @@ namespace L04_Einkaufsliste {
     export function newItem02(): void {
         let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
         let li: HTMLLIElement = document.createElement("li");
+        let checkbox: HTMLInputElement = <HTMLInputElement>document.createElement("input");
+        checkbox.type = "checkbox";
 
 
         let div: HTMLDivElement = document.createElement("div");
@@ -32,7 +34,7 @@ namespace L04_Einkaufsliste {
         divComment.classList.add("showComment");
         divComment.innerHTML = textValueComment.value;
 
-
+        li.appendChild(checkbox);
         div.appendChild(nameInput);
         div.appendChild(amountInput);
         div.appendChild(dateInput);

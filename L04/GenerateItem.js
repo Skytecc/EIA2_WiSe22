@@ -5,6 +5,8 @@ var L04_Einkaufsliste;
     function newItem02() {
         let ulList = document.getElementById("addList");
         let li = document.createElement("li");
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
         let div = document.createElement("div");
         div.classList.add("itemList");
         let linebreak = document.createElement("br");
@@ -22,6 +24,7 @@ var L04_Einkaufsliste;
         let divComment = document.createElement("div");
         divComment.classList.add("showComment");
         divComment.innerHTML = textValueComment.value;
+        li.appendChild(checkbox);
         div.appendChild(nameInput);
         div.appendChild(amountInput);
         div.appendChild(dateInput);
