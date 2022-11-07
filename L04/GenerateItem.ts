@@ -61,7 +61,7 @@ namespace L04_Einkaufsliste {
 
     }
 
-    function remove(): void {
+    export function remove(): void {
         let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
         let li: HTMLElement = <HTMLElement>document.querySelector("#addList li");
 
@@ -94,7 +94,7 @@ namespace L04_Einkaufsliste {
 
     }
 
-    function edit(): void {
+    export function edit(): void {
         let inputContainer: HTMLElement = <HTMLElement>document.querySelector("#container1");
         let p: NodeListOf<HTMLParagraphElement> = document.querySelectorAll("#addList li p");
         let divComment: NodeListOf<HTMLDivElement> = document.querySelectorAll("#addList li div .showComment");

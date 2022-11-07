@@ -1,14 +1,16 @@
 "use strict";
 var L04_Einkaufsliste;
 (function (L04_Einkaufsliste) {
-    L04_Einkaufsliste.existingItems = [
+    L04_Einkaufsliste.existingItem1 = [
         {
             name: "Banane",
             amount: 4,
             date: "30.10.2022",
             comment: "Für den Milchshake",
-            checked: false
-        },
+            checked: true
+        }
+    ];
+    L04_Einkaufsliste.existingItem2 = [
         {
             name: "Apfel",
             amount: 8,
@@ -17,30 +19,90 @@ var L04_Einkaufsliste;
             checked: false
         }
     ];
-    function test01() {
-        //console.log(existingItems[1].name);
-        let p = document.createElement("p");
-        p.innerText = L04_Einkaufsliste.existingItems[1].name + "";
-        for (let entry of L04_Einkaufsliste.existingItems) {
-            console.log(entry.name);
-        }
-    }
-    L04_Einkaufsliste.test01 = test01;
-    function showInterface() {
+    /* export function test01(): void {
+         //console.log(existingItems[1].name);
+         let p: HTMLParagraphElement = document.createElement("p");
+         p.innerText = existingItem1[0].name + "";
+ 
+         for (let entry of existingItem1) {
+             console.log(entry.name);
+         }
+     }*/
+    function showItem1() {
         let ulList = document.getElementById("addList");
         let li = document.createElement("li");
         let div = document.createElement("div");
         div.classList.add("itemList");
         let linebreak = document.createElement("br");
-        for (let entry of L04_Einkaufsliste.existingItems) {
+        for (let entry of L04_Einkaufsliste.existingItem1) {
+            let checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = entry.checked;
             let nameInput = document.createElement("p");
-            nameInput.innerHTML = L04_Einkaufsliste.existingItems[1].name;
-            console.log(L04_Einkaufsliste.existingItems.[1].name);
-            li.appendChild(nameInput);
+            let amountInput = document.createElement("p");
+            let dateInput = document.createElement("p");
+            let divComment = document.createElement("div");
+            divComment.classList.add("showComment");
+            nameInput.innerHTML = entry.name;
+            amountInput.innerHTML = entry.amount + "";
+            dateInput.innerHTML = entry.date;
+            divComment.innerHTML = entry.comment;
+            li.appendChild(checkbox);
+            div.appendChild(nameInput);
+            div.appendChild(amountInput);
+            div.appendChild(dateInput);
+            div.appendChild(linebreak);
+            div.appendChild(divComment);
+            let divTrash = document.createElement("div");
+            divTrash.classList.add("fa-regular", "fa-square-minus", "icon2", "trash");
+            let divEdit = document.createElement("div");
+            divEdit.classList.add("fa-solid", "fa-pen-to-square", "icon2", "edit");
+            div.appendChild(divTrash);
+            div.appendChild(divEdit);
+            divTrash.addEventListener("click", L04_Einkaufsliste.remove);
+            divEdit.addEventListener("click", L04_Einkaufsliste.edit);
             li.appendChild(div);
             ulList.appendChild(li);
         }
     }
-    L04_Einkaufsliste.showInterface = showInterface;
+    L04_Einkaufsliste.showItem1 = showItem1;
+    function showItem2() {
+        let ulList = document.getElementById("addList");
+        let li = document.createElement("li");
+        let div = document.createElement("div");
+        div.classList.add("itemList");
+        let linebreak = document.createElement("br");
+        for (let entry of L04_Einkaufsliste.existingItem2) {
+            let checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = entry.checked;
+            let nameInput = document.createElement("p");
+            let amountInput = document.createElement("p");
+            let dateInput = document.createElement("p");
+            let divComment = document.createElement("div");
+            divComment.classList.add("showComment");
+            nameInput.innerHTML = entry.name;
+            amountInput.innerHTML = entry.amount + "";
+            dateInput.innerHTML = entry.date;
+            divComment.innerHTML = entry.comment;
+            li.appendChild(checkbox);
+            div.appendChild(nameInput);
+            div.appendChild(amountInput);
+            div.appendChild(dateInput);
+            div.appendChild(linebreak);
+            div.appendChild(divComment);
+            let divTrash = document.createElement("div");
+            divTrash.classList.add("fa-regular", "fa-square-minus", "icon2", "trash");
+            let divEdit = document.createElement("div");
+            divEdit.classList.add("fa-solid", "fa-pen-to-square", "icon2", "edit");
+            div.appendChild(divTrash);
+            div.appendChild(divEdit);
+            divTrash.addEventListener("click", L04_Einkaufsliste.remove);
+            divEdit.addEventListener("click", L04_Einkaufsliste.edit);
+            li.appendChild(div);
+            ulList.appendChild(li);
+        }
+    }
+    L04_Einkaufsliste.showItem2 = showItem2;
 })(L04_Einkaufsliste || (L04_Einkaufsliste = {}));
 //# sourceMappingURL=Data.js.map

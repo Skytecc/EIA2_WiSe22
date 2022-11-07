@@ -61,6 +61,7 @@ var L04_Einkaufsliste;
         });
         inputContainer.removeChild(divNewIcon);
     }
+    L04_Einkaufsliste.remove = remove;
     function edit() {
         let inputContainer = document.querySelector("#container1");
         let p = document.querySelectorAll("#addList li p");
@@ -82,6 +83,7 @@ var L04_Einkaufsliste;
         offIcon.addEventListener("click", editOff);
         // create another icon for contenteditable false click Event
     }
+    L04_Einkaufsliste.edit = edit;
     function editOff() {
         let inputContainer = document.querySelector("#container1");
         let p = document.querySelectorAll("#addList li p");

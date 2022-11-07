@@ -16,9 +16,11 @@ namespace L04_Einkaufsliste {
     function handleload(): void {
         let addBtn: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
 
+        showItem1();
+        showItem2();
+
         addBtn.addEventListener("click", newItem02);
 
-        showInterface();
 
     }
 
