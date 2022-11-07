@@ -2,7 +2,7 @@
 //import { discoverPlugins } from "typedoc/dist/lib/utils";
 var L04_Einkaufsliste;
 (function (L04_Einkaufsliste) {
-    function newItem02() {
+    function newItem() {
         let ulList = document.getElementById("addList");
         let li = document.createElement("li");
         let checkbox = document.createElement("input");
@@ -40,7 +40,7 @@ var L04_Einkaufsliste;
         li.appendChild(div);
         ulList.appendChild(li);
     }
-    L04_Einkaufsliste.newItem02 = newItem02;
+    L04_Einkaufsliste.newItem = newItem;
     function remove() {
         let ulList = document.getElementById("addList");
         let li = document.querySelector("#addList li");
