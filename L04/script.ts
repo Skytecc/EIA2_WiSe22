@@ -19,7 +19,7 @@ namespace L04_Einkaufsliste {
         showItem1();
         showItem2();
 
-        addBtn.addEventListener("click", newItem02);
+        addBtn.addEventListener("click", newItem);
 
 
     }
