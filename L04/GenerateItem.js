@@ -44,7 +44,7 @@ var L04_Einkaufsliste;
     function remove() {
         let ulList = document.getElementById("addList");
         let li = document.querySelector("#addList li");
-        // selfComment = In dieser Line, da es sonst es nicht außerhalb im Editmode deleted wegen load
+        // selfComment = In dieser Line geschrieben, da es sonst es nicht außerhalb im Editmode deleted wegen load
         ulList.removeChild(li);
         let divNewIcon = document.querySelector(".editOff");
         let inputContainer = document.querySelector("#container1");

@@ -65,7 +65,7 @@ namespace L04_Einkaufsliste {
         let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
         let li: HTMLElement = <HTMLElement>document.querySelector("#addList li");
 
-        // selfComment = In dieser Line, da es sonst es nicht außerhalb im Editmode deleted wegen load
+        // selfComment = In dieser Line geschrieben, da es sonst es nicht außerhalb im Editmode deleted wegen load
         ulList.removeChild(li);
 
         let divNewIcon: HTMLDivElement = <HTMLDivElement>document.querySelector(".editOff");
@@ -74,7 +74,7 @@ namespace L04_Einkaufsliste {
         inputContainer.removeChild(divNewIcon);
 
         let p: NodeListOf<HTMLParagraphElement> = document.querySelectorAll("#addList li p");
-        let divComment: HTMLDivElement = <HTMLDivElement>document.querySelector("#addList li div .showComment");
+        let divComment: HTMLDivElement | null = <HTMLDivElement>document.querySelector("#addList li div .showComment");
 
         divComment.setAttribute("contentEditable", "false");
 
