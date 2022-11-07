@@ -2,7 +2,7 @@
 
 namespace L04_Einkaufsliste {
 
-    export function newItem02(): void {
+    export function newItem(): void {
         let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
         let li: HTMLLIElement = document.createElement("li");
         
