@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.app {
+    position: relative;
+    background-color: rgb(186, 211, 211);
+    width: 500px;
+    height: 667px;
+    margin: auto;
+
+}
+
+.header h1 {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-size: 34px;
+    font-family: "Lato", sans-serif;
+    background: linear-gradient(90deg, rgb(44, 44, 44), rgb(80, 80, 80));
+    width: auto;
+}
+
+.add {
+    text-align: center;
+    margin: auto;
+    background: linear-gradient(45deg, rgb(168, 168, 168), rgb(107, 107, 107));
+    width: auto;
+    height: auto;
+}
+
+.commentbox {
+    position: relative;
+    height: 40px;
+    margin-top: 20px;
+    font-family: "Lato", sans-serif;
+    text-align: center;
+}
+
+.inputBtn {
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-left: 15px;
+    border-radius: 5px;
+    border: none;
+    width: 118px;
+    height: 25px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+    
+    opacity: 1;
+
+}
+
+.addBtn {
+    position: relative;
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    width: 130px;
+    height: 25px;
+    transition: 0.3s;
+}
+
+.addBtn:hover {
+    color: white;
+    background: linear-gradient(75deg, rgb(133, 189, 133), rgb(23, 179, 23));
+}
+
+.icon {
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.icon2 {
+    margin-right: 10px;
+    float: right;
+    font-size: 20px;   
+}
+
+.editOff {
+    margin-right: 10px;
+    margin-top: 10px;
+    float: right;
+    font-size: 35px;
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    padding-top: 10px;
+    padding-bottom: 40px;
+    font-size: 16px;
+    position: relative;
+    font-family: "Lato", sans-serif;
+    background: linear-gradient(75deg, rgb(133, 187, 189), rgb(23, 179, 106));
+    height: auto;
+    border: 1px outset rgb(214, 214, 214);
+    border-left: hidden;
+    border-right: hidden;
+}
+
+.itemList {
+    font-family: "Lato", sans-serif;
+    margin-left: 30px;
+    
+}
+
+p {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+
+}
+
+.showComment {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    border-left: 5px solid rgb(241, 131, 29);
+}
+
+[contenteditable="true"] {
+    outline: 2px solid blue;
+  }
+
+.invisible {
+    visibility: hidden;
+}
+
+
+

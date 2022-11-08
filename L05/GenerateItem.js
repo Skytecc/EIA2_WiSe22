@@ -1,0 +1,119 @@
+"use strict";
+//import { discoverPlugins } from "typedoc/dist/lib/utils";
+var L05_Einkaufsliste;
+(function (L05_Einkaufsliste) {
+    let index = 2;
+    function newItem() {
+        let ulList = document.getElementById("addList");
+        let li = document.createElement("li");
+        li.id = "div" + index;
+        index++;
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        let div = document.createElement("div");
+        div.classList.add("itemList");
+        let linebreak = document.createElement("br");
+        let inputValueName = document.getElementById("name");
+        let inputValueAmount = document.getElementById("amount");
+        let inputValueDate = document.getElementById("date");
+        let textValueComment = document.getElementById("comment");
+        let nameInput = document.createElement("p");
+        nameInput.innerHTML = inputValueName.value;
+        let amountInput = document.createElement("p");
+        amountInput.innerHTML = inputValueAmount.value;
+        let dateInput = document.createElement("p");
+        dateInput.innerHTML = inputValueDate.value;
+        let divComment = document.createElement("div");
+        divComment.classList.add("showComment");
+        divComment.innerHTML = textValueComment.value;
+        li.appendChild(checkbox);
+        div.appendChild(nameInput);
+        div.appendChild(amountInput);
+        div.appendChild(dateInput);
+        div.appendChild(linebreak);
+        div.appendChild(divComment);
+        let divTrash = document.createElement("div");
+        divTrash.classList.add("fa-regular", "fa-square-minus", "icon2", "trash");
+        let divEdit = document.createElement("div");
+        divEdit.classList.add("fa-solid", "fa-pen-to-square", "icon2", "edit");
+        div.appendChild(divTrash);
+        div.appendChild(divEdit);
+        //divTrash.addEventListener("click", remove);
+        divTrash.addEventListener("click", function () {
+            document.getElementById(li.id)?.remove();
+        });
+        divEdit.addEventListener("click", edit);
+        li.appendChild(div);
+        ulList.appendChild(li);
+    }
+    L05_Einkaufsliste.newItem = newItem;
+    function remove() {
+        let ulList = document.getElementById("addList");
+        let li = document.querySelector("#addList li");
+        // selfComment = In dieser Line geschrieben, da es sonst es nicht außerhalb im Editmode deleted wegen load
+        ulList.removeChild(li);
+        let divNewIcon = document.querySelector(".editOff");
+        let inputContainer = document.querySelector("#container1");
+        inputContainer.removeChild(divNewIcon);
+        let p = document.querySelectorAll("#addList li p");
+        let divComment = document.querySelector("#addList li div .showComment");
+        divComment.setAttribute("contentEditable", "false");
+        p.forEach((e) => {
+            e.setAttribute("contentEditable", "false");
+        });
+        let editIcon = document.querySelectorAll(".edit");
+        editIcon.forEach(elementEditIcon => {
+            elementEditIcon.classList.remove("invisible");
+        });
+        inputContainer.removeChild(divNewIcon);
+    }
+    L05_Einkaufsliste.remove = remove;
+    function edit() {
+        let inputContainer = document.querySelector("#container1");
+        let p = document.querySelectorAll("#addList li p");
+        let divComment = document.querySelectorAll("#addList li div .showComment");
+        let editIcon = document.querySelectorAll(".edit");
+        divComment.forEach((comment) => {
+            comment.setAttribute("contentEditable", "true");
+        });
+        editIcon.forEach(elementEditIcon => {
+            elementEditIcon.classList.add("invisible");
+        });
+        p.forEach((e) => {
+            e.setAttribute("contentEditable", "true");
+        });
+        let newIcon = document.createElement("i");
+        newIcon.classList.add("fa-solid", "fa-square-check", "icon2", "editOff");
+        inputContainer.appendChild(newIcon);
+        let offIcon = document.querySelector(".editOff");
+        offIcon.addEventListener("click", editOff);
+        // create another icon for contenteditable false click Event
+    }
+    L05_Einkaufsliste.edit = edit;
+    function editOff() {
+        let inputContainer = document.querySelector("#container1");
+        let p = document.querySelectorAll("#addList li p");
+        let divComment = document.querySelectorAll("#addList li div .showComment");
+        // making editIcon visible again
+        let editIcon = document.querySelectorAll(".edit");
+        editIcon.forEach(elementEditIcon => {
+            elementEditIcon.classList.remove("invisible");
+        });
+        let divNewIcon = document.querySelector(".editOff");
+        divComment.forEach((comment) => {
+            comment.setAttribute("contentEditable", "false");
+        });
+        p.forEach((e) => {
+            e.setAttribute("contentEditable", "false");
+        });
+        inputContainer.removeChild(divNewIcon);
+    }
+    L05_Einkaufsliste.editOff = editOff;
+    function remove2(_div) {
+        let ulList = document.getElementById("addList");
+        let li = document.querySelector("#addList li");
+        let liAll = document.querySelectorAll("#addList li");
+    }
+    L05_Einkaufsliste.remove2 = remove2;
+})(L05_Einkaufsliste || (L05_Einkaufsliste = {}));
+//# sourceMappingURL=GenerateItem.js.map
