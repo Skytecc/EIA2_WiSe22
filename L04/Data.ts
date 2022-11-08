@@ -118,14 +118,9 @@ namespace L04_Einkaufsliste {
             li.appendChild(div);
             ulList.appendChild(li);
 
-
-
         }
         
     }
 
-
-    
-    
 
 }

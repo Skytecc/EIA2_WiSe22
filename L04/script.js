@@ -4,7 +4,7 @@ Aufgabe: <L03_Einkaufsliste>
 Name: <Cindy Nguyen>
 Matrikel: <271131>
 Datum: <>
-Quellen: <Stackoverflow, W3schools>
+Quellen: <Stackoverflow, W3schools, jsowl.com>
 */
 var L04_Einkaufsliste;
 (function (L04_Einkaufsliste) {
