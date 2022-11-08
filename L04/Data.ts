@@ -107,7 +107,7 @@ namespace L04_Einkaufsliste {
             let divEdit: HTMLDivElement = document.createElement("div");
             divEdit.classList.add("fa-solid", "fa-pen-to-square", "icon2", "edit");
 
-            divTrash.addEventListener("click", function(){
+            divTrash.addEventListener("click", function(): void {
                 document.getElementById(li.id)?.remove();
             });
             divEdit.addEventListener("click", edit);

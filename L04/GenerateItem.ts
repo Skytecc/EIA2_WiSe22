@@ -57,7 +57,7 @@ namespace L04_Einkaufsliste {
         div.appendChild(divEdit);
 
         //divTrash.addEventListener("click", remove);
-        divTrash.addEventListener("click", function(){
+        divTrash.addEventListener("click", function (): void {
             document.getElementById(li.id)?.remove();
         });
         divEdit.addEventListener("click", edit);
