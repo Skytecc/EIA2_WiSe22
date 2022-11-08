@@ -2,10 +2,16 @@
 
 namespace L04_Einkaufsliste {
 
+    let index: number = 2;
+
     export function newItem(): void {
         let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
         let li: HTMLLIElement = document.createElement("li");
-        
+
+        li.id = "div" + index;
+
+        index++;
+
         let checkbox: HTMLInputElement = <HTMLInputElement>document.createElement("input");
         checkbox.type = "checkbox";
 
@@ -50,7 +56,10 @@ namespace L04_Einkaufsliste {
         div.appendChild(divTrash);
         div.appendChild(divEdit);
 
-        divTrash.addEventListener("click", remove);
+        //divTrash.addEventListener("click", remove);
+        divTrash.addEventListener("click", function(){
+            document.getElementById(li.id)?.remove();
+        });
         divEdit.addEventListener("click", edit);
 
 
@@ -152,6 +161,15 @@ namespace L04_Einkaufsliste {
 
         inputContainer.removeChild(divNewIcon);
 
+    }
+
+    export function remove2(_div: HTMLElement): void {
+        
+        let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
+        let li: HTMLElement = <HTMLElement>document.querySelector("#addList li");
+        let liAll: NodeListOf<HTMLElement> = document.querySelectorAll("#addList li");
+        
+        
     }
 }
 

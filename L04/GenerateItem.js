@@ -2,9 +2,12 @@
 //import { discoverPlugins } from "typedoc/dist/lib/utils";
 var L04_Einkaufsliste;
 (function (L04_Einkaufsliste) {
+    let index = 2;
     function newItem() {
         let ulList = document.getElementById("addList");
         let li = document.createElement("li");
+        li.id = "div" + index;
+        index++;
         let checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         let div = document.createElement("div");
@@ -35,7 +38,10 @@ var L04_Einkaufsliste;
         divEdit.classList.add("fa-solid", "fa-pen-to-square", "icon2", "edit");
         div.appendChild(divTrash);
         div.appendChild(divEdit);
-        divTrash.addEventListener("click", remove);
+        //divTrash.addEventListener("click", remove);
+        divTrash.addEventListener("click", function () {
+            document.getElementById(li.id)?.remove();
+        });
         divEdit.addEventListener("click", edit);
         li.appendChild(div);
         ulList.appendChild(li);
@@ -103,5 +109,11 @@ var L04_Einkaufsliste;
         inputContainer.removeChild(divNewIcon);
     }
     L04_Einkaufsliste.editOff = editOff;
+    function remove2(_div) {
+        let ulList = document.getElementById("addList");
+        let li = document.querySelector("#addList li");
+        let liAll = document.querySelectorAll("#addList li");
+    }
+    L04_Einkaufsliste.remove2 = remove2;
 })(L04_Einkaufsliste || (L04_Einkaufsliste = {}));
 //# sourceMappingURL=GenerateItem.js.map
