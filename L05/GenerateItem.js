@@ -109,11 +109,5 @@ var L05_Einkaufsliste;
         inputContainer.removeChild(divNewIcon);
     }
     L05_Einkaufsliste.editOff = editOff;
-    function remove2(_div) {
-        let ulList = document.getElementById("addList");
-        let li = document.querySelector("#addList li");
-        let liAll = document.querySelectorAll("#addList li");
-    }
-    L05_Einkaufsliste.remove2 = remove2;
 })(L05_Einkaufsliste || (L05_Einkaufsliste = {}));
 //# sourceMappingURL=GenerateItem.js.map
