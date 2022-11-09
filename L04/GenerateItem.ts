@@ -66,6 +66,11 @@ namespace L04_Einkaufsliste {
         li.appendChild(div);
         ulList.appendChild(li);
 
+        // clear input field
+        inputValueName.value = "";
+        inputValueAmount.value = "";
+        textValueComment.value = "";
+
 
 
     }
@@ -93,7 +98,7 @@ namespace L04_Einkaufsliste {
         });
 
         let editIcon: NodeListOf<HTMLElement> = document.querySelectorAll(".edit");
-        
+
         editIcon.forEach(elementEditIcon => {
             elementEditIcon.classList.remove("invisible");
         });
@@ -113,7 +118,7 @@ namespace L04_Einkaufsliste {
         divComment.forEach((comment) => {
             comment.setAttribute("contentEditable", "true");
         });
-        
+
         editIcon.forEach(elementEditIcon => {
             elementEditIcon.classList.add("invisible");
         });
@@ -143,7 +148,7 @@ namespace L04_Einkaufsliste {
 
         // making editIcon visible again
         let editIcon: NodeListOf<HTMLElement> = document.querySelectorAll(".edit");
-        
+
         editIcon.forEach(elementEditIcon => {
             elementEditIcon.classList.remove("invisible");
         });
