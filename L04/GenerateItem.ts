@@ -162,14 +162,5 @@ namespace L04_Einkaufsliste {
         inputContainer.removeChild(divNewIcon);
 
     }
-
-    export function remove2(_div: HTMLElement): void {
-        
-        let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
-        let li: HTMLElement = <HTMLElement>document.querySelector("#addList li");
-        let liAll: NodeListOf<HTMLElement> = document.querySelectorAll("#addList li");
-        
-        
-    }
 }
 

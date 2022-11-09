@@ -88,4 +88,4 @@ var L05_Einkaufsliste;
     }
     L05_Einkaufsliste.showItems = showItems;
 })(L05_Einkaufsliste || (L05_Einkaufsliste = {}));
-//# sourceMappingURL=Data.js.map
+//# sourceMappingURL=Data2.js.map

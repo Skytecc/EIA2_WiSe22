@@ -63,10 +63,14 @@ namespace L05_Einkaufsliste {
         divEdit.addEventListener("click", edit);
 
 
+        //append list and div with items
         li.appendChild(div);
         ulList.appendChild(li);
 
-
+        // clear input field
+        inputValueName.value = "";
+        inputValueAmount.value = "";
+        textValueComment.value = "";
 
     }
 

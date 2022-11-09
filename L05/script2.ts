@@ -5,7 +5,7 @@ Matrikel: <271131>
 Datum: <>
 Quellen: <Stackoverflow, W3schools, jsowl.com>
 */
-namespace L04_Einkaufsliste {
+namespace L05_Einkaufsliste {
 
     let dateInput: HTMLInputElement = <HTMLInputElement>document.getElementById("date");
     

@@ -43,8 +43,13 @@ var L05_Einkaufsliste;
             document.getElementById(li.id)?.remove();
         });
         divEdit.addEventListener("click", edit);
+        //append list and div with items
         li.appendChild(div);
         ulList.appendChild(li);
+        // clear input field
+        inputValueName.value = "";
+        inputValueAmount.value = "";
+        textValueComment.value = "";
     }
     L05_Einkaufsliste.newItem = newItem;
     function remove() {
@@ -110,4 +115,4 @@ var L05_Einkaufsliste;
     }
     L05_Einkaufsliste.editOff = editOff;
 })(L05_Einkaufsliste || (L05_Einkaufsliste = {}));
-//# sourceMappingURL=GenerateItem.js.map
+//# sourceMappingURL=GenerateItem2.js.map
