@@ -45,6 +45,10 @@ var L04_Einkaufsliste;
         divEdit.addEventListener("click", edit);
         li.appendChild(div);
         ulList.appendChild(li);
+        // clear input field
+        inputValueName.value = "";
+        inputValueAmount.value = "";
+        textValueComment.value = "";
     }
     L04_Einkaufsliste.newItem = newItem;
     function remove() {

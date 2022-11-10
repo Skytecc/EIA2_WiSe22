@@ -13,7 +13,8 @@ namespace L05_Einkaufsliste {
 
     window.addEventListener("load", handleload);
 
-    function handleload(): void {
+    async function handleload(): Promise <void> {
+        
         let addBtn: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
 
         showItems();

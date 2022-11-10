@@ -11,7 +11,7 @@ var L05_Einkaufsliste;
     let dateInput = document.getElementById("date");
     dateInput.value = new Date().toISOString().substring(0, 10);
     window.addEventListener("load", handleload);
-    function handleload() {
+    async function handleload() {
         let addBtn = document.getElementById("button");
         L05_Einkaufsliste.showItems();
         addBtn.addEventListener("click", L05_Einkaufsliste.newItem);

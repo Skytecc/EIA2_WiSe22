@@ -7,29 +7,7 @@ namespace L05_Einkaufsliste {
         checked: boolean;
     }
 
-    export let existingItem1: Item[] = [
-        {
-            name: "Banane",
-            amount: 4,
-            date: "30.10.2022",
-            comment: "Für den Milchshake",
-            checked: true
-        }
-
-    ];
-
-    export let existingItem2: Item[] = [
-        {
-            name: "Apfel",
-            amount: 8,
-            date: "30.10.2022",
-            comment: "Für den Smoothie",
-            checked: false
-        }
-
-    ];
-
-    let existingItem3: Item[] = [
+    let existingItem: Item[] = [
         
             {
                 name: "Banane",
@@ -63,7 +41,7 @@ namespace L05_Einkaufsliste {
 
         let index: number = 0;
 
-        for (let entry of existingItem3) {
+        for (let entry of existingItem) {
 
             let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
             let li: HTMLLIElement = document.createElement("li");

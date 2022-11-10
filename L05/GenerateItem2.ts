@@ -2,9 +2,14 @@
 
 namespace L05_Einkaufsliste {
 
+    /*let formData: FormData = new FormData(document.forms[0]);
+    console.log(formData);*/
+
     let index: number = 2;
 
     export function newItem(): void {
+        let formData: FormData = new FormData(document.forms[0]);
+
         let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
         let li: HTMLLIElement = document.createElement("li");
 
@@ -23,22 +28,26 @@ namespace L05_Einkaufsliste {
 
         let inputValueName: HTMLInputElement = <HTMLInputElement>document.getElementById("name");
         let inputValueAmount: HTMLInputElement = <HTMLInputElement>document.getElementById("amount");
-        let inputValueDate: HTMLInputElement = <HTMLInputElement>document.getElementById("date");
 
         let textValueComment: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("comment");
 
         let nameInput: HTMLParagraphElement = document.createElement("p");
-        nameInput.innerHTML = inputValueName.value;
+        let formName: string = <string> formData.get("Name");
+        nameInput.innerHTML = formName;
+
 
         let amountInput: HTMLParagraphElement = document.createElement("p");
-        amountInput.innerHTML = inputValueAmount.value;
+        let formAmount: string = <string> formData.get("Amount");
+        amountInput.innerHTML = formAmount;
 
         let dateInput: HTMLParagraphElement = document.createElement("p");
-        dateInput.innerHTML = inputValueDate.value;
+        let formDate: string = <string> formData.get("Date");
+        dateInput.innerHTML = formDate;
 
         let divComment: HTMLDivElement = document.createElement("div");
         divComment.classList.add("showComment");
-        divComment.innerHTML = textValueComment.value;
+        let formComment: string = <string> formData.get("Comment");
+        divComment.innerHTML = formComment;
 
         li.appendChild(checkbox);
         div.appendChild(nameInput);

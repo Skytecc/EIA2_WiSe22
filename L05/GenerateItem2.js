@@ -2,8 +2,11 @@
 //import { discoverPlugins } from "typedoc/dist/lib/utils";
 var L05_Einkaufsliste;
 (function (L05_Einkaufsliste) {
+    /*let formData: FormData = new FormData(document.forms[0]);
+    console.log(formData);*/
     let index = 2;
     function newItem() {
+        let formData = new FormData(document.forms[0]);
         let ulList = document.getElementById("addList");
         let li = document.createElement("li");
         li.id = "div" + index;
@@ -15,17 +18,20 @@ var L05_Einkaufsliste;
         let linebreak = document.createElement("br");
         let inputValueName = document.getElementById("name");
         let inputValueAmount = document.getElementById("amount");
-        let inputValueDate = document.getElementById("date");
         let textValueComment = document.getElementById("comment");
         let nameInput = document.createElement("p");
-        nameInput.innerHTML = inputValueName.value;
+        let formName = formData.get("Name");
+        nameInput.innerHTML = formName;
         let amountInput = document.createElement("p");
-        amountInput.innerHTML = inputValueAmount.value;
+        let formAmount = formData.get("Amount");
+        amountInput.innerHTML = formAmount;
         let dateInput = document.createElement("p");
-        dateInput.innerHTML = inputValueDate.value;
+        let formDate = formData.get("Date");
+        dateInput.innerHTML = formDate;
         let divComment = document.createElement("div");
         divComment.classList.add("showComment");
-        divComment.innerHTML = textValueComment.value;
+        let formComment = formData.get("Comment");
+        divComment.innerHTML = formComment;
         li.appendChild(checkbox);
         div.appendChild(nameInput);
         div.appendChild(amountInput);

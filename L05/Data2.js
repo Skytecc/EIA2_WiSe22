@@ -1,25 +1,7 @@
 "use strict";
 var L05_Einkaufsliste;
 (function (L05_Einkaufsliste) {
-    L05_Einkaufsliste.existingItem1 = [
-        {
-            name: "Banane",
-            amount: 4,
-            date: "30.10.2022",
-            comment: "Für den Milchshake",
-            checked: true
-        }
-    ];
-    L05_Einkaufsliste.existingItem2 = [
-        {
-            name: "Apfel",
-            amount: 8,
-            date: "30.10.2022",
-            comment: "Für den Smoothie",
-            checked: false
-        }
-    ];
-    let existingItem3 = [
+    let existingItem = [
         {
             name: "Banane",
             amount: 4,
@@ -46,7 +28,7 @@ var L05_Einkaufsliste;
      }*/
     function showItems() {
         let index = 0;
-        for (let entry of existingItem3) {
+        for (let entry of existingItem) {
             let ulList = document.getElementById("addList");
             let li = document.createElement("li");
             let div = document.createElement("div");
