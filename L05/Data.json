@@ -1,0 +1,20 @@
+{
+    "entries": [
+        {
+            "Name": "Banane",
+            "Amount": 4,
+            "Date": "30.10.2022",
+            "Comment": "Für den Milchshake",
+            "checked": true
+        },
+
+    {
+        "Name": "Apfel",
+        "Amount": 8,
+        "Date": "30.10.2022",
+        "Comment": "Für den Smoothie",
+        "checked": false
+    }
+    
+    ]
+}
