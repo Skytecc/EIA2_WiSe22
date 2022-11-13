@@ -12,7 +12,7 @@ var L05_Einkaufsliste;
     dateInput.value = new Date().toISOString().substring(0, 10);
     window.addEventListener("load", handleload);
     async function handleload() {
-        let response = await fetch("https://skytecc.github.io/EIA2_WiSe22//L05/data.json");
+        let response = await fetch("https://skytecc.github.io/EIA2_WiSe22//L05/Data.json");
         let offer = await response.text();
         let data = JSON.parse(offer);
         console.log("Response", response);

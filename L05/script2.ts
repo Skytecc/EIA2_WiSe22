@@ -15,7 +15,7 @@ namespace L05_Einkaufsliste {
 
     async function handleload(): Promise<void> {
 
-        let response: Response = await fetch("https://skytecc.github.io/EIA2_WiSe22//L05/data.json");
+        let response: Response = await fetch("https://skytecc.github.io/EIA2_WiSe22//L05/Data.json");
         let offer: string = await response.text();
         let data: Data = JSON.parse(offer);
         console.log("Response", response);
