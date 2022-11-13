@@ -77,6 +77,7 @@ var L05_Einkaufsliste;
             elementEditIcon.classList.remove("invisible");
         });
         inputContainer.removeChild(divNewIcon);
+        sendItem();
     }
     L05_Einkaufsliste.remove = remove;
     function edit() {
@@ -120,5 +121,14 @@ var L05_Einkaufsliste;
         inputContainer.removeChild(divNewIcon);
     }
     L05_Einkaufsliste.editOff = editOff;
+    async function sendItem() {
+        console.log("Send to server");
+        let formData = new FormData(document.forms[0]);
+        let url = "L05_Einkaufsliste.html";
+        let query = new URLSearchParams(formData);
+        url += url + "?" + query.toString();
+        await fetch(url);
+        alert("New added Item");
+    }
 })(L05_Einkaufsliste || (L05_Einkaufsliste = {}));
 //# sourceMappingURL=GenerateItem2.js.map

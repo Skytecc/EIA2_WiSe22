@@ -113,7 +113,7 @@ namespace L05_Einkaufsliste {
 
         inputContainer.removeChild(divNewIcon);
 
-
+        sendItem();
     }
 
     export function edit(): void {
@@ -174,6 +174,17 @@ namespace L05_Einkaufsliste {
 
         inputContainer.removeChild(divNewIcon);
 
+    }
+
+    async function sendItem(): Promise<void> {
+        console.log("Send to server"); 
+        let formData: FormData = new FormData(document.forms[0]);
+        let url: string = "L05_Einkaufsliste.html";
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        url += url + "?" + query.toString();
+        await fetch(url);
+
+        alert("New added Item");
     }
 }
 

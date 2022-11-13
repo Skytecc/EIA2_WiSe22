@@ -167,5 +167,6 @@ namespace L04_Einkaufsliste {
         inputContainer.removeChild(divNewIcon);
 
     }
+
 }
 

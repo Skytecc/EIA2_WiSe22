@@ -22,7 +22,7 @@ namespace L05_Einkaufsliste {
         
         let addBtn: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
 
-        showItems(data);
+        showItems(data); // Get Items through Data.Json
 
         addBtn.addEventListener("click", newItem);
 
