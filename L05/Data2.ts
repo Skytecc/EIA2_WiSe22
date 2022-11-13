@@ -8,12 +8,12 @@ namespace L05_Einkaufsliste {
         checked: boolean;
     }
 
-    export interface Data {
-        [entries: string]: Item[];
+    export interface DataEntries {
+        [category: string]: Item[];
     }
 
 
-    let existingItem: Item[] = [
+    export let existingItem: Item[] = [
         
             {
                 name: "Banane",
@@ -43,11 +43,12 @@ namespace L05_Einkaufsliste {
         }
     }*/
 
-    export function showItems(): void {
+    export function showItems(_data: DataEntries): void {
 
         let index: number = 0;
+        let currentItems: Item[] = _data.entries;
 
-        for (let entry of existingItem) {
+        for (let entry of currentItems) {
 
             let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
             let li: HTMLLIElement = document.createElement("li");

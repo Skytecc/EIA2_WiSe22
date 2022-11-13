@@ -17,12 +17,12 @@ namespace L05_Einkaufsliste {
 
         let response: Response = await fetch("https://skytecc.github.io/EIA2_WiSe22//L05/Data.json");
         let offer: string = await response.text();
-        let data: Data = JSON.parse(offer);
+        let data: DataEntries = JSON.parse(offer);
         console.log("Response", response);
         
         let addBtn: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
 
-        //showItems();
+        showItems(data);
 
         addBtn.addEventListener("click", newItem);
 

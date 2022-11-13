@@ -1,7 +1,7 @@
 "use strict";
 var L05_Einkaufsliste;
 (function (L05_Einkaufsliste) {
-    let existingItem = [
+    L05_Einkaufsliste.existingItem = [
         {
             name: "Banane",
             amount: 4,
@@ -26,9 +26,10 @@ var L05_Einkaufsliste;
              console.log(entry.name);
          }
      }*/
-    function showItems() {
+    function showItems(_data) {
         let index = 0;
-        for (let entry of existingItem) {
+        let currentItems = _data.entries;
+        for (let entry of currentItems) {
             let ulList = document.getElementById("addList");
             let li = document.createElement("li");
             let div = document.createElement("div");

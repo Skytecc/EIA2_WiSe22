@@ -17,7 +17,7 @@ var L05_Einkaufsliste;
         let data = JSON.parse(offer);
         console.log("Response", response);
         let addBtn = document.getElementById("button");
-        //showItems();
+        L05_Einkaufsliste.showItems(data);
         addBtn.addEventListener("click", L05_Einkaufsliste.newItem);
     }
 })(L05_Einkaufsliste || (L05_Einkaufsliste = {}));
