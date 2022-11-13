@@ -56,6 +56,7 @@ var L05_Einkaufsliste;
         inputValueName.value = "";
         inputValueAmount.value = "";
         textValueComment.value = "";
+        sendItem();
     }
     L05_Einkaufsliste.newItem = newItem;
     function remove() {
@@ -77,7 +78,6 @@ var L05_Einkaufsliste;
             elementEditIcon.classList.remove("invisible");
         });
         inputContainer.removeChild(divNewIcon);
-        sendItem();
     }
     L05_Einkaufsliste.remove = remove;
     function edit() {

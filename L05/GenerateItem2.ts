@@ -81,6 +81,8 @@ namespace L05_Einkaufsliste {
         inputValueAmount.value = "";
         textValueComment.value = "";
 
+        sendItem();
+
     }
 
     export function remove(): void {
@@ -113,7 +115,6 @@ namespace L05_Einkaufsliste {
 
         inputContainer.removeChild(divNewIcon);
 
-        sendItem();
     }
 
     export function edit(): void {
