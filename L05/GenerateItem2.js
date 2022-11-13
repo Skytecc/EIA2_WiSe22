@@ -126,8 +126,7 @@ var L05_Einkaufsliste;
         let formData = new FormData(document.forms[0]);
         let url = "L05_Einkaufsliste.html";
         let query = new URLSearchParams(formData);
-        url += url + "?" + query.toString();
-        await fetch(url);
+        await fetch(url + "?" + query.toString());
         alert("New added Item");
     }
 })(L05_Einkaufsliste || (L05_Einkaufsliste = {}));

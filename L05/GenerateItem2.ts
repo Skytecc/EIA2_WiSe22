@@ -181,8 +181,7 @@ namespace L05_Einkaufsliste {
         let formData: FormData = new FormData(document.forms[0]);
         let url: string = "L05_Einkaufsliste.html";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url += url + "?" + query.toString();
-        await fetch(url);
+        await fetch(url + "?" + query.toString());
 
         alert("New added Item");
     }
