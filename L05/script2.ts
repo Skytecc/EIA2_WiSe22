@@ -13,11 +13,16 @@ namespace L05_Einkaufsliste {
 
     window.addEventListener("load", handleload);
 
-    async function handleload(): Promise <void> {
+    async function handleload(): Promise<void> {
+
+        let response: Response = await fetch("https://skytecc.github.io/EIA2_WiSe22//L05/data.json");
+        let offer: string = await response.text();
+        let data: Data = JSON.parse(offer);
+        console.log("Response", response);
         
         let addBtn: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
 
-        showItems();
+        //showItems();
 
         addBtn.addEventListener("click", newItem);
 

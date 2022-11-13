@@ -1,4 +1,5 @@
 namespace L05_Einkaufsliste {
+    
     export interface Item {
         name: string;
         amount: number;
@@ -6,6 +7,11 @@ namespace L05_Einkaufsliste {
         comment: string;
         checked: boolean;
     }
+
+    export interface Data {
+        [entries: string]: Item[];
+    }
+
 
     let existingItem: Item[] = [
         
