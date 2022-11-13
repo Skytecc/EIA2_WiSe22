@@ -47,6 +47,7 @@ namespace L05_Einkaufsliste {
 
         let index: number = 0;
         let currentItems: Item[] = _data.entries;
+        console.log(currentItems);
 
         for (let entry of currentItems) {
 

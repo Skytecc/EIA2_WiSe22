@@ -29,6 +29,7 @@ var L05_Einkaufsliste;
     function showItems(_data) {
         let index = 0;
         let currentItems = _data.entries;
+        console.log(currentItems);
         for (let entry of currentItems) {
             let ulList = document.getElementById("addList");
             let li = document.createElement("li");

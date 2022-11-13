@@ -9,10 +9,10 @@
         },
 
     {
-        "Name": "Apfel",
-        "Amount": 8,
-        "Date": "30.10.2022",
-        "Comment": "Für den Smoothie",
+        "name": "Apfel",
+        "amount": 8,
+        "date": "30.10.2022",
+        "comment": "Für den Smoothie",
         "checked": false
     }
     
