@@ -124,7 +124,7 @@ var L05_Einkaufsliste;
     async function sendItem() {
         console.log("Send to server");
         let formData = new FormData(document.forms[0]);
-        let url = "L05_Einkaufsliste.html";
+        let url = "https://skytecc.github.io/EIA2_WiSe22//L05/L05_Einkaufsliste.html";
         let query = new URLSearchParams(formData);
         await fetch(url + "?" + query.toString());
         alert("New added Item");

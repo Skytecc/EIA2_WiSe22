@@ -179,7 +179,7 @@ namespace L05_Einkaufsliste {
     async function sendItem(): Promise<void> {
         console.log("Send to server"); 
         let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "L05_Einkaufsliste.html";
+        let url: string = "https://skytecc.github.io/EIA2_WiSe22//L05/L05_Einkaufsliste.html";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         await fetch(url + "?" + query.toString());
 
