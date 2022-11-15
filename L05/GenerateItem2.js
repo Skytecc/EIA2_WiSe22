@@ -53,9 +53,9 @@ var L05_Einkaufsliste;
         li.appendChild(div);
         ulList.appendChild(li);
         // clear input field
-        inputValueName.value = "";
+        /*inputValueName.value = "";
         inputValueAmount.value = "";
-        textValueComment.value = "";
+        textValueComment.value = "";*/
         sendItem();
     }
     L05_Einkaufsliste.newItem = newItem;
