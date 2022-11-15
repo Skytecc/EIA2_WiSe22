@@ -77,9 +77,9 @@ namespace L05_Einkaufsliste {
         ulList.appendChild(li);
 
         // clear input field
-        inputValueName.value = "";
+        /*inputValueName.value = "";
         inputValueAmount.value = "";
-        textValueComment.value = "";
+        textValueComment.value = "";*/
 
         sendItem();
 
