@@ -26,10 +26,10 @@ namespace L05_Einkaufsliste {
 
         let linebreak: HTMLElement = document.createElement("br");
 
-        let inputValueName: HTMLInputElement = <HTMLInputElement>document.getElementById("name");
-        let inputValueAmount: HTMLInputElement = <HTMLInputElement>document.getElementById("amount");
+        //let inputValueName: HTMLInputElement = <HTMLInputElement>document.getElementById("name");
+        //let inputValueAmount: HTMLInputElement = <HTMLInputElement>document.getElementById("amount");
 
-        let textValueComment: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("comment");
+        //let textValueComment: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("comment");
 
         let nameInput: HTMLParagraphElement = document.createElement("p");
         let formName: string = <string> formData.get("Name");
