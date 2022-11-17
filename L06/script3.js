@@ -21,4 +21,4 @@ var L06_Einkaufsliste;
         addBtn.addEventListener("click", L06_Einkaufsliste.newItem);
     }
 })(L06_Einkaufsliste || (L06_Einkaufsliste = {}));
-//# sourceMappingURL=script2.js.map
+//# sourceMappingURL=script3.js.map
