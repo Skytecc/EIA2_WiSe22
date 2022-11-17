@@ -15,14 +15,25 @@ namespace L06_Einkaufsliste {
 
     async function handleload(): Promise<void> {
 
-        let response: Response = await fetch("https://skytecc.github.io/EIA2_WiSe22//L05/Data.json");
+        let response: Response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Shoppinglist");
         let offer: string = await response.text();
-        let data: DataEntries = JSON.parse(offer);
-        console.log("Response", response);
+        //console.log(offer);
+        let dataJson: DataEntries = JSON.parse(offer);
+        console.log("hier startet data.json");
+        console.log(dataJson.data);
+        //console.log("Response", response);
+        //console.log(dataJson);
+        
+        /*for (let entry in dataJson.data) {
+            //console.log(entry);
+            //console.log(dataJson.data[entry]);
+            console.log(typeof entry);
+
+        }*/
         
         let addBtn: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
 
-        showItems(data); // Get Items through Data.Json
+        showItems(dataJson); 
 
         addBtn.addEventListener("click", newItem);
 

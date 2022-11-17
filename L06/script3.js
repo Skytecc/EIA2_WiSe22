@@ -12,12 +12,22 @@ var L06_Einkaufsliste;
     dateInput.value = new Date().toISOString().substring(0, 10);
     window.addEventListener("load", handleload);
     async function handleload() {
-        let response = await fetch("https://skytecc.github.io/EIA2_WiSe22//L05/Data.json");
+        let response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Shoppinglist");
         let offer = await response.text();
-        let data = JSON.parse(offer);
-        console.log("Response", response);
+        //console.log(offer);
+        let dataJson = JSON.parse(offer);
+        console.log("hier startet data.json");
+        console.log(dataJson.data);
+        //console.log("Response", response);
+        //console.log(dataJson);
+        /*for (let entry in dataJson.data) {
+            //console.log(entry);
+            //console.log(dataJson.data[entry]);
+            console.log(typeof entry);
+
+        }*/
         let addBtn = document.getElementById("button");
-        L06_Einkaufsliste.showItems(data); // Get Items through Data.Json
+        L06_Einkaufsliste.showItems(dataJson);
         addBtn.addEventListener("click", L06_Einkaufsliste.newItem);
     }
 })(L06_Einkaufsliste || (L06_Einkaufsliste = {}));

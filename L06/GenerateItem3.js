@@ -44,10 +44,10 @@ var L06_Einkaufsliste;
         divEdit.classList.add("fa-solid", "fa-pen-to-square", "icon2", "edit");
         div.appendChild(divTrash);
         div.appendChild(divEdit);
-        //divTrash.addEventListener("click", remove);
-        divTrash.addEventListener("click", function () {
+        //divTrash.addEventListener("click", remove2());
+        /*divTrash.addEventListener("click", function (): void {
             document.getElementById(li.id)?.remove();
-        });
+        });*/
         divEdit.addEventListener("click", edit);
         //append list and div with items
         li.appendChild(div);
@@ -59,6 +59,10 @@ var L06_Einkaufsliste;
         sendItem();
     }
     L06_Einkaufsliste.newItem = newItem;
+    function remove2(_data) {
+        _data.data.reduce;
+    }
+    L06_Einkaufsliste.remove2 = remove2;
     function remove() {
         let ulList = document.getElementById("addList");
         let li = document.querySelector("#addList li");
@@ -124,10 +128,26 @@ var L06_Einkaufsliste;
     async function sendItem() {
         console.log("Send to server");
         let formData = new FormData(document.forms[0]);
-        let url = "L05Einkaufsliste.html";
-        let query = new URLSearchParams(formData);
-        await fetch(url + "?" + query.toString());
-        alert("New added Item");
+        let json = {};
+        for (let key of formData.keys())
+            if (!json[key]) {
+                let values = formData.getAll(key);
+                json[key] = values.length > 1 ? values : values[0];
+                /*let url: string = "https://skytecc.github.io/EIA2_WiSe22//L05/Data.json";
+                let query: URLSearchParams = new URLSearchParams(<any>formData);
+                await fetch(url + "?" + query.toString());
+
+                alert("New added Item");*/
+            }
+        let query = new URLSearchParams();
+        query.set("command", "insert");
+        query.set("collection", "Orders");
+        query.set("data", JSON.stringify(json));
+        console.log(JSON.stringify(json));
+        let url = "https://webuser.hs-furtwangen.de/~nguyenki/Database/index.php?";
+        let response = await fetch(url + query.toString());
+        console.log(response);
+        console.log("data.sent");
     }
 })(L06_Einkaufsliste || (L06_Einkaufsliste = {}));
 //# sourceMappingURL=GenerateItem3.js.map

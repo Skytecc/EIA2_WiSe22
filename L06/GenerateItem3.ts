@@ -32,21 +32,21 @@ namespace L06_Einkaufsliste {
         //let textValueComment: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("comment");
 
         let nameInput: HTMLParagraphElement = document.createElement("p");
-        let formName: string = <string> formData.get("Name");
+        let formName: string = <string>formData.get("Name");
         nameInput.innerHTML = formName;
 
 
         let amountInput: HTMLParagraphElement = document.createElement("p");
-        let formAmount: string = <string> formData.get("Amount");
+        let formAmount: string = <string>formData.get("Amount");
         amountInput.innerHTML = formAmount;
 
         let dateInput: HTMLParagraphElement = document.createElement("p");
-        let formDate: string = <string> formData.get("Date");
+        let formDate: string = <string>formData.get("Date");
         dateInput.innerHTML = formDate;
 
         let divComment: HTMLDivElement = document.createElement("div");
         divComment.classList.add("showComment");
-        let formComment: string = <string> formData.get("Comment");
+        let formComment: string = <string>formData.get("Comment");
         divComment.innerHTML = formComment;
 
         li.appendChild(checkbox);
@@ -64,11 +64,13 @@ namespace L06_Einkaufsliste {
 
         div.appendChild(divTrash);
         div.appendChild(divEdit);
+        
 
-        //divTrash.addEventListener("click", remove);
-        divTrash.addEventListener("click", function (): void {
+        //divTrash.addEventListener("click", remove2());
+        /*divTrash.addEventListener("click", function (): void {
             document.getElementById(li.id)?.remove();
-        });
+        });*/
+
         divEdit.addEventListener("click", edit);
 
 
@@ -85,6 +87,11 @@ namespace L06_Einkaufsliste {
 
     }
 
+    export function remove2(_data: DataEntries): void {
+
+        _data.data.reduce;
+    }
+    
     export function remove(): void {
         let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
         let li: HTMLElement = <HTMLElement>document.querySelector("#addList li");
@@ -108,7 +115,7 @@ namespace L06_Einkaufsliste {
         });
 
         let editIcon: NodeListOf<HTMLElement> = document.querySelectorAll(".edit");
-        
+
         editIcon.forEach(elementEditIcon => {
             elementEditIcon.classList.remove("invisible");
         });
@@ -127,7 +134,7 @@ namespace L06_Einkaufsliste {
         divComment.forEach((comment) => {
             comment.setAttribute("contentEditable", "true");
         });
-        
+
         editIcon.forEach(elementEditIcon => {
             elementEditIcon.classList.add("invisible");
         });
@@ -157,7 +164,7 @@ namespace L06_Einkaufsliste {
 
         // making editIcon visible again
         let editIcon: NodeListOf<HTMLElement> = document.querySelectorAll(".edit");
-        
+
         editIcon.forEach(elementEditIcon => {
             elementEditIcon.classList.remove("invisible");
         });
@@ -178,13 +185,36 @@ namespace L06_Einkaufsliste {
     }
 
     async function sendItem(): Promise<void> {
-        console.log("Send to server"); 
+        console.log("Send to server");
         let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "L05Einkaufsliste.html";
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-        await fetch(url + "?" + query.toString());
+        let json: FormDataJSON = {};
 
-        alert("New added Item");
+
+        for (let key of formData.keys())
+            if (!json[key]) {
+                let values: FormDataEntryValue[] = formData.getAll(key);
+                json[key] = values.length > 1 ? values : values[0];
+
+
+
+                /*let url: string = "https://skytecc.github.io/EIA2_WiSe22//L05/Data.json";
+                let query: URLSearchParams = new URLSearchParams(<any>formData);
+                await fetch(url + "?" + query.toString());
+
+                alert("New added Item");*/
+            }
+
+        let query: URLSearchParams = new URLSearchParams();
+        query.set("command", "insert");
+        query.set("collection", "Orders");
+        query.set("data", JSON.stringify(json));
+        console.log(JSON.stringify(json));
+        let url: string = "https://webuser.hs-furtwangen.de/~nguyenki/Database/index.php?";
+        let response: Response = await fetch(url + query.toString());
+        console.log(response);
+        console.log("data.sent");
+
+        
+        
     }
 }
-

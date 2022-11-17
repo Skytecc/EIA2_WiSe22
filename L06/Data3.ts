@@ -12,54 +12,49 @@ namespace L06_Einkaufsliste {
         [category: string]: Item[];
     }
 
+    export interface FormDataJSON {
+        [key: string]: FormDataEntryValue | FormDataEntryValue[];
+      }
 
-    export let existingItem: Item[] = [
-        
-            {
-                name: "Banane",
-                amount: 4,
-                date: "30.10.2022",
-                comment: "Für den Milchshake",
-                checked: true
-            },
-
-        {
-            name: "Apfel",
-            amount: 8,
-            date: "30.10.2022",
-            comment: "Für den Smoothie",
-            checked: false
-        }
-
-    ];
-
-   /* export function test01(): void {
-        //console.log(existingItems[1].name);
-        let p: HTMLParagraphElement = document.createElement("p");
-        p.innerText = existingItem1[0].name + "";
-
-        for (let entry of existingItem1) {
-            console.log(entry.name);
-        }
-    }*/
 
     export function showItems(_data: DataEntries): void {
 
-        let index: number = 0;
-        let currentItems: Item[] = _data.entries;
-        console.log(currentItems);
 
-        for (let entry of currentItems) {
+        console.log(_data);
+
+        let index: number = 0;
+        //let currentItems: Item[] = _data.data;
+        //console.log("Anfang");
+        //console.log(currentItems);
+        
+        let entries: any[] = []; // making a new list
+
+        for (let entry in _data.data) {
+            // going through every key in the json.data and pushing it in the new created list
+            //let entryModifiedBecauseTypescriptIsAnnoying: any = entry; // Modifying entry because Typescript is making things difficult with the types???
+            entries.push(entry);
+            //console.log(entry + " schau hier");
+        }
+
+        console.log(entries + " Test");
+
+        console.log(entries[0]);
+
+        for (let entryID of entries) {
+
+            let entry: any = _data.data[entryID];
+            
 
             let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
             let li: HTMLLIElement = document.createElement("li");
             let div: HTMLDivElement = document.createElement("div");
             div.classList.add("itemList");
 
+            //console.log(entryID);
+            //console.log(entry);
+
             li.id = "div" + index;
             index++;
-            
-          
     
             let linebreak: HTMLElement = document.createElement("br");
 
