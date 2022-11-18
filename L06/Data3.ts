@@ -43,6 +43,8 @@ namespace L06_Einkaufsliste {
         for (let entryID of entries) {
 
             let entry: any = _data.data[entryID];
+            /*console.log("Hallo ist hier etwas?")
+            console.log(_data.data[entryID].name);*/
             
 
             let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");

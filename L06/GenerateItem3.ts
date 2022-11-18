@@ -7,6 +7,8 @@ namespace L06_Einkaufsliste {
 
     let index: number = 2;
 
+    let newEntries: any[] = []; // making a new list
+
     export function newItem(): void {
         let formData: FormData = new FormData(document.forms[0]);
 

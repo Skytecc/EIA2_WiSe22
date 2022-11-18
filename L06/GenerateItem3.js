@@ -5,6 +5,7 @@ var L06_Einkaufsliste;
     /*let formData: FormData = new FormData(document.forms[0]);
     console.log(formData);*/
     let index = 2;
+    let newEntries = []; // making a new list
     function newItem() {
         let formData = new FormData(document.forms[0]);
         let ulList = document.getElementById("addList");

@@ -18,6 +18,8 @@ var L06_Einkaufsliste;
         console.log(entries[0]);
         for (let entryID of entries) {
             let entry = _data.data[entryID];
+            /*console.log("Hallo ist hier etwas?")
+            console.log(_data.data[entryID].name);*/
             let ulList = document.getElementById("addList");
             let li = document.createElement("li");
             let div = document.createElement("div");
