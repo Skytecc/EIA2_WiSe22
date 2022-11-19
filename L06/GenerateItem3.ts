@@ -192,7 +192,7 @@ namespace L06_Einkaufsliste {
         let json: FormDataJSON = {};
 
 
-        for (let key of formData.keys())
+       /* for (let key of formData.keys())
             if (!json[key]) {
                 let values: FormDataEntryValue[] = formData.getAll(key);
                 json[key] = values.length > 1 ? values : values[0];
@@ -203,15 +203,15 @@ namespace L06_Einkaufsliste {
                 let query: URLSearchParams = new URLSearchParams(<any>formData);
                 await fetch(url + "?" + query.toString());
 
-                alert("New added Item");*/
-            }
+                alert("New added Item");
+            }*/
 
         let query: URLSearchParams = new URLSearchParams();
         query.set("command", "insert");
         query.set("collection", "Orders");
         query.set("data", JSON.stringify(json));
         console.log(JSON.stringify(json));
-        let url: string = "https://webuser.hs-furtwangen.de/~nguyenki/Database/index.php?";
+        let url: string = "https:webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Shoppinglist";
         let response: Response = await fetch(url + query.toString());
         console.log(response);
         console.log("data.sent");
