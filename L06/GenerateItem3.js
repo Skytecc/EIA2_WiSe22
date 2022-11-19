@@ -6,7 +6,11 @@ var L06_Einkaufsliste;
     console.log(formData);*/
     let index = 2;
     let newEntries = []; // making a new list
-    function newItem() {
+    async function newItem() {
+        let response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Items");
+        let offer = await response.text();
+        //console.log(offer);
+        let dataJson = JSON.parse(offer);
         let formData = new FormData(document.forms[0]);
         let ulList = document.getElementById("addList");
         let li = document.createElement("li");
@@ -14,6 +18,7 @@ var L06_Einkaufsliste;
         index++;
         let checkbox = document.createElement("input");
         checkbox.type = "checkbox";
+        checkbox.checked = false;
         let div = document.createElement("div");
         div.classList.add("itemList");
         let linebreak = document.createElement("br");
@@ -21,17 +26,17 @@ var L06_Einkaufsliste;
         //let inputValueAmount: HTMLInputElement = <HTMLInputElement>document.getElementById("amount");
         //let textValueComment: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("comment");
         let nameInput = document.createElement("p");
-        let formName = formData.get("Name");
+        let formName = formData.get("name");
         nameInput.innerHTML = formName;
         let amountInput = document.createElement("p");
-        let formAmount = formData.get("Amount");
+        let formAmount = formData.get("amount");
         amountInput.innerHTML = formAmount;
         let dateInput = document.createElement("p");
-        let formDate = formData.get("Date");
+        let formDate = formData.get("date");
         dateInput.innerHTML = formDate;
         let divComment = document.createElement("div");
         divComment.classList.add("showComment");
-        let formComment = formData.get("Comment");
+        let formComment = formData.get("comment");
         divComment.innerHTML = formComment;
         li.appendChild(checkbox);
         div.appendChild(nameInput);
@@ -45,6 +50,7 @@ var L06_Einkaufsliste;
         divEdit.classList.add("fa-solid", "fa-pen-to-square", "icon2", "edit");
         div.appendChild(divTrash);
         div.appendChild(divEdit);
+        remove2(dataJson);
         //divTrash.addEventListener("click", remove2());
         /*divTrash.addEventListener("click", function (): void {
             document.getElementById(li.id)?.remove();
@@ -61,7 +67,8 @@ var L06_Einkaufsliste;
     }
     L06_Einkaufsliste.newItem = newItem;
     function remove2(_data) {
-        _data.data.reduce;
+        //_data.data.reduce;
+        console.log(_data.data);
     }
     L06_Einkaufsliste.remove2 = remove2;
     function remove() {
@@ -132,20 +139,23 @@ var L06_Einkaufsliste;
         let json = {};
         for (let key of formData.keys())
             if (!json[key]) {
-                let values = formData.getAll(key);
+                let values = formData.getAll(key); // get all elements
                 json[key] = values.length > 1 ? values : values[0];
-                /*let url: string = "https://skytecc.github.io/EIA2_WiSe22//L05/Data.json";
+                // get all the elements in formdata
+                /*let url: string = "https:webuser.hs-furtwangen.de/~nguyenki/Database/?";
                 let query: URLSearchParams = new URLSearchParams(<any>formData);
                 await fetch(url + "?" + query.toString());
 
-                alert("New added Item");*/
+                alert("New added Item");
+            }*/
             }
         let query = new URLSearchParams();
         query.set("command", "insert");
-        query.set("collection", "Orders");
+        query.set("collection", "Items");
         query.set("data", JSON.stringify(json));
         console.log(JSON.stringify(json));
-        let url = "https://webuser.hs-furtwangen.de/~nguyenki/Database/index.php?";
+        console.log("test");
+        let url = "https:webuser.hs-furtwangen.de/~nguyenki/Database/?";
         let response = await fetch(url + query.toString());
         console.log(response);
         console.log("data.sent");

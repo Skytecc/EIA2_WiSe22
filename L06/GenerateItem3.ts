@@ -9,7 +9,15 @@ namespace L06_Einkaufsliste {
 
     let newEntries: any[] = []; // making a new list
 
-    export function newItem(): void {
+    export async function newItem(): Promise<void> {
+
+        let response: Response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Items");
+        let offer: string = await response.text();
+        //console.log(offer);
+        let dataJson: DataEntries = JSON.parse(offer);
+
+
+
         let formData: FormData = new FormData(document.forms[0]);
 
         let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
@@ -21,7 +29,7 @@ namespace L06_Einkaufsliste {
 
         let checkbox: HTMLInputElement = <HTMLInputElement>document.createElement("input");
         checkbox.type = "checkbox";
-
+        checkbox.checked = false;
 
         let div: HTMLDivElement = document.createElement("div");
         div.classList.add("itemList");
@@ -34,21 +42,21 @@ namespace L06_Einkaufsliste {
         //let textValueComment: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("comment");
 
         let nameInput: HTMLParagraphElement = document.createElement("p");
-        let formName: string = <string>formData.get("Name");
+        let formName: string = <string>formData.get("name");
         nameInput.innerHTML = formName;
 
 
         let amountInput: HTMLParagraphElement = document.createElement("p");
-        let formAmount: string = <string>formData.get("Amount");
+        let formAmount: string = <string>formData.get("amount");
         amountInput.innerHTML = formAmount;
 
         let dateInput: HTMLParagraphElement = document.createElement("p");
-        let formDate: string = <string>formData.get("Date");
+        let formDate: string = <string>formData.get("date");
         dateInput.innerHTML = formDate;
 
         let divComment: HTMLDivElement = document.createElement("div");
         divComment.classList.add("showComment");
-        let formComment: string = <string>formData.get("Comment");
+        let formComment: string = <string>formData.get("comment");
         divComment.innerHTML = formComment;
 
         li.appendChild(checkbox);
@@ -66,7 +74,9 @@ namespace L06_Einkaufsliste {
 
         div.appendChild(divTrash);
         div.appendChild(divEdit);
-        
+
+        remove2(dataJson);
+
 
         //divTrash.addEventListener("click", remove2());
         /*divTrash.addEventListener("click", function (): void {
@@ -91,9 +101,10 @@ namespace L06_Einkaufsliste {
 
     export function remove2(_data: DataEntries): void {
 
-        _data.data.reduce;
+        //_data.data.reduce;
+        console.log(_data.data);
     }
-    
+
     export function remove(): void {
         let ulList: HTMLUListElement = <HTMLUListElement>document.getElementById("addList");
         let li: HTMLElement = <HTMLElement>document.querySelector("#addList li");
@@ -192,31 +203,30 @@ namespace L06_Einkaufsliste {
         let json: FormDataJSON = {};
 
 
-       /* for (let key of formData.keys())
+        for (let key of formData.keys())
             if (!json[key]) {
-                let values: FormDataEntryValue[] = formData.getAll(key);
+                let values: FormDataEntryValue[] = formData.getAll(key); // get all elements
                 json[key] = values.length > 1 ? values : values[0];
+                // get all the elements in formdata
 
-
-
-                /*let url: string = "https://skytecc.github.io/EIA2_WiSe22//L05/Data.json";
+                /*let url: string = "https:webuser.hs-furtwangen.de/~nguyenki/Database/?";
                 let query: URLSearchParams = new URLSearchParams(<any>formData);
                 await fetch(url + "?" + query.toString());
 
                 alert("New added Item");
             }*/
-
+            }
         let query: URLSearchParams = new URLSearchParams();
         query.set("command", "insert");
-        query.set("collection", "Orders");
+        query.set("collection", "Items");
         query.set("data", JSON.stringify(json));
         console.log(JSON.stringify(json));
-        let url: string = "https:webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Shoppinglist";
+        console.log("test");
+        let url: string = "https:webuser.hs-furtwangen.de/~nguyenki/Database/?";
         let response: Response = await fetch(url + query.toString());
         console.log(response);
         console.log("data.sent");
 
-        
-        
     }
+
 }

@@ -15,7 +15,7 @@ namespace L06_Einkaufsliste {
 
     async function handleload(): Promise<void> {
 
-        let response: Response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Shoppinglist");
+        let response: Response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Items");
         let offer: string = await response.text();
         //console.log(offer);
         let dataJson: DataEntries = JSON.parse(offer);

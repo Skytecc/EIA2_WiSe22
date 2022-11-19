@@ -12,7 +12,7 @@ var L06_Einkaufsliste;
     dateInput.value = new Date().toISOString().substring(0, 10);
     window.addEventListener("load", handleload);
     async function handleload() {
-        let response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Shoppinglist");
+        let response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Items");
         let offer = await response.text();
         //console.log(offer);
         let dataJson = JSON.parse(offer);
