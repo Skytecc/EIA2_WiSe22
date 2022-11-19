@@ -5,6 +5,7 @@ var L06_Einkaufsliste;
     /*let formData: FormData = new FormData(document.forms[0]);
     console.log(formData);*/
     let index = 2;
+    let index2;
     let newEntries = []; // making a new list
     async function newItem() {
         let response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Items");
@@ -50,8 +51,6 @@ var L06_Einkaufsliste;
         divEdit.classList.add("fa-solid", "fa-pen-to-square", "icon2", "edit");
         div.appendChild(divTrash);
         div.appendChild(divEdit);
-        remove2(dataJson);
-        //divTrash.addEventListener("click", remove2());
         /*divTrash.addEventListener("click", function (): void {
             document.getElementById(li.id)?.remove();
         });*/
@@ -66,11 +65,31 @@ var L06_Einkaufsliste;
         sendItem();
     }
     L06_Einkaufsliste.newItem = newItem;
-    function remove2(_data) {
+    async function test(_data) {
         //_data.data.reduce;
-        console.log(_data.data);
+        //console.log(_data.data);
+        let divTrash = document.querySelectorAll(".trash");
+        let response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Items");
+        let offer = await response.text();
+        //console.log(offer);
+        let dataJson = JSON.parse(offer);
+        for (let addEntry in _data.data) {
+            newEntries.push(addEntry);
+            console.log(addEntry);
+        }
+        let json = dataJson;
+        let query = new URLSearchParams();
+        query.set("command", "insert");
+        query.set("collection", "Items");
+        query.set("data", JSON.stringify(json));
+        divTrash.forEach(element => {
+            element.addEventListener("click", function () {
+                console.log(_data.data);
+                remove();
+            });
+        });
     }
-    L06_Einkaufsliste.remove2 = remove2;
+    L06_Einkaufsliste.test = test;
     function remove() {
         let ulList = document.getElementById("addList");
         let li = document.querySelector("#addList li");

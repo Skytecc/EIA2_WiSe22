@@ -14,7 +14,7 @@ var L06_Einkaufsliste;
             entries.push(entry);
             //console.log(entry + " schau hier");
         }
-        console.log(entries + " Test");
+        console.log(entries);
         console.log(entries[0]);
         for (let entryID of entries) {
             let entry = _data.data[entryID];
@@ -51,9 +51,9 @@ var L06_Einkaufsliste;
             divTrash.classList.add("fa-regular", "fa-square-minus", "icon2", "trash");
             let divEdit = document.createElement("div");
             divEdit.classList.add("fa-solid", "fa-pen-to-square", "icon2", "edit");
-            divTrash.addEventListener("click", function () {
-                document.getElementById(li.id)?.remove();
-            });
+            /* divTrash.addEventListener("click", function(): void {
+                 document.getElementById(li.id)?.remove();
+             });*/
             divEdit.addEventListener("click", L06_Einkaufsliste.edit);
             div.appendChild(divTrash);
             div.appendChild(divEdit);

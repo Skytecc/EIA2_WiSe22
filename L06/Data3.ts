@@ -36,7 +36,7 @@ namespace L06_Einkaufsliste {
             //console.log(entry + " schau hier");
         }
 
-        console.log(entries + " Test");
+        console.log(entries);
 
         console.log(entries[0]);
 
@@ -90,9 +90,9 @@ namespace L06_Einkaufsliste {
             let divEdit: HTMLDivElement = document.createElement("div");
             divEdit.classList.add("fa-solid", "fa-pen-to-square", "icon2", "edit");
 
-            divTrash.addEventListener("click", function(): void {
+           /* divTrash.addEventListener("click", function(): void {
                 document.getElementById(li.id)?.remove();
-            });
+            });*/
             divEdit.addEventListener("click", edit);
 
             div.appendChild(divTrash);

@@ -7,6 +7,8 @@ namespace L06_Einkaufsliste {
 
     let index: number = 2;
 
+    let index2: number;
+
     let newEntries: any[] = []; // making a new list
 
     export async function newItem(): Promise<void> {
@@ -75,10 +77,6 @@ namespace L06_Einkaufsliste {
         div.appendChild(divTrash);
         div.appendChild(divEdit);
 
-        remove2(dataJson);
-
-
-        //divTrash.addEventListener("click", remove2());
         /*divTrash.addEventListener("click", function (): void {
             document.getElementById(li.id)?.remove();
         });*/
@@ -99,10 +97,39 @@ namespace L06_Einkaufsliste {
 
     }
 
-    export function remove2(_data: DataEntries): void {
-
+    export async function removeSend(_data: DataEntries): Promise<void> {
         //_data.data.reduce;
-        console.log(_data.data);
+        //console.log(_data.data);
+
+
+        let divTrash: NodeListOf<HTMLElement> = document.querySelectorAll(".trash");
+
+
+        let response: Response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Items");
+        let offer: string = await response.text();
+        //console.log(offer);
+        let dataJson: DataEntries = JSON.parse(offer);
+
+        for (let addEntry in _data.data) {
+            newEntries.push(addEntry);
+            console.log(addEntry);
+        }
+
+        let json: DataEntries = dataJson;
+        let query: URLSearchParams = new URLSearchParams();
+        query.set("command", "insert");
+        query.set("collection", "Items");
+        query.set("data", JSON.stringify(json));
+
+
+        divTrash.forEach(element => {
+            
+            element.addEventListener("click", function(): void {
+                console.log(_data.data);
+                remove()
+            });
+        });
+             
     }
 
     export function remove(): void {

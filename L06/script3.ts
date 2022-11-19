@@ -37,6 +37,10 @@ namespace L06_Einkaufsliste {
 
         addBtn.addEventListener("click", newItem);
 
+        test(dataJson);
+       
+        
+
 
     }
 

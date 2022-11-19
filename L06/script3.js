@@ -29,6 +29,7 @@ var L06_Einkaufsliste;
         let addBtn = document.getElementById("button");
         L06_Einkaufsliste.showItems(dataJson);
         addBtn.addEventListener("click", L06_Einkaufsliste.newItem);
+        L06_Einkaufsliste.test(dataJson);
     }
 })(L06_Einkaufsliste || (L06_Einkaufsliste = {}));
 //# sourceMappingURL=script3.js.map
