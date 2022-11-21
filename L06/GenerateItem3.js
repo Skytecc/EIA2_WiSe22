@@ -5,13 +5,18 @@ var L06_Einkaufsliste;
     /*let formData: FormData = new FormData(document.forms[0]);
     console.log(formData);*/
     let index = 2;
-    let index2;
-    let newEntries = []; // making a new list
+    //let index2: number;
+    //let newEntries: any[] = []; // making a new list
     async function newItem() {
-        let response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Items");
-        let offer = await response.text();
+        /*let response: Response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Items");
+        let offer: string = await response.text();
         //console.log(offer);
-        let dataJson = JSON.parse(offer);
+        let dataJson: DataEntries = JSON.parse(offer);
+
+        for (let addEntry in _data.data) {
+            newEntries.push(addEntry);
+            //console.log(addEntry);
+        }*/
         let formData = new FormData(document.forms[0]);
         let ulList = document.getElementById("addList");
         let li = document.createElement("li");
@@ -51,9 +56,9 @@ var L06_Einkaufsliste;
         divEdit.classList.add("fa-solid", "fa-pen-to-square", "icon2", "edit");
         div.appendChild(divTrash);
         div.appendChild(divEdit);
-        /*divTrash.addEventListener("click", function (): void {
+        divTrash.addEventListener("click", function () {
             document.getElementById(li.id)?.remove();
-        });*/
+        });
         divEdit.addEventListener("click", edit);
         //append list and div with items
         li.appendChild(div);
@@ -65,31 +70,35 @@ var L06_Einkaufsliste;
         sendItem();
     }
     L06_Einkaufsliste.newItem = newItem;
-    async function test(_data) {
-        //_data.data.reduce;
-        //console.log(_data.data);
-        let divTrash = document.querySelectorAll(".trash");
-        let response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Items");
-        let offer = await response.text();
-        //console.log(offer);
-        let dataJson = JSON.parse(offer);
-        for (let addEntry in _data.data) {
-            newEntries.push(addEntry);
-            console.log(addEntry);
-        }
-        let json = dataJson;
-        let query = new URLSearchParams();
-        query.set("command", "insert");
-        query.set("collection", "Items");
-        query.set("data", JSON.stringify(json));
-        divTrash.forEach(element => {
-            element.addEventListener("click", function () {
-                console.log(_data.data);
-                remove();
-            });
-        });
-    }
-    L06_Einkaufsliste.test = test;
+    /* export async function removeSend(_data: DataEntries): Promise<void> {
+         //_data.data.reduce;
+         //console.log(_data.data);
+ 
+ 
+         //let divTrash: NodeListOf<HTMLElement> = document.querySelectorAll(".trash");
+         
+ 
+ 
+         //let response: Response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Items");
+         //let offer: string = await response.text();
+         //console.log(offer);
+         //let dataJson: DataEntries = JSON.parse(offer);
+ 
+         /*for (let addEntry in _data.data) {
+             newEntries.push(addEntry);
+             console.log(addEntry);
+         }
+ 
+         //let json: DataEntries = dataJson;
+         let query: URLSearchParams = new URLSearchParams();
+         query.set("command", "delete");
+         query.set("collection", "Items");
+         query.set("id", _data.toString());
+ 
+         let response: Response = await fetch ("https:webuser.hs-furtwangen.de/~nguyenki/Database/?" + query.toString());
+         console.log("delete");
+              
+     }*/
     function remove() {
         let ulList = document.getElementById("addList");
         let li = document.querySelector("#addList li");

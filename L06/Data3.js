@@ -51,9 +51,10 @@ var L06_Einkaufsliste;
             divTrash.classList.add("fa-regular", "fa-square-minus", "icon2", "trash");
             let divEdit = document.createElement("div");
             divEdit.classList.add("fa-solid", "fa-pen-to-square", "icon2", "edit");
-            /* divTrash.addEventListener("click", function(): void {
-                 document.getElementById(li.id)?.remove();
-             });*/
+            divTrash.addEventListener("click", function () {
+                document.getElementById(li.id)?.remove();
+                removeSend02(entryID);
+            });
             divEdit.addEventListener("click", L06_Einkaufsliste.edit);
             div.appendChild(divTrash);
             div.appendChild(divEdit);
@@ -62,5 +63,29 @@ var L06_Einkaufsliste;
         }
     }
     L06_Einkaufsliste.showItems = showItems;
+    async function removeSend02(_dataID) {
+        //_data.data.reduce;
+        //console.log(_data.data);
+        //let divTrash: NodeListOf<HTMLElement> = document.querySelectorAll(".trash");
+        //let response: Response = await fetch("https://webuser.hs-furtwangen.de/~nguyenki/Database/?command=find&collection=Items");
+        //let offer: string = await response.text();
+        //console.log(offer);
+        //let dataJson: DataEntries = JSON.parse(offer);
+        /*for (let addEntry in _data.data) {
+            newEntries.push(addEntry);
+            console.log(addEntry);
+        }*/
+        //let json: DataEntries = dataJson;
+        let query = new URLSearchParams();
+        query.set("command", "delete");
+        query.set("collection", "Items");
+        query.set("id", _dataID.toString());
+        let url = "https:webuser.hs-furtwangen.de/~nguyenki/Database/?";
+        let response = await fetch(url + query.toString());
+        console.log(response);
+        console.log("delete");
+        console.log(_dataID);
+    }
+    L06_Einkaufsliste.removeSend02 = removeSend02;
 })(L06_Einkaufsliste || (L06_Einkaufsliste = {}));
 //# sourceMappingURL=Data3.js.map
