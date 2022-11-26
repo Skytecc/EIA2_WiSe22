@@ -18,6 +18,7 @@ var L08_Canvas;
         test3();
         testStroke();
         testTriangle();
+        testTriangle2();
     }
     function testStroke() {
         //crc2.fillStyle = "#74847e";
@@ -114,6 +115,23 @@ var L08_Canvas;
         crc2.fillStyle = color1;
         crc2.fill();
         crc2.closePath();
+    }
+    function testTriangle2() {
+        for (let i = 0; i < 20; i++) {
+            let rgba1 = Math.floor(Math.random() * 255);
+            let rgba2 = Math.floor(Math.random() * 255);
+            let rgba3 = Math.floor(Math.random() * 255);
+            let x = Math.floor(Math.random() * crc2.canvas.width);
+            let y = Math.floor(Math.random() * crc2.canvas.height);
+            let color1 = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
+            crc2.beginPath();
+            crc2.moveTo(100, 100);
+            crc2.lineTo(100, 300);
+            crc2.lineTo(x, y);
+            crc2.fillStyle = color1;
+            crc2.fill();
+            crc2.closePath();
+        }
     }
 })(L08_Canvas || (L08_Canvas = {}));
 //# sourceMappingURL=script.js.map

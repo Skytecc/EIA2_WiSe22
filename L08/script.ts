@@ -19,6 +19,7 @@ namespace L08_Canvas {
         test3();
         testStroke();
         testTriangle();
+        testTriangle2();
     }
 
     interface Vector {
@@ -158,6 +159,29 @@ namespace L08_Canvas {
         crc2.fillStyle = color1;
         crc2.fill();
         crc2.closePath();
+    }
+
+    function testTriangle2(): void {
+
+        for (let i: number = 0; i < 20; i++) {
+            let rgba1: number = Math.floor(Math.random() * 255);
+            let rgba2: number = Math.floor(Math.random() * 255);
+            let rgba3: number = Math.floor(Math.random() * 255);
+
+            let x: number = Math.floor(Math.random() * crc2.canvas.width);
+            let y: number = Math.floor(Math.random() * crc2.canvas.height);
+
+
+            let color1: string = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
+
+            crc2.beginPath();
+            crc2.moveTo(100, 100);
+            crc2.lineTo(100, 300);
+            crc2.lineTo(x, y);
+            crc2.fillStyle = color1;
+            crc2.fill();
+            crc2.closePath();
+        }
     }
 
 }
