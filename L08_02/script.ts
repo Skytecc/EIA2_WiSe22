@@ -10,7 +10,8 @@ namespace L08_Vogelhaus {
     let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("#canvasArt");
     let crc2: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext("2d");
 
-
+    //canvas.width = window.innerWidth;
+    //canvas.height = window.innerHeight;
 
     interface Vector {
         x: number;
