@@ -22,10 +22,10 @@ namespace L08_Canvas {
         testTriangle2();
     }
 
-    interface Vector {
+    /*interface Vector {
         x: number;
         y: number;
-    }
+    }*/
 
     function testStroke(): void {
         //crc2.fillStyle = "#74847e";
@@ -39,9 +39,9 @@ namespace L08_Canvas {
         let cx: number = (0 + 300) / 2;
         let cy: number = (100 + 200) / 2;
 
-        let sizeCircle: number = Math.floor(Math.random() * 150);
+        /*let sizeCircle: number = Math.floor(Math.random() * 150);
         let xCircle: number = Math.floor(Math.random() * crc2.canvas.width);
-        let yCircle: number = Math.floor(Math.random() * crc2.canvas.height);
+        let yCircle: number = Math.floor(Math.random() * crc2.canvas.height);*/
 
         let bezierCpx1: number = Math.floor(Math.random() * 20);
         let bezierCpy1: number = Math.floor(Math.random() * 150);

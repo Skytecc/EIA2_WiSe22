@@ -20,6 +20,10 @@ var L08_Canvas;
         testTriangle();
         testTriangle2();
     }
+    /*interface Vector {
+        x: number;
+        y: number;
+    }*/
     function testStroke() {
         //crc2.fillStyle = "#74847e";
         //crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
@@ -29,9 +33,9 @@ var L08_Canvas;
         let gy = radius * Math.sin(angle);
         let cx = (0 + 300) / 2;
         let cy = (100 + 200) / 2;
-        let sizeCircle = Math.floor(Math.random() * 150);
-        let xCircle = Math.floor(Math.random() * crc2.canvas.width);
-        let yCircle = Math.floor(Math.random() * crc2.canvas.height);
+        /*let sizeCircle: number = Math.floor(Math.random() * 150);
+        let xCircle: number = Math.floor(Math.random() * crc2.canvas.width);
+        let yCircle: number = Math.floor(Math.random() * crc2.canvas.height);*/
         let bezierCpx1 = Math.floor(Math.random() * 20);
         let bezierCpy1 = Math.floor(Math.random() * 150);
         let bezierCpx2 = Math.floor(Math.random() * 500);
