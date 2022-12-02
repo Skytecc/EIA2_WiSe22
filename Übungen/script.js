@@ -3,13 +3,14 @@ var L08_Übung;
 (function (L08_Übung) {
     let canvas = document.querySelector("#canvasArt");
     let crc2 = canvas.getContext("2d");
+    let golden = 0.62;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     window.addEventListener("load", handleLoad);
     function handleLoad() {
         drawGradientSnow();
         drawSun({ x: 100, y: 90 });
-        drawCloud({ x: 500, y: 125 }, { x: 250, y: 75 });
+        drawCloud({ x: 1200, y: 130 }, { x: 250, y: 75 });
         drawTree();
     }
     function drawGradientSnow() {
@@ -37,8 +38,9 @@ var L08_Übung;
         crc2.fill();
         crc2.restore();
     }
-    function drawMountain() {
-    }
+    /*function drawMountain(): void {
+
+    }*/
     function drawTree() {
         crc2.beginPath();
         crc2.rect(500, 700, 30, 50);

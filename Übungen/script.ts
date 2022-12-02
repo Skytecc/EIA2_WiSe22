@@ -2,6 +2,8 @@ namespace L08_Übung {
     let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("#canvasArt");
     let crc2: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext("2d");
 
+    let golden: number = 0.62;
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
@@ -19,7 +21,7 @@ namespace L08_Übung {
 
         drawSun({x: 100, y: 90});
 
-        drawCloud({ x: 500, y: 125 }, { x: 250, y: 75});
+        drawCloud({ x: 1200, y: 130 }, { x: 250, y: 75});
 
         drawTree();
 
@@ -63,9 +65,9 @@ namespace L08_Übung {
 
     }
 
-    function drawMountain(): void {
+    /*function drawMountain(): void {
 
-    }
+    }*/
 
     function drawTree(): void {
 
@@ -73,10 +75,8 @@ namespace L08_Übung {
         crc2.rect(500, 700, 30, 50);
         crc2.fillStyle = "rgb(107, 57, 9)";
         crc2.fill();
-
-
     }
-
+    
     function drawCloud(_position: Vector, _size: Vector): void {
 
         console.log("cloud", _position, _size);
