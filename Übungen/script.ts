@@ -70,7 +70,7 @@ namespace L08_Übung {
     function drawTree(): void {
 
         crc2.beginPath();
-        crc2.rect(500, 700, 50, 70);
+        crc2.rect(500, 700, 30, 50);
         crc2.fillStyle = "rgb(107, 57, 9)";
         crc2.fill();
 
