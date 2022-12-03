@@ -12,10 +12,12 @@ var L08_Part2;
         drawGradientSnow();
         drawSun({ x: 100, y: 90 });
         drawCloud({ x: 1300, y: 130 }, { x: 250, y: 75 });
-        drawTree();
         drawMountain({ x: 0, y: horizon }, 150, 250, "grey", "lightgrey");
+        drawTrees();
+        birdHouse();
     }
     function drawGradientSnow() {
+        crc2.save();
         let snowGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
         snowGradient.addColorStop(1, "rgb(168, 168, 168)");
         snowGradient.addColorStop(0.5, "white");
@@ -23,6 +25,7 @@ var L08_Part2;
         crc2.fillStyle = snowGradient;
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         console.log("draw snow");
+        crc2.restore();
     }
     function drawSun(_position) {
         console.log("Sun", _position);
@@ -62,12 +65,45 @@ var L08_Part2;
         gradientMountain.addColorStop(1, _colorHigh);
         crc2.fillStyle = gradientMountain;
         crc2.fill();
+        crc2.restore();
     }
-    function drawTree() {
+    function drawTrees() {
+        let nTrees = Math.random() * 20;
+        for (let drawn = 0; drawn <= nTrees; drawn++) {
+            crc2.save();
+            let x = Math.round(Math.random() * innerWidth);
+            let y = horizon;
+            drawTree({ x: x, y: y });
+            crc2.restore();
+        }
+        crc2.restore();
+    }
+    function drawTree(_position) {
         crc2.beginPath();
-        crc2.rect(500, 700, 30, 50);
         crc2.fillStyle = "rgb(107, 57, 9)";
+        //crc2.fill();
+        crc2.rect(_position.x + 35, _position.y + 30, 30, 50);
+        crc2.strokeStyle = "HSLA(0, 0%, 0%, 0.6";
+        crc2.fillRect(_position.x + 35, _position.y + 30, 30, 50);
+        crc2.stroke();
+        crc2.closePath();
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+        let gradientTree = crc2.createLinearGradient(0, 0, 0, -180);
+        crc2.beginPath();
+        crc2.moveTo(0, 50);
+        crc2.lineTo(50, -180);
+        crc2.lineTo(100, 50);
+        crc2.lineTo(0, 50);
+        gradientTree.addColorStop(1, "HSLA(0, 0%, 100%, 1");
+        gradientTree.addColorStop(0.5, "HSLA(0, 0%, 100%, 1");
+        gradientTree.addColorStop(0, "darkgreen");
+        crc2.fillStyle = gradientTree;
+        crc2.strokeStyle = "HSLA(0, 0%, 0%, 0.3";
         crc2.fill();
+        crc2.stroke();
+        crc2.closePath();
+        crc2.restore();
     }
     function drawCloud(_position, _size) {
         console.log("cloud", _position, _size);
@@ -89,6 +125,16 @@ var L08_Part2;
             crc2.fill(particle);
             crc2.restore();
         }
+        crc2.restore();
+    }
+    function birdHouse() {
+        console.log("birdhouse!");
+        let x = Math.round(Math.random() * innerWidth);
+        let y = horizon;
+        crc2.save();
+        crc2.beginPath();
+        crc2.fillStyle = "rgb(107, 57, 9)";
+        crc2.fillRect(500, 800, 100, 50);
         crc2.restore();
     }
 })(L08_Part2 || (L08_Part2 = {}));
