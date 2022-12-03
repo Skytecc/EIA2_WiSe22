@@ -205,7 +205,12 @@ namespace L08_Part2 {
 
         crc2.beginPath();
         crc2.fillStyle = "rgb(107, 57, 9)";
-        crc2.fillRect(500, 800, 100, 50);
+        crc2.fillRect(500, 750, 20, 150);
+        crc2.closePath();
+
+        crc2.beginPath();
+        crc2.fillRect(432, 650, 150, 120);
+
 
         crc2.restore();
 

@@ -2,7 +2,7 @@ namespace L08_Übung {
     let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("#canvasArt");
     let crc2: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext("2d");
 
-    let golden: number = 0.62;
+    //let golden: number = 0.62;
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;

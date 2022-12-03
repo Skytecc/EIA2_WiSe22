@@ -3,7 +3,7 @@ var L08_Übung;
 (function (L08_Übung) {
     let canvas = document.querySelector("#canvasArt");
     let crc2 = canvas.getContext("2d");
-    let golden = 0.62;
+    //let golden: number = 0.62;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     window.addEventListener("load", handleLoad);
