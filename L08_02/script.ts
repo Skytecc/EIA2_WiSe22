@@ -32,8 +32,6 @@ namespace L08_Part2 {
 
         drawCloud({ x: 1300, y: 130 }, { x: 250, y: 75 });
 
-        drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
-
         drawMountain({ x: 0, y: horizon }, 150, 250, "grey", "lightgrey");
 
         drawTrees();
@@ -43,6 +41,24 @@ namespace L08_Part2 {
         drawSnowman({ x: 800, y: 750 });
 
         drawGroundBird({ x: 985, y: 810 });
+        //test({ x: 985, y: 810 });
+        drawBirds({ x: 185, y: 110 });
+        //test();
+
+
+
+        drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
+
+
+    }
+
+    function test(): void {
+
+        crc2.save();
+        let x: number = Math.round(Math.random() * innerWidth);
+
+        drawGroundBird({ x: x, y: 810 });
+        crc2.restore();
 
     }
 
@@ -178,11 +194,22 @@ namespace L08_Part2 {
 
     }
 
-    function drawBirds(): void {
+    function drawBirds(_position: Vector): void {
 
-        
+        let nBirds: number = 20;
 
 
+        for (let drawn: number = 0; drawn <= nBirds; drawn++) {
+
+            let x: number = Math.round(Math.random() * innerWidth);
+            let y: number = horizon;
+
+            drawGroundBird({ x: x, y: y });
+
+            crc2.restore();
+        }
+
+        crc2.restore();
     }
 
 
@@ -225,7 +252,7 @@ namespace L08_Part2 {
         console.log("snowflakes");
 
         let numberParticles: number = 100;
-        let radiusParticle: number = 50;
+        let radiusParticle: number = 20;
 
         let particle: Path2D = new Path2D();
         let gradientSnow: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
@@ -242,7 +269,7 @@ namespace L08_Part2 {
 
         for (let i: number = 0; i < numberParticles; i++) {
             crc2.save();
-            let x: number = (Math.random() - 0.5) * _position.x;
+            let x: number = (Math.random() - 1) * _position.x;
             let y: number = - (Math.random() * horizon);
             crc2.translate(x, y);
             crc2.fill(particle);
@@ -316,6 +343,19 @@ namespace L08_Part2 {
         crc2.closePath();
     }
 
+    function drawTriangle(_moveTo: Vector, _lineTo1: Vector, _lineTo2: Vector, _lineTo3: Vector ,_color: string): void {
+
+        crc2.beginPath();
+        crc2.moveTo(_moveTo.x, _moveTo.y);
+        crc2.lineTo(_lineTo1.x, _lineTo1.y);
+        crc2.lineTo(_lineTo2.x, _lineTo2.y);
+        crc2.lineTo(_lineTo3.x, _lineTo3.y);
+        crc2.fillStyle = _color;
+        crc2.fill();
+        crc2.closePath();
+
+    }
+
 
     function drawSnowman(_position: Vector): void {
 
@@ -351,43 +391,55 @@ namespace L08_Part2 {
     function drawGroundBird(_position: Vector): void {
 
         crc2.save();
+        crc2.translate(_position.x, _position.y);
+
 
         // Bird head
+        //drawArc(1000, 850, 20, 0, 2 * Math.PI * 2, "red");
+        drawArc(15, 40, 20, 0, 2 * Math.PI * 2, "red");
 
-        drawArc(1000, 850, 20, 0, 2 * Math.PI * 2, "red");
+
 
         // Feet
+        /*drawRect({ x: 1020, y: 880 }, { x: 3, y: 25 }, "black");
+        drawRect({ x: 1030, y: 880 }, { x: 3, y: 25 }, "black");*/
 
-        drawRect({x: 1020, y: 880}, {x: 3, y: 25}, "black");
-        drawRect({x: 1030, y: 880}, {x: 3, y: 25}, "black");
+        drawRect({ x: 30, y: 72 }, { x: 3, y: 25 }, "black");
+        drawRect({ x: 15, y: 70 }, { x: 3, y: 25 }, "black");
 
 
         //crc2.fillRect(1050, 880, 3, 25);
 
 
         // Bird Body
-        drawEllipse(1020, 870, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
+        //drawEllipse(1020, 870, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
+        drawEllipse(25, 65, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
+
 
         // Eye
 
-        drawArc(1000, 843, 3, 0, 2 * Math.PI * 2, "black");
+        //drawArc(1000, 843, 3, 0, 2 * Math.PI * 2, "black");
+        drawArc(15, 33, 3, 0, 2 * Math.PI * 2, "black");
 
 
-        crc2.save();
 
-        crc2.translate(_position.x, _position.y);
+
+
+        drawTriangle({ x: 0, y: 50 }, { x: -20, y: 40 }, { x: 0, y: 30 }, {x: 0, y: 0}, "yellow");
+
 
 
         // Mouth
-        crc2.beginPath();
+        /*crc2.beginPath();
         crc2.moveTo(0, 50);
         crc2.lineTo(-20, 40);
         crc2.lineTo(0, 30);
         crc2.fillStyle = "yellow";
         crc2.fill();
-        crc2.closePath();
+        crc2.closePath();*/
 
         crc2.restore();
+
     }
 
 

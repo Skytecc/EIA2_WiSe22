@@ -19,12 +19,21 @@ var L08_Part2;
         drawGradientSnow();
         drawSun({ x: 100, y: 90 });
         drawCloud({ x: 1300, y: 130 }, { x: 250, y: 75 });
-        drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
         drawMountain({ x: 0, y: horizon }, 150, 250, "grey", "lightgrey");
         drawTrees();
         birdHouse();
         drawSnowman({ x: 800, y: 750 });
         drawGroundBird({ x: 985, y: 810 });
+        //test({ x: 985, y: 810 });
+        drawBirds({ x: 185, y: 110 });
+        //test();
+        drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
+    }
+    function test() {
+        crc2.save();
+        let x = Math.round(Math.random() * innerWidth);
+        drawGroundBird({ x: x, y: 810 });
+        crc2.restore();
     }
     function drawGradientSnow() {
         crc2.save();
@@ -117,7 +126,15 @@ var L08_Part2;
         crc2.closePath();
         crc2.restore();
     }
-    function drawBirds() {
+    function drawBirds(_position) {
+        let nBirds = 20;
+        for (let drawn = 0; drawn <= nBirds; drawn++) {
+            let x = Math.round(Math.random() * innerWidth);
+            let y = horizon;
+            drawGroundBird({ x: x, y: y });
+            crc2.restore();
+        }
+        crc2.restore();
     }
     function drawTreeBackline() {
     }
@@ -146,7 +163,7 @@ var L08_Part2;
     function drawSnowflakes(_position, _size) {
         console.log("snowflakes");
         let numberParticles = 100;
-        let radiusParticle = 50;
+        let radiusParticle = 20;
         let particle = new Path2D();
         let gradientSnow = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
         particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
@@ -157,7 +174,7 @@ var L08_Part2;
         crc2.fillStyle = gradientSnow;
         for (let i = 0; i < numberParticles; i++) {
             crc2.save();
-            let x = (Math.random() - 0.5) * _position.x;
+            let x = (Math.random() - 1) * _position.x;
             let y = -(Math.random() * horizon);
             crc2.translate(x, y);
             crc2.fill(particle);
@@ -211,6 +228,16 @@ var L08_Part2;
         crc2.fill();
         crc2.closePath();
     }
+    function drawTriangle(_moveTo, _lineTo1, _lineTo2, _lineTo3, _color) {
+        crc2.beginPath();
+        crc2.moveTo(_moveTo.x, _moveTo.y);
+        crc2.lineTo(_lineTo1.x, _lineTo1.y);
+        crc2.lineTo(_lineTo2.x, _lineTo2.y);
+        crc2.lineTo(_lineTo3.x, _lineTo3.y);
+        crc2.fillStyle = _color;
+        crc2.fill();
+        crc2.closePath();
+    }
     function drawSnowman(_position) {
         crc2.save();
         crc2.translate(_position.x, _position.y);
@@ -232,26 +259,31 @@ var L08_Part2;
     }
     function drawGroundBird(_position) {
         crc2.save();
+        crc2.translate(_position.x, _position.y);
         // Bird head
-        drawArc(1000, 850, 20, 0, 2 * Math.PI * 2, "red");
+        //drawArc(1000, 850, 20, 0, 2 * Math.PI * 2, "red");
+        drawArc(15, 40, 20, 0, 2 * Math.PI * 2, "red");
         // Feet
-        drawRect({ x: 1020, y: 880 }, { x: 3, y: 25 }, "black");
-        drawRect({ x: 1030, y: 880 }, { x: 3, y: 25 }, "black");
+        /*drawRect({ x: 1020, y: 880 }, { x: 3, y: 25 }, "black");
+        drawRect({ x: 1030, y: 880 }, { x: 3, y: 25 }, "black");*/
+        drawRect({ x: 30, y: 72 }, { x: 3, y: 25 }, "black");
+        drawRect({ x: 15, y: 70 }, { x: 3, y: 25 }, "black");
         //crc2.fillRect(1050, 880, 3, 25);
         // Bird Body
-        drawEllipse(1020, 870, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
+        //drawEllipse(1020, 870, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
+        drawEllipse(25, 65, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
         // Eye
-        drawArc(1000, 843, 3, 0, 2 * Math.PI * 2, "black");
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
+        //drawArc(1000, 843, 3, 0, 2 * Math.PI * 2, "black");
+        drawArc(15, 33, 3, 0, 2 * Math.PI * 2, "black");
+        drawTriangle({ x: 0, y: 50 }, { x: -20, y: 40 }, { x: 0, y: 30 }, { x: 0, y: 0 }, "yellow");
         // Mouth
-        crc2.beginPath();
+        /*crc2.beginPath();
         crc2.moveTo(0, 50);
         crc2.lineTo(-20, 40);
         crc2.lineTo(0, 30);
         crc2.fillStyle = "yellow";
         crc2.fill();
-        crc2.closePath();
+        crc2.closePath();*/
         crc2.restore();
     }
 })(L08_Part2 || (L08_Part2 = {}));
