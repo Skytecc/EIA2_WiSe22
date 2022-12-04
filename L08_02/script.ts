@@ -33,6 +33,8 @@ namespace L08_Part2 {
 
         birdHouse();
 
+        drawSnowman({x: 800, y: 750});
+
     }
 
     function drawGradientSnow(): void {
@@ -236,7 +238,7 @@ namespace L08_Part2 {
 
     }
 
-    function birdHouse(_position: Vector): void {
+    function birdHouse(): void {
 
         console.log("birdhouse!");
 
@@ -268,11 +270,29 @@ namespace L08_Part2 {
         crc2.fill();
         crc2.closePath();
 
-
-
-
         crc2.restore();
 
-
     }
+
+    function drawArc(_x: number, _y: number, _radius: number, _startAngle: number, _endAngle: number, _color: string): void {
+        crc2.beginPath();
+        crc2.arc(_x, _y, _radius, _startAngle, _endAngle * Math.PI);
+        crc2.fillStyle = _color;
+        crc2.fill();
+        crc2.closePath();
+    }
+
+    function drawSnowman(_position: Vector): void {
+
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+
+        drawArc(0, -50, 50, 0, 2 * Math.PI * 2, "white");
+
+        drawArc(0, 80, 80, 0, 2 * Math.PI * 2, "white" );
+
+        crc2.restore();
+    }
+
+
 }

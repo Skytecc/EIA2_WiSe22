@@ -16,6 +16,7 @@ var L08_Part2;
         drawMountain({ x: 0, y: horizon }, 150, 250, "grey", "lightgrey");
         drawTrees();
         birdHouse();
+        drawSnowman({ x: 800, y: 750 });
     }
     function drawGradientSnow() {
         crc2.save();
@@ -154,7 +155,7 @@ var L08_Part2;
         }
         crc2.restore();
     }
-    function birdHouse(_position) {
+    function birdHouse() {
         console.log("birdhouse!");
         let x = 410;
         let y = horizon - 50;
@@ -177,6 +178,20 @@ var L08_Part2;
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
+        crc2.restore();
+    }
+    function drawArc(_x, _y, _radius, _startAngle, _endAngle, _color) {
+        crc2.beginPath();
+        crc2.arc(_x, _y, _radius, _startAngle, _endAngle * Math.PI);
+        crc2.fillStyle = _color;
+        crc2.fill();
+        crc2.closePath();
+    }
+    function drawSnowman(_position) {
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+        drawArc(0, -50, 50, 0, 2 * Math.PI * 2, "white");
+        drawArc(0, 80, 80, 0, 2 * Math.PI * 2, "white");
         crc2.restore();
     }
 })(L08_Part2 || (L08_Part2 = {}));
