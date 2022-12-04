@@ -178,6 +178,14 @@ namespace L08_Part2 {
 
     }
 
+    function drawBirds(): void {
+
+        
+
+
+    }
+
+
     function drawTreeBackline(): void {
     }
 
@@ -295,7 +303,17 @@ namespace L08_Part2 {
         crc2.ellipse(_x, _y, _radiusX, _radiusY, _rotation, _startAngle, _endAngle, _counterclockwise);
         crc2.fillStyle = _color;
         crc2.fill();
+        crc2.closePath();
 
+    }
+
+    function drawRect(_position: Vector, _size: Vector, _color: string): void {
+
+        crc2.beginPath();
+        crc2.fillStyle = _color;
+        crc2.fillRect(_position.x, _position.y, _size.x, _size.y);
+        crc2.fill();
+        crc2.closePath();
     }
 
 
@@ -338,12 +356,22 @@ namespace L08_Part2 {
 
         drawArc(1000, 850, 20, 0, 2 * Math.PI * 2, "red");
 
+        // Feet
+
+        drawRect({x: 1020, y: 880}, {x: 3, y: 25}, "black");
+        drawRect({x: 1030, y: 880}, {x: 3, y: 25}, "black");
+
+
+        //crc2.fillRect(1050, 880, 3, 25);
+
+
         // Bird Body
         drawEllipse(1020, 870, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
 
         // Eye
 
         drawArc(1000, 843, 3, 0, 2 * Math.PI * 2, "black");
+
 
         crc2.save();
 
