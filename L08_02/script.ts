@@ -42,7 +42,7 @@ namespace L08_Part2 {
 
         drawSnowman({ x: 800, y: 750 });
 
-        drawGroundBird({ x: 900, y: 750 });
+        drawGroundBird({ x: 985, y: 810 });
 
     }
 
@@ -333,15 +333,33 @@ namespace L08_Part2 {
     function drawGroundBird(_position: Vector): void {
 
         crc2.save();
-        crc2.translate(_position.x, _position.y);
 
         // Bird head
 
-        drawArc(100, 100, 20, 0, 2 * Math.PI * 2, "red");
+        drawArc(1000, 850, 20, 0, 2 * Math.PI * 2, "red");
 
         // Bird Body
-        drawEllipse(120, 120, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
+        drawEllipse(1020, 870, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
 
+        // Eye
+
+        drawArc(1000, 843, 3, 0, 2 * Math.PI * 2, "black");
+
+        crc2.save();
+
+        crc2.translate(_position.x, _position.y);
+
+
+        // Mouth
+        crc2.beginPath();
+        crc2.moveTo(0, 50);
+        crc2.lineTo(-20, 40);
+        crc2.lineTo(0, 30);
+        crc2.fillStyle = "yellow";
+        crc2.fill();
+        crc2.closePath();
+
+        crc2.restore();
     }
 
 
