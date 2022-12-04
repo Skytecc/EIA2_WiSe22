@@ -25,15 +25,9 @@ var L08_Part2;
         drawSnowman({ x: 800, y: 750 });
         drawGroundBird({ x: 985, y: 810 });
         //test({ x: 985, y: 810 });
-        drawBirds({ x: 185, y: 110 });
+        drawBirds();
         //test();
         drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
-    }
-    function test() {
-        crc2.save();
-        let x = Math.round(Math.random() * innerWidth);
-        drawGroundBird({ x: x, y: 810 });
-        crc2.restore();
     }
     function drawGradientSnow() {
         crc2.save();
@@ -126,15 +120,25 @@ var L08_Part2;
         crc2.closePath();
         crc2.restore();
     }
-    function drawBirds(_position) {
+    function drawBirds() {
         let nBirds = 20;
         for (let drawn = 0; drawn <= nBirds; drawn++) {
-            let x = Math.round(Math.random() * innerWidth);
-            let y = horizon;
-            drawGroundBird({ x: x, y: y });
+            //let x: number = Math.round(Math.random() * innerWidth);
+            let x = getRandomInt(850, innerWidth);
+            let y = getRandomInt(horizon, 800);
+            let rgba1 = Math.floor(Math.random() * 255);
+            let rgba2 = Math.floor(Math.random() * 255);
+            let rgba3 = Math.floor(Math.random() * 255);
+            let color1 = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
+            drawGroundBird({ x: x, y: y }, color1);
             crc2.restore();
         }
         crc2.restore();
+    }
+    function getRandomInt(_min, _max) {
+        _min = Math.ceil(_min);
+        _max = Math.floor(_max);
+        return Math.floor(Math.random() * (_max - _min + 1)) + _min;
     }
     function drawTreeBackline() {
     }
@@ -257,12 +261,12 @@ var L08_Part2;
         crc2.stroke();
         crc2.restore();
     }
-    function drawGroundBird(_position) {
+    function drawGroundBird(_position, _color) {
         crc2.save();
         crc2.translate(_position.x, _position.y);
         // Bird head
         //drawArc(1000, 850, 20, 0, 2 * Math.PI * 2, "red");
-        drawArc(15, 40, 20, 0, 2 * Math.PI * 2, "red");
+        drawArc(15, 40, 20, 0, 2 * Math.PI * 2, _color);
         // Feet
         /*drawRect({ x: 1020, y: 880 }, { x: 3, y: 25 }, "black");
         drawRect({ x: 1030, y: 880 }, { x: 3, y: 25 }, "black");*/
@@ -271,7 +275,7 @@ var L08_Part2;
         //crc2.fillRect(1050, 880, 3, 25);
         // Bird Body
         //drawEllipse(1020, 870, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
-        drawEllipse(25, 65, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
+        drawEllipse(25, 65, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, _color);
         // Eye
         //drawArc(1000, 843, 3, 0, 2 * Math.PI * 2, "black");
         drawArc(15, 33, 3, 0, 2 * Math.PI * 2, "black");

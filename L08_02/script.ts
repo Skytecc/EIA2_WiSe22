@@ -42,23 +42,13 @@ namespace L08_Part2 {
 
         drawGroundBird({ x: 985, y: 810 });
         //test({ x: 985, y: 810 });
-        drawBirds({ x: 185, y: 110 });
+        drawBirds();
         //test();
 
 
 
         drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
 
-
-    }
-
-    function test(): void {
-
-        crc2.save();
-        let x: number = Math.round(Math.random() * innerWidth);
-
-        drawGroundBird({ x: x, y: 810 });
-        crc2.restore();
 
     }
 
@@ -194,22 +184,35 @@ namespace L08_Part2 {
 
     }
 
-    function drawBirds(_position: Vector): void {
+    function drawBirds(): void {
 
         let nBirds: number = 20;
 
 
         for (let drawn: number = 0; drawn <= nBirds; drawn++) {
 
-            let x: number = Math.round(Math.random() * innerWidth);
-            let y: number = horizon;
+            //let x: number = Math.round(Math.random() * innerWidth);
+            let x: number = getRandomInt(850, innerWidth);
+            let y: number = getRandomInt(horizon, 800);
 
-            drawGroundBird({ x: x, y: y });
+            let rgba1: number = Math.floor(Math.random() * 255);
+            let rgba2: number = Math.floor(Math.random() * 255);
+            let rgba3: number = Math.floor(Math.random() * 255);
+
+            let color1: string = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
+
+            drawGroundBird({ x: x, y: y }, color1);
 
             crc2.restore();
         }
 
         crc2.restore();
+    }
+
+    function getRandomInt(_min: number, _max: number): number {
+        _min = Math.ceil(_min);
+        _max = Math.floor(_max);
+        return Math.floor(Math.random() * (_max - _min + 1)) + _min;
     }
 
 
@@ -343,7 +346,7 @@ namespace L08_Part2 {
         crc2.closePath();
     }
 
-    function drawTriangle(_moveTo: Vector, _lineTo1: Vector, _lineTo2: Vector, _lineTo3: Vector ,_color: string): void {
+    function drawTriangle(_moveTo: Vector, _lineTo1: Vector, _lineTo2: Vector, _lineTo3: Vector, _color: string): void {
 
         crc2.beginPath();
         crc2.moveTo(_moveTo.x, _moveTo.y);
@@ -388,7 +391,7 @@ namespace L08_Part2 {
         crc2.restore();
     }
 
-    function drawGroundBird(_position: Vector): void {
+    function drawGroundBird(_position: Vector, _color: string): void {
 
         crc2.save();
         crc2.translate(_position.x, _position.y);
@@ -396,7 +399,7 @@ namespace L08_Part2 {
 
         // Bird head
         //drawArc(1000, 850, 20, 0, 2 * Math.PI * 2, "red");
-        drawArc(15, 40, 20, 0, 2 * Math.PI * 2, "red");
+        drawArc(15, 40, 20, 0, 2 * Math.PI * 2, _color);
 
 
 
@@ -413,7 +416,7 @@ namespace L08_Part2 {
 
         // Bird Body
         //drawEllipse(1020, 870, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
-        drawEllipse(25, 65, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
+        drawEllipse(25, 65, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, _color);
 
 
         // Eye
@@ -422,11 +425,7 @@ namespace L08_Part2 {
         drawArc(15, 33, 3, 0, 2 * Math.PI * 2, "black");
 
 
-
-
-
-        drawTriangle({ x: 0, y: 50 }, { x: -20, y: 40 }, { x: 0, y: 30 }, {x: 0, y: 0}, "yellow");
-
+        drawTriangle({ x: 0, y: 50 }, { x: -20, y: 40 }, { x: 0, y: 30 }, { x: 0, y: 0 }, "yellow");
 
 
         // Mouth
