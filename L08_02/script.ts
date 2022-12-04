@@ -119,6 +119,7 @@ namespace L08_Part2 {
 
             let x: number = Math.round(Math.random() * innerWidth);
             let y: number = horizon;
+            //console.log(x, y);
 
             drawTree({ x: x, y: y });
 
@@ -129,6 +130,8 @@ namespace L08_Part2 {
     }
 
     function drawTree(_position: Vector): void {
+
+        console.log(_position.y + 30);
 
         crc2.beginPath();
         crc2.fillStyle = "rgb(107, 57, 9)";
@@ -160,6 +163,9 @@ namespace L08_Part2 {
 
         crc2.restore();
 
+    }
+
+    function drawTreeBackline(): void {
     }
 
     function drawCloud(_position: Vector, _size: Vector): void {
@@ -202,6 +208,16 @@ namespace L08_Part2 {
         let radiusParticle: number = 50;
 
         let particle: Path2D = new Path2D();
+        let gradientCloud: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
+
+        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
+        gradientCloud.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
+        gradientCloud.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
+
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+
+        crc2.fillStyle = gradientCloud;
 
 
 

@@ -73,12 +73,14 @@ var L08_Part2;
             crc2.save();
             let x = Math.round(Math.random() * innerWidth);
             let y = horizon;
+            //console.log(x, y);
             drawTree({ x: x, y: y });
             crc2.restore();
         }
         crc2.restore();
     }
     function drawTree(_position) {
+        console.log(_position.y + 30);
         crc2.beginPath();
         crc2.fillStyle = "rgb(107, 57, 9)";
         //crc2.fill();
@@ -104,6 +106,8 @@ var L08_Part2;
         crc2.stroke();
         crc2.closePath();
         crc2.restore();
+    }
+    function drawTreeBackline() {
     }
     function drawCloud(_position, _size) {
         console.log("cloud", _position, _size);
@@ -133,6 +137,13 @@ var L08_Part2;
         let numberParticle = 30;
         let radiusParticle = 50;
         let particle = new Path2D();
+        let gradientCloud = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
+        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
+        gradientCloud.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
+        gradientCloud.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+        crc2.fillStyle = gradientCloud;
     }
     function birdHouse() {
         console.log("birdhouse!");
