@@ -1,4 +1,11 @@
 "use strict";
+/*
+Aufgabe: <L08.2_Vogelhaus>
+Name: <Cindy Nguyen>
+Matrikel: <271131>
+Datum: <>
+Quellen: <Stackoverflow, W3schools, developer.mozilla.org>
+*/
 var L08_Part2;
 (function (L08_Part2) {
     let canvas = document.querySelector("#canvasArt");
@@ -17,6 +24,7 @@ var L08_Part2;
         drawTrees();
         birdHouse();
         drawSnowman({ x: 800, y: 750 });
+        drawGroundBird({ x: 900, y: 750 });
     }
     function drawGradientSnow() {
         crc2.save();
@@ -199,11 +207,20 @@ var L08_Part2;
         drawArc(20, -60, 5, 0, 2 * Math.PI * 2, "black");
         //Mouth
         crc2.beginPath();
+        crc2.lineWidth = 3;
         crc2.moveTo(20, -30);
         crc2.lineTo(-20, -30);
         crc2.strokeStyle = "black";
         crc2.stroke();
         crc2.restore();
+    }
+    function drawGroundBird(_position) {
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+        // Bird head
+        drawArc(100, 100, 20, 0, 2 * Math.PI * 2, "red");
+        // Bird Body
+        drawArc(80, 80, 20, 0, 2 * Math.PI * 2, "red");
     }
 })(L08_Part2 || (L08_Part2 = {}));
 //# sourceMappingURL=script.js.map

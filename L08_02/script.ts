@@ -1,3 +1,10 @@
+/*
+Aufgabe: <L08.2_Vogelhaus>
+Name: <Cindy Nguyen>
+Matrikel: <271131>
+Datum: <>
+Quellen: <Stackoverflow, W3schools, developer.mozilla.org>
+*/
 namespace L08_Part2 {
     let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("#canvasArt");
     let crc2: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext("2d");
@@ -34,6 +41,8 @@ namespace L08_Part2 {
         birdHouse();
 
         drawSnowman({x: 800, y: 750});
+
+        drawGroundBird({x: 900, y: 750});
 
     }
 
@@ -301,6 +310,7 @@ namespace L08_Part2 {
         //Mouth
 
         crc2.beginPath();
+        crc2.lineWidth = 3;
         crc2.moveTo(20, -30);
         crc2.lineTo(-20, -30);
         crc2.strokeStyle = "black";
@@ -308,6 +318,20 @@ namespace L08_Part2 {
 
 
         crc2.restore();
+    }
+
+    function drawGroundBird(_position: Vector): void {
+
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+
+        // Bird head
+
+        drawArc(100, 100, 20, 0, 2 * Math.PI * 2, "red");
+
+        // Bird Body
+        drawArc(80, 80, 20, 0, 2 * Math.PI * 2, "red");
+
     }
 
 
