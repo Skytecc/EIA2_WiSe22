@@ -192,7 +192,7 @@ namespace L08_Part2 {
         for (let drawn: number = 0; drawn <= nBirds; drawn++) {
 
             //let x: number = Math.round(Math.random() * innerWidth);
-            let x: number = getRandomInt(850, innerWidth);
+            let x: number = getRandomInt(900, innerWidth);
             let y: number = getRandomInt(horizon, 800);
 
             let rgba1: number = Math.floor(Math.random() * 255);

@@ -124,7 +124,7 @@ var L08_Part2;
         let nBirds = 20;
         for (let drawn = 0; drawn <= nBirds; drawn++) {
             //let x: number = Math.round(Math.random() * innerWidth);
-            let x = getRandomInt(850, innerWidth);
+            let x = getRandomInt(900, innerWidth);
             let y = getRandomInt(horizon, 800);
             let rgba1 = Math.floor(Math.random() * 255);
             let rgba2 = Math.floor(Math.random() * 255);
