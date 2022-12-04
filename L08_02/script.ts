@@ -186,10 +186,11 @@ namespace L08_Part2 {
 
     function drawBirds(): void {
 
-        let nBirds: number = 20;
+        let nBirdsOut: number = 20;
+        let nBirdHousing: number = 1;
 
 
-        for (let drawn: number = 0; drawn <= nBirds; drawn++) {
+        for (let drawn: number = 0; drawn <= nBirdsOut; drawn++) {
 
             //let x: number = Math.round(Math.random() * innerWidth);
             let x: number = getRandomInt(900, innerWidth);
@@ -202,6 +203,22 @@ namespace L08_Part2 {
             let color1: string = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
 
             drawGroundBird({ x: x, y: y }, color1);
+
+            crc2.restore();
+        }
+
+        for (let drawn: number = 0; drawn <= nBirdHousing; drawn++ ) {
+
+            let x: number = getRandomInt(500, 450);
+            let y: number = getRandomInt(650, 660);
+
+            let rgba1: number = Math.floor(Math.random() * 255);
+            let rgba2: number = Math.floor(Math.random() * 255);
+            let rgba3: number = Math.floor(Math.random() * 255);
+
+            let color1: string = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
+
+            drawGroundBird({ x: x, y: y }, color1);            
 
             crc2.restore();
         }
@@ -426,6 +443,7 @@ namespace L08_Part2 {
 
 
         drawTriangle({ x: 0, y: 50 }, { x: -20, y: 40 }, { x: 0, y: 30 }, { x: 0, y: 0 }, "yellow");
+
 
 
         // Mouth
