@@ -190,8 +190,19 @@ var L08_Part2;
     function drawSnowman(_position) {
         crc2.save();
         crc2.translate(_position.x, _position.y);
+        //Head
         drawArc(0, -50, 50, 0, 2 * Math.PI * 2, "white");
+        //Body
         drawArc(0, 80, 80, 0, 2 * Math.PI * 2, "white");
+        // Eyes
+        drawArc(-20, -60, 5, 0, 2 * Math.PI * 2, "black");
+        drawArc(20, -60, 5, 0, 2 * Math.PI * 2, "black");
+        //Mouth
+        crc2.beginPath();
+        crc2.moveTo(20, -30);
+        crc2.lineTo(-20, -30);
+        crc2.strokeStyle = "black";
+        crc2.stroke();
         crc2.restore();
     }
 })(L08_Part2 || (L08_Part2 = {}));
