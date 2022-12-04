@@ -12,6 +12,7 @@ var L08_Part2;
         drawGradientSnow();
         drawSun({ x: 100, y: 90 });
         drawCloud({ x: 1300, y: 130 }, { x: 250, y: 75 });
+        drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
         drawMountain({ x: 0, y: horizon }, 150, 250, "grey", "lightgrey");
         drawTrees();
         birdHouse();
@@ -133,21 +134,29 @@ var L08_Part2;
     }
     function drawSnowflakes(_position, _size) {
         console.log("snowflakes");
-        crc2.save();
-        let numberParticle = 30;
+        let numberParticles = 100;
         let radiusParticle = 50;
         let particle = new Path2D();
-        let gradientCloud = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
+        let gradientSnow = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
         particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
-        gradientCloud.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
-        gradientCloud.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
+        gradientSnow.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
+        gradientSnow.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
         crc2.save();
         crc2.translate(_position.x, _position.y);
-        crc2.fillStyle = gradientCloud;
+        crc2.fillStyle = gradientSnow;
+        for (let i = 0; i < numberParticles; i++) {
+            crc2.save();
+            let x = (Math.random() - 0.5) * _position.x;
+            let y = -(Math.random() * horizon);
+            crc2.translate(x, y);
+            crc2.fill(particle);
+            crc2.restore();
+        }
+        crc2.restore();
     }
-    function birdHouse() {
+    function birdHouse(_position) {
         console.log("birdhouse!");
-        let x = Math.round(Math.random() * innerWidth);
+        let x = 420;
         let y = horizon;
         crc2.save();
         crc2.beginPath();
@@ -155,7 +164,17 @@ var L08_Part2;
         crc2.fillRect(500, 750, 20, 150);
         crc2.closePath();
         crc2.beginPath();
+        crc2.fillStyle = "rgb(107, 57, 9)";
         crc2.fillRect(420, 650, 175, 120);
+        crc2.closePath();
+        crc2.translate(x, y);
+        crc2.beginPath();
+        crc2.moveTo(0, 80);
+        crc2.lineTo(80, 0);
+        crc2.lineTo(180, 80);
+        crc2.lineTo(0, 80);
+        crc2.stroke();
+        crc2.closePath();
         crc2.restore();
     }
 })(L08_Part2 || (L08_Part2 = {}));

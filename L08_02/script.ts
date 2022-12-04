@@ -25,6 +25,8 @@ namespace L08_Part2 {
 
         drawCloud({ x: 1300, y: 130 }, { x: 250, y: 75 });
 
+        drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
+
         drawMountain({ x: 0, y: horizon }, 150, 250, "grey", "lightgrey");
 
         drawTrees();
@@ -138,7 +140,7 @@ namespace L08_Part2 {
         //crc2.fill();
         crc2.rect(_position.x + 35, _position.y + 30, 30, 50);
         crc2.strokeStyle = "HSLA(0, 0%, 0%, 0.6";
-        crc2.fillRect(_position.x + 35 , _position.y + 30, 30, 50);
+        crc2.fillRect(_position.x + 35, _position.y + 30, 30, 50);
         crc2.stroke();
         crc2.closePath();
 
@@ -203,31 +205,42 @@ namespace L08_Part2 {
     function drawSnowflakes(_position: Vector, _size: Vector): void {
         console.log("snowflakes");
 
-        crc2.save();
-        let numberParticle: number = 30;
+        let numberParticles: number = 100;
         let radiusParticle: number = 50;
 
         let particle: Path2D = new Path2D();
-        let gradientCloud: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
+        let gradientSnow: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
 
         particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
-        gradientCloud.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
-        gradientCloud.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
+        gradientSnow.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
+        gradientSnow.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
 
         crc2.save();
         crc2.translate(_position.x, _position.y);
 
-        crc2.fillStyle = gradientCloud;
+        crc2.fillStyle = gradientSnow;
+
+        
+        for (let i: number = 0; i < numberParticles; i++) {
+            crc2.save();
+            let x: number = (Math.random() - 0.5) * _position.x;
+            let y: number = - (Math.random() * horizon);
+            crc2.translate(x, y);
+            crc2.fill(particle);
+            crc2.restore();
+        }
+
+        crc2.restore();
 
 
 
     }
 
-    function birdHouse (): void {
+    function birdHouse(_position: Vector): void {
 
         console.log("birdhouse!");
 
-        let x: number = Math.round(Math.random() * innerWidth);
+        let x: number = 420;
         let y: number = horizon;
 
         crc2.save();
@@ -238,7 +251,22 @@ namespace L08_Part2 {
         crc2.closePath();
 
         crc2.beginPath();
+        crc2.fillStyle = "rgb(107, 57, 9)";
         crc2.fillRect(420, 650, 175, 120);
+        crc2.closePath();
+
+        crc2.translate(x, y);
+
+
+        crc2.beginPath();
+        crc2.moveTo(0, 80);
+        crc2.lineTo(80, 0);
+        crc2.lineTo(180, 80);
+        crc2.lineTo(0, 80);
+        crc2.stroke();
+        crc2.closePath();
+
+
 
 
         crc2.restore();
