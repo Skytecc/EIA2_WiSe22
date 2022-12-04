@@ -194,6 +194,19 @@ namespace L08_Part2 {
 
     }
 
+    function drawSnowflakes(_position: Vector, _size: Vector): void {
+        console.log("snowflakes");
+
+        crc2.save();
+        let numberParticle: number = 30;
+        let radiusParticle: number = 50;
+
+        let particle: Path2D = new Path2D();
+
+
+
+    }
+
     function birdHouse (): void {
 
         console.log("birdhouse!");
@@ -209,7 +222,7 @@ namespace L08_Part2 {
         crc2.closePath();
 
         crc2.beginPath();
-        crc2.fillRect(432, 650, 150, 120);
+        crc2.fillRect(420, 650, 175, 120);
 
 
         crc2.restore();

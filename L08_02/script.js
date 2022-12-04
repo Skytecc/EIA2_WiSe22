@@ -127,6 +127,13 @@ var L08_Part2;
         }
         crc2.restore();
     }
+    function drawSnowflakes(_position, _size) {
+        console.log("snowflakes");
+        crc2.save();
+        let numberParticle = 30;
+        let radiusParticle = 50;
+        let particle = new Path2D();
+    }
     function birdHouse() {
         console.log("birdhouse!");
         let x = Math.round(Math.random() * innerWidth);
@@ -137,7 +144,7 @@ var L08_Part2;
         crc2.fillRect(500, 750, 20, 150);
         crc2.closePath();
         crc2.beginPath();
-        crc2.fillRect(432, 650, 150, 120);
+        crc2.fillRect(420, 650, 175, 120);
         crc2.restore();
     }
 })(L08_Part2 || (L08_Part2 = {}));
