@@ -240,8 +240,8 @@ namespace L08_Part2 {
 
         console.log("birdhouse!");
 
-        let x: number = 420;
-        let y: number = horizon;
+        let x: number = 410;
+        let y: number = horizon - 50;
 
         crc2.save();
 
@@ -259,11 +259,13 @@ namespace L08_Part2 {
 
 
         crc2.beginPath();
-        crc2.moveTo(0, 80);
-        crc2.lineTo(80, 0);
-        crc2.lineTo(180, 80);
-        crc2.lineTo(0, 80);
+        crc2.moveTo(0, 100);
+        crc2.lineTo(100, 0);
+        crc2.lineTo(200, 100);
+        crc2.lineTo(0, 100);
+        crc2.fillStyle = "rgb(76, 40, 6)";
         crc2.stroke();
+        crc2.fill();
         crc2.closePath();
 
 
