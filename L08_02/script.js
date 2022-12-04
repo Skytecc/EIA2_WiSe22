@@ -195,6 +195,12 @@ var L08_Part2;
         crc2.fill();
         crc2.closePath();
     }
+    function drawEllipse(_x, _y, _radiusX, _radiusY, _rotation, _startAngle, _endAngle, _counterclockwise, _color) {
+        crc2.beginPath();
+        crc2.ellipse(_x, _y, _radiusX, _radiusY, _rotation, _startAngle, _endAngle, _counterclockwise);
+        crc2.fillStyle = _color;
+        crc2.fill();
+    }
     function drawSnowman(_position) {
         crc2.save();
         crc2.translate(_position.x, _position.y);
@@ -220,7 +226,7 @@ var L08_Part2;
         // Bird head
         drawArc(100, 100, 20, 0, 2 * Math.PI * 2, "red");
         // Bird Body
-        drawArc(80, 80, 20, 0, 2 * Math.PI * 2, "red");
+        drawEllipse(120, 120, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
     }
 })(L08_Part2 || (L08_Part2 = {}));
 //# sourceMappingURL=script.js.map

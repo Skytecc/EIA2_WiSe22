@@ -40,9 +40,9 @@ namespace L08_Part2 {
 
         birdHouse();
 
-        drawSnowman({x: 800, y: 750});
+        drawSnowman({ x: 800, y: 750 });
 
-        drawGroundBird({x: 900, y: 750});
+        drawGroundBird({ x: 900, y: 750 });
 
     }
 
@@ -231,7 +231,7 @@ namespace L08_Part2 {
 
         crc2.fillStyle = gradientSnow;
 
-        
+
         for (let i: number = 0; i < numberParticles; i++) {
             crc2.save();
             let x: number = (Math.random() - 0.5) * _position.x;
@@ -289,6 +289,16 @@ namespace L08_Part2 {
         crc2.closePath();
     }
 
+    function drawEllipse(_x: number, _y: number, _radiusX: number, _radiusY: number, _rotation: number, _startAngle: number, _endAngle: number, _counterclockwise: boolean, _color: string): void {
+
+        crc2.beginPath();
+        crc2.ellipse(_x, _y, _radiusX, _radiusY, _rotation, _startAngle, _endAngle, _counterclockwise);
+        crc2.fillStyle = _color;
+        crc2.fill();
+
+    }
+
+
     function drawSnowman(_position: Vector): void {
 
         crc2.save();
@@ -300,7 +310,7 @@ namespace L08_Part2 {
 
         //Body
 
-        drawArc(0, 80, 80, 0, 2 * Math.PI * 2, "white" );
+        drawArc(0, 80, 80, 0, 2 * Math.PI * 2, "white");
 
         // Eyes
 
@@ -330,7 +340,7 @@ namespace L08_Part2 {
         drawArc(100, 100, 20, 0, 2 * Math.PI * 2, "red");
 
         // Bird Body
-        drawArc(80, 80, 20, 0, 2 * Math.PI * 2, "red");
+        drawEllipse(120, 120, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
 
     }
 
