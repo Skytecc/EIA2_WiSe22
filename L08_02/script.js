@@ -23,7 +23,7 @@ var L08_Part2;
         drawTrees();
         birdHouse();
         drawSnowman({ x: 800, y: 750 });
-        drawGroundBird({ x: 985, y: 810 });
+        drawGroundBird({ x: 985, y: 810 }, "black");
         //test({ x: 985, y: 810 });
         drawBirds();
         //test();
