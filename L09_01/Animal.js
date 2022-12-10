@@ -14,10 +14,17 @@ var L09_Oldfarm;
             this.amount = _amount;
             this.sounds = _sounds;
         }
-        sing() {
-            let output = document.getElementById("output");
+        sing(_index) {
+            let text = document.getElementById("text");
+            let newText = document.createElement("div");
+            newText.id = "div" + _index;
+            _index++;
+            newText.innerHTML = "OldMac Donald had a farm" + "<br>" + "Ee i ee i o" + "<br>" + "And on his farm he had some" + this.species + "<br>" +
+                "with a " + this.sounds + "-" + this.sounds + "<br>" + "and a " + this.sounds + "-" + this.sounds + "there" + "<br>" +
+                "Here a " + this.sounds + "there a" + this.sounds + "Everywhere a " + this.sounds + "-" + this.sounds;
+            text.appendChild(newText);
         }
     }
     L09_Oldfarm.Animal = Animal;
 })(L09_Oldfarm || (L09_Oldfarm = {}));
-//# sourceMappingURL=Animal.js.map
+//# sourceMappingURL=animal.js.map

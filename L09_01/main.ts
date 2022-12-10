@@ -9,35 +9,31 @@ namespace L09_Oldfarm {
 
     window.addEventListener("load", handleLoad);
 
-    let divtest: HTMLElement = <HTMLElement> document.getElementById("test");
+    let index: number = 0;
 
-/*     let food: Foodstock[] = [
-        new Food("Hay", 100)
-    ];
-    let animals: Animal[] = [
-        new Animal("cow", "Paula", food[0], 20, "mooh")
-    ]; */
+    let animal: Animal[] = [];
 
     function handleLoad(): void { 
 
-        //let hayForCow: Foodstock = new Foodstock("Hay", 100);
-        //let cow: Animal = new Animal("cow", "Paula", hayForCow, 20, "mooh");
+        showAnimalText();
+        console.log("test");
 
-        let food: Foodstock[] = [
-            new Foodstock("hay", 100),
-            new Foodstock("grains", 80),
-            new Foodstock("dog food", 50),
-            new Foodstock("wheat", 60)
+       
+    }
 
-        ];
+    function showAnimalText(): void {
 
-        let animals: Animal[] = [
-            new Animal("cow", "Paula", food[0], 3, "mooh"),
-            new Animal("chicken", "Carlos", food[1], 4, "cock-cockadu")
-        ];
+        let cow: Animal = new Animal("cow", "Paula", "grass", 10, "muh");
+        animal.push(cow);
 
-        animals[0].sing(divtest);
-        
+        let test: HTMLElement = document.createElement("div");
+        let text: HTMLElement = <HTMLElement> document.getElementById("text");
+
+        text.innerHTML = cow.name;
+        //text.appendChild(test);
+
+
+
     }
 
    

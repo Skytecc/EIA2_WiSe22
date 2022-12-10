@@ -9,27 +9,19 @@ Quellen: <W3schools>
 var L09_Oldfarm;
 (function (L09_Oldfarm) {
     window.addEventListener("load", handleLoad);
-    let divtest = document.getElementById("test");
-    /*     let food: Foodstock[] = [
-            new Food("Hay", 100)
-        ];
-        let animals: Animal[] = [
-            new Animal("cow", "Paula", food[0], 20, "mooh")
-        ]; */
+    let index = 0;
+    let animal = [];
     function handleLoad() {
-        //let hayForCow: Foodstock = new Foodstock("Hay", 100);
-        //let cow: Animal = new Animal("cow", "Paula", hayForCow, 20, "mooh");
-        let food = [
-            new L09_Oldfarm.Foodstock("hay", 100),
-            new L09_Oldfarm.Foodstock("grains", 80),
-            new L09_Oldfarm.Foodstock("dog food", 50),
-            new L09_Oldfarm.Foodstock("wheat", 60)
-        ];
-        let animals = [
-            new L09_Oldfarm.Animal("cow", "Paula", food[0], 3, "mooh"),
-            new L09_Oldfarm.Animal("chicken", "Carlos", food[1], 4, "cock-cockadu")
-        ];
-        animals[0].sing(divtest);
+        showAnimalText();
+        console.log("test");
+    }
+    function showAnimalText() {
+        let cow = new L09_Oldfarm.Animal("cow", "Paula", "grass", 10, "muh");
+        animal.push(cow);
+        let test = document.createElement("div");
+        let text = document.getElementById("text");
+        text.innerHTML = cow.name;
+        //text.appendChild(test);
     }
 })(L09_Oldfarm || (L09_Oldfarm = {}));
 //# sourceMappingURL=main.js.map
