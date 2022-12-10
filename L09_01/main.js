@@ -9,6 +9,7 @@ Quellen: <W3schools>
 var L09_Oldfarm;
 (function (L09_Oldfarm) {
     window.addEventListener("load", handleLoad);
+    let divtest = document.getElementById("test");
     /*     let food: Foodstock[] = [
             new Food("Hay", 100)
         ];
@@ -26,9 +27,9 @@ var L09_Oldfarm;
         ];
         let animals = [
             new L09_Oldfarm.Animal("cow", "Paula", food[0], 3, "mooh"),
-            new L09_Oldfarm.Animal("chicken", "Carlos", food[1], 4, "cock-cockadu"),
+            new L09_Oldfarm.Animal("chicken", "Carlos", food[1], 4, "cock-cockadu")
         ];
-        console.log(animals[0]);
+        animals[0].sing(divtest);
     }
 })(L09_Oldfarm || (L09_Oldfarm = {}));
 //# sourceMappingURL=main.js.map

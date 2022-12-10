@@ -9,6 +9,8 @@ namespace L09_Oldfarm {
 
     window.addEventListener("load", handleLoad);
 
+    let divtest: HTMLElement = <HTMLElement> document.getElementById("test");
+
 /*     let food: Foodstock[] = [
         new Food("Hay", 100)
     ];
@@ -31,11 +33,11 @@ namespace L09_Oldfarm {
 
         let animals: Animal[] = [
             new Animal("cow", "Paula", food[0], 3, "mooh"),
-            new Animal("chicken", "Carlos", food[1], 4, "cock-cockadu"),
-
+            new Animal("chicken", "Carlos", food[1], 4, "cock-cockadu")
         ];
 
-        console.log(animals[0]);
+        animals[0].sing(divtest);
+        
     }
 
    
