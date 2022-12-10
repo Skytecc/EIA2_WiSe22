@@ -1,5 +1,5 @@
 "use strict";
-class Food {
+class Foodstock {
     type;
     amount;
     constructor(_type, _amount) {

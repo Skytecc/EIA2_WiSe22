@@ -1,1 +1,1 @@
-{"version":3,"file":"Foodstock.js","sourceRoot":"","sources":["Foodstock.ts"],"names":[],"mappings":";AAAA,MAAM,IAAI;IACN,IAAI,CAAS;IACb,MAAM,CAAS;IAEf,YAAY,KAAa,EAAE,OAAe;QACtC,IAAI,CAAC,IAAI,GAAG,KAAK,CAAC;QAClB,IAAI,CAAC,MAAM,GAAG,OAAO,CAAC;IAC1B,CAAC;CACJ"}
+{"version":3,"file":"Foodstock.js","sourceRoot":"","sources":["Foodstock.ts"],"names":[],"mappings":";AAAA,MAAM,SAAS;IACX,IAAI,CAAS;IACb,MAAM,CAAS;IAEf,YAAY,KAAa,EAAE,OAAe;QACtC,IAAI,CAAC,IAAI,GAAG,KAAK,CAAC;QAClB,IAAI,CAAC,MAAM,GAAG,OAAO,CAAC;IAC1B,CAAC;CACJ"}

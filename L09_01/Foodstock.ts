@@ -1,4 +1,4 @@
-class Food {
+class Foodstock {
     type: string;
     amount: number;
 

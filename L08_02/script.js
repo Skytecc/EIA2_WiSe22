@@ -151,8 +151,6 @@ var L08_Part2;
         _max = Math.floor(_max);
         return Math.floor(Math.random() * (_max - _min + 1)) + _min;
     }
-    function drawTreeBackline() {
-    }
     function drawCloud(_position, _size) {
         console.log("cloud", _position, _size);
         let numberParticles = 30;

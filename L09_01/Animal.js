@@ -1,13 +1,13 @@
 "use strict";
 class Animal {
-    name;
     species;
+    name;
     food;
     amount;
     sounds;
-    constructor(_name, _species, _food, _amount, number, _sounds) {
-        this.name = _name;
+    constructor(_species, _name, _food, _amount, _sounds) {
         this.species = _species;
+        this.name = _name;
         this.food = _food;
         this.amount = _amount;
         this.sounds = _sounds;

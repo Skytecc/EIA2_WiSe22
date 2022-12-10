@@ -232,10 +232,6 @@ namespace L08_Part2 {
         return Math.floor(Math.random() * (_max - _min + 1)) + _min;
     }
 
-
-    function drawTreeBackline(): void {
-    }
-
     function drawCloud(_position: Vector, _size: Vector): void {
 
         console.log("cloud", _position, _size);
