@@ -24,7 +24,7 @@ namespace L09_Oldfarm {
 
             newText.innerHTML = "OldMac Donald had a farm" + "<br>" + "Ee i ee i o" + "<br>" + "And on his farm he had some" + this.species + "<br>" +
                 "with a " + this.sounds + "-" + this.sounds + "<br>" + "and a " + this.sounds + "-" + this.sounds + "there" + "<br>" +
-                "Here a " + this.sounds + "there a" + this.sounds + "Everywhere a " + this.sounds + "-" + this.sounds + 
+                "Here a " + this.sounds + "there a " + this.sounds + " Everywhere a " + this.sounds + "-" + this.sounds + 
                 "<br>" + "";
 
             text.appendChild(newText);
