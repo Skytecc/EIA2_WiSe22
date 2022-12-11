@@ -15,12 +15,12 @@ var L09_Oldfarm_Mcdonald;
             this.sounds = _sounds;
         }
         sing(_index) {
-            let text = document.getElementById("text");
+            //let text: HTMLDivElement = <HTMLDivElement>document.getElementById("text");
             let newDiv = document.createElement("div");
             newDiv.id = "div" + _index;
             _index++;
             newDiv.innerHTML = "OldMac Donald had a farm" + "<br>" + "Ee i ee i o" + "<br>" + "And on his farm he had some" + this.species + "<br>" +
-                "with a " + this.sounds + "-" + this.sounds + "<br>" + "and a " + this.sounds + "-" + this.sounds + "there" + "<br>" +
+                "with a " + this.sounds + "-" + this.sounds + "<br>" + "and a " + this.sounds + "-" + this.sounds + " there" + "<br>" +
                 "Here a " + this.sounds + "there a" + this.sounds + "Everywhere a " + this.sounds + "-" + this.sounds;
         }
     }
