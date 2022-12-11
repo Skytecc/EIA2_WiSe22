@@ -3,7 +3,7 @@ Aufgabe: <L09_01_>
 Name: <Cindy Nguyen>
 Matrikel: <271131>
 Datum: <>
-Quellen: <W3schools>
+Quellen: <W3schools, Praktika++>
 */
 namespace L09_Oldfarm {
 
@@ -11,29 +11,28 @@ namespace L09_Oldfarm {
 
     let index: number = 0;
 
-    let animal: Animal[] = [];
+    let foodstock: Foodstock[] = [
+        new Foodstock("grass", 80),
+        new Foodstock("grain", 90),
+        new Foodstock("bones", 10000),
+        new Foodstock("hay", 60),
+        new Foodstock("fish", 80)
+    ]
+
+    let animals: Animal[] = [
+        new Animal("cow", "Dana", foodstock[0], 5, "muh"),
+        new Animal("chicken", "Chika", foodstock[1], 5, "coock-coocka"),
+        new Animal("dog", "Fluffy", foodstock[2], 10, "woof"),
+        new Animal("horse", "Carl", foodstock[3], 15, "hüha"),
+        new Animal("cat", "Kuro", foodstock[4], 5, "miau")
+    ];
 
     function handleLoad(): void { 
 
-        showAnimalText();
-        console.log("test");
-
-       
-    }
-
-    function showAnimalText(): void {
-
-        let cow: Animal = new Animal("cow", "Paula", "grass", 10, "muh");
-        animal.push(cow);
-
-        let test: HTMLElement = document.createElement("div");
-        let text: HTMLElement = <HTMLElement> document.getElementById("text");
-
-        text.innerHTML = cow.name;
-        //text.appendChild(test);
-
-
-
+        for (let animal of animals) {
+            animal.sing(index);
+        }
+ 
     }
 
    
