@@ -8,6 +8,14 @@ var L09_Oldfarm;
             this.type = _type;
             this.amount = _amount;
         }
+        showfood(_index) {
+            let text = document.getElementById("foodAmount");
+            let newText = document.createElement("div");
+            newText.id = "divFood" + _index;
+            _index++;
+            newText.innerHTML = this.type + ": " + this.amount;
+            text.appendChild(newText);
+        }
     }
     L09_Oldfarm.Foodstock = Foodstock;
 })(L09_Oldfarm || (L09_Oldfarm = {}));

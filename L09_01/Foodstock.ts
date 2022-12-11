@@ -9,5 +9,17 @@ namespace L09_Oldfarm {
             this.amount = _amount;
         }
 
+        showfood(_index: number): void {
+            let text: HTMLDivElement = <HTMLDivElement>document.getElementById("foodAmount");
+            let newText: HTMLDivElement = document.createElement("div");
+
+            newText.id = "divFood" + _index;
+            _index++;
+
+            newText.innerHTML = this.type + ": " + this.amount;
+
+            text.appendChild(newText);
+        }
+
     }
 }

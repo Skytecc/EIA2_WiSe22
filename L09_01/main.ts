@@ -32,6 +32,10 @@ namespace L09_Oldfarm {
         for (let animal of animals) {
             animal.sing(index);
         }
+
+        for (let foodstack of foodstock) {
+            foodstack.showfood(index);
+        }
  
     }
 

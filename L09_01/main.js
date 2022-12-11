@@ -28,6 +28,9 @@ var L09_Oldfarm;
         for (let animal of animals) {
             animal.sing(index);
         }
+        for (let foodstack of foodstock) {
+            foodstack.showfood(index);
+        }
     }
 })(L09_Oldfarm || (L09_Oldfarm = {}));
 //# sourceMappingURL=main.js.map
