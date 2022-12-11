@@ -17,7 +17,7 @@ namespace L09_Oldfarm {
         new Foodstock("bones", 10000),
         new Foodstock("hay", 60),
         new Foodstock("fish", 80)
-    ]
+    ];
 
     let animals: Animal[] = [
         new Animal("cow", "Dana", foodstock[0], 5, "muh"),
