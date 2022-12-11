@@ -27,6 +27,7 @@ var L09_Oldfarm;
     function handleLoad() {
         for (let animal of animals) {
             animal.sing(index);
+            animal.eat();
         }
         for (let foodstack of foodstock) {
             foodstack.showfood(index);

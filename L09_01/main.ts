@@ -31,6 +31,7 @@ namespace L09_Oldfarm {
 
         for (let animal of animals) {
             animal.sing(index);
+            animal.eat();
         }
 
         for (let foodstack of foodstock) {
