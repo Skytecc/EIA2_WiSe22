@@ -1,5 +1,5 @@
 /*
-Aufgabe: <L08.2_Vogelhaus>
+Aufgabe: <L09.2_Vogelhaus>
 Name: <Cindy Nguyen>
 Matrikel: <271131>
 Datum: <>
@@ -18,7 +18,7 @@ namespace L09_Part2 {
 
     let getImageData: ImageData;
 
-    let snowflakes: Snowflakes[] = [];
+    let snowflakesArray: Snowflakes[] = [];
 
 
     export interface Vector {
@@ -53,6 +53,44 @@ namespace L09_Part2 {
         //test();
         //drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
 
+        drawSnowflake02(20);
+
+        /* for (let snowflake of snowflakesArray) {
+
+            let particle: Path2D = new Path2D();
+
+            let x: number = (Math.random() - 1) * canvas.width;
+            let y: number = - (Math.random() * horizon);
+
+            snowflake.drawSnowflakes(20, horizon, particle, x, y);
+
+        } */
+        //drawSnowflake03();
+
+        generateSnowflake();
+
+        window.setInterval(update, 20);
+
+
+    }
+
+    function update(): void {
+        console.log("Update");
+
+
+
+        let particle: Path2D = new Path2D();
+
+        let x: number = (Math.random() - 1) * canvas.width;
+        let y: number = - (Math.random() * horizon);
+
+        for (let snowflake of snowflakesArray) {
+
+            snowflake.moveSnowflake(10);
+
+            //snowflake.drawSnowflakes(20, horizon, particle, x, y);
+
+        }
 
     }
 
@@ -211,7 +249,7 @@ namespace L09_Part2 {
             crc2.restore();
         }
 
-        for (let drawn: number = 0; drawn <= nBirdHousing; drawn++ ) {
+        for (let drawn: number = 0; drawn <= nBirdHousing; drawn++) {
 
             let x: number = getRandomInt(500, 450);
             let y: number = getRandomInt(650, 660);
@@ -222,7 +260,7 @@ namespace L09_Part2 {
 
             let color1: string = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
 
-            drawGroundBird({ x: x, y: y }, color1);            
+            drawGroundBird({ x: x, y: y }, color1);
 
             crc2.restore();
         }
@@ -268,37 +306,6 @@ namespace L09_Part2 {
 
     }
 
-    function drawSnowflakes(_position: Vector, _size: Vector): void {
-        console.log("snowflakes");
-
-        let numberParticles: number = 100;
-        let radiusParticle: number = 20;
-
-        let particle: Path2D = new Path2D();
-        let gradientSnow: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
-
-        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
-        gradientSnow.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
-        gradientSnow.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
-
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-
-        crc2.fillStyle = gradientSnow;
-
-
-        for (let i: number = 0; i < numberParticles; i++) {
-            crc2.save();
-            let x: number = (Math.random() - 1) * _position.x;
-            let y: number = - (Math.random() * horizon);
-            crc2.translate(x, y);
-            crc2.fill(particle);
-            crc2.restore();
-        }
-
-        crc2.restore();
-
-    }
 
     function birdHouse(): void {
 
@@ -459,22 +466,92 @@ namespace L09_Part2 {
 
     }
 
-    function drawSnowflake(): void {
+    function drawSnowflakes(_position: Vector, _size: Vector): void {
+        console.log("snowflakes");
 
-        for (let i: number = 0; i < 25; i++) {
+        let numberParticles: number = 100;
+        let radiusParticle: number = 20;
 
+        let particle: Path2D = new Path2D();
+        let gradientSnow: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
+
+        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
+        gradientSnow.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
+        gradientSnow.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
+
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+
+        crc2.fillStyle = gradientSnow;
+
+
+        for (let i: number = 0; i < numberParticles; i++) {
+            crc2.save();
             let x: number = (Math.random() - 1) * _position.x;
             let y: number = - (Math.random() * horizon);
+            crc2.translate(x, y);
+            crc2.fill(particle);
+            crc2.restore();
+        }
 
-            let snowflake: Snowflakes = new Snowflakes(_)
-           
+        crc2.restore();
+
+    }
+
+    function drawSnowflake02(_snowflakeNumber: number): void {
+
+        let particle: Path2D = new Path2D();
+
+
+        for (let i: number = 0; i < _snowflakeNumber; i++) {
+
+            let x: number = (Math.random() - 1) * canvas.width;
+            let y: number = - (Math.random() * horizon);
+
+            console.log("X: " + x);
+
+            let snowflake: Snowflakes = new Snowflakes({ x: canvas.width, y: 800 }, { x: 0, y: 0 }, 20, horizon);
+
+            snowflakesArray.push(snowflake);
 
         }
     }
 
-    function moveSnowflake(): void {
+    function generateSnowflake(_numberParticles: number): void {
 
+        for (let snowflake of snowflakesArray) {
+
+            let particle: Path2D = new Path2D();
+
+            let x: number = (Math.random() - 1) * canvas.width;
+            let y: number = - (Math.random() * horizon);
+
+            //snowflake.drawSnowflakes(20, horizon, particle, x, y);
+
+            for (let i: number = 0; i < _numberParticles; i++) {
+                
+                snowflake.drawSnowflakes(20, horizon, particle, x, y);
+
+            }
+
+        }
     }
 
+    
+
+    function moveSnowflake(): void {
+
+        for (let snowflake of snowflakesArray) {
+
+            for (let i: number = 0; i < 100; i++) {
+
+                snowflake.moveSnowflake(0.1);
+            }
+
+        }
+
+
+
+    }
 
 }

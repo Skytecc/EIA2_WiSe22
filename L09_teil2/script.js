@@ -1,6 +1,6 @@
 "use strict";
 /*
-Aufgabe: <L08.2_Vogelhaus>
+Aufgabe: <L09.2_Vogelhaus>
 Name: <Cindy Nguyen>
 Matrikel: <271131>
 Datum: <>
@@ -15,7 +15,7 @@ var L09_Part2;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     let getImageData;
-    let snowflakes = [];
+    let snowflakesArray = [];
     window.addEventListener("load", handleLoad);
     function handleLoad() {
         drawGradientSnow();
@@ -31,6 +31,30 @@ var L09_Part2;
         drawBirds();
         //test();
         //drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
+        drawSnowflake02(20);
+        /* for (let snowflake of snowflakesArray) {
+
+            let particle: Path2D = new Path2D();
+
+            let x: number = (Math.random() - 1) * canvas.width;
+            let y: number = - (Math.random() * horizon);
+
+            snowflake.drawSnowflakes(20, horizon, particle, x, y);
+
+        } */
+        //drawSnowflake03();
+        generateSnowflake();
+        window.setInterval(update, 20);
+    }
+    function update() {
+        console.log("Update");
+        let particle = new Path2D();
+        let x = (Math.random() - 1) * canvas.width;
+        let y = -(Math.random() * horizon);
+        for (let snowflake of snowflakesArray) {
+            snowflake.moveSnowflake(10);
+            //snowflake.drawSnowflakes(20, horizon, particle, x, y);
+        }
     }
     function drawGradientSnow() {
         L09_Part2.crc2.save();
@@ -176,28 +200,6 @@ var L09_Part2;
         }
         L09_Part2.crc2.restore();
     }
-    function drawSnowflakes(_position, _size) {
-        console.log("snowflakes");
-        let numberParticles = 100;
-        let radiusParticle = 20;
-        let particle = new Path2D();
-        let gradientSnow = L09_Part2.crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
-        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
-        gradientSnow.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
-        gradientSnow.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
-        L09_Part2.crc2.save();
-        L09_Part2.crc2.translate(_position.x, _position.y);
-        L09_Part2.crc2.fillStyle = gradientSnow;
-        for (let i = 0; i < numberParticles; i++) {
-            L09_Part2.crc2.save();
-            let x = (Math.random() - 1) * _position.x;
-            let y = -(Math.random() * horizon);
-            L09_Part2.crc2.translate(x, y);
-            L09_Part2.crc2.fill(particle);
-            L09_Part2.crc2.restore();
-        }
-        L09_Part2.crc2.restore();
-    }
     function birdHouse() {
         console.log("birdhouse!");
         let x = 410;
@@ -302,14 +304,55 @@ var L09_Part2;
         crc2.closePath();*/
         L09_Part2.crc2.restore();
     }
-    function drawSnowflake() {
-        for (let i = 0; i < 25; i++) {
+    function drawSnowflakes(_position, _size) {
+        console.log("snowflakes");
+        let numberParticles = 100;
+        let radiusParticle = 20;
+        let particle = new Path2D();
+        let gradientSnow = L09_Part2.crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
+        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
+        gradientSnow.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
+        gradientSnow.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
+        L09_Part2.crc2.save();
+        L09_Part2.crc2.translate(_position.x, _position.y);
+        L09_Part2.crc2.fillStyle = gradientSnow;
+        for (let i = 0; i < numberParticles; i++) {
+            L09_Part2.crc2.save();
             let x = (Math.random() - 1) * _position.x;
             let y = -(Math.random() * horizon);
-            let snowflake = new L09_Part2.Snowflakes(_);
+            L09_Part2.crc2.translate(x, y);
+            L09_Part2.crc2.fill(particle);
+            L09_Part2.crc2.restore();
+        }
+        L09_Part2.crc2.restore();
+    }
+    function drawSnowflake02(_snowflakeNumber) {
+        let particle = new Path2D();
+        for (let i = 0; i < _snowflakeNumber; i++) {
+            let x = (Math.random() - 1) * canvas.width;
+            let y = -(Math.random() * horizon);
+            console.log("X: " + x);
+            let snowflake = new L09_Part2.Snowflakes({ x: canvas.width, y: 800 }, { x: 0, y: 0 }, 20, horizon);
+            snowflakesArray.push(snowflake);
+        }
+    }
+    function generateSnowflake(_numberParticles) {
+        for (let snowflake of snowflakesArray) {
+            let particle = new Path2D();
+            let x = (Math.random() - 1) * canvas.width;
+            let y = -(Math.random() * horizon);
+            //snowflake.drawSnowflakes(20, horizon, particle, x, y);
+            for (let i = 0; i < _numberParticles; i++) {
+                snowflake.drawSnowflakes(20, horizon, particle, x, y);
+            }
         }
     }
     function moveSnowflake() {
+        for (let snowflake of snowflakesArray) {
+            for (let i = 0; i < 100; i++) {
+                snowflake.moveSnowflake(0.1);
+            }
+        }
     }
 })(L09_Part2 || (L09_Part2 = {}));
 //# sourceMappingURL=script.js.map
