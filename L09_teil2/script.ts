@@ -54,7 +54,7 @@ namespace L09_Part2 {
         //test();
         //drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
 
-        drawSnowflake02(20);
+        drawSnowflake(20);
 
         /* for (let snowflake of snowflakesArray) {
 
@@ -83,15 +83,11 @@ namespace L09_Part2 {
     function update(): void {
         console.log("Update");
         crc2.putImageData(getImageData, 0, 0);
-        let particle: Path2D = new Path2D();
-
-        let x: number = (Math.random() - 1) * canvas.width;
-        let y: number = - (Math.random() * horizon);
 
 
         for (let snowflake of snowflakesArray) {
 
-            snowflake.moveSnowflake(10);
+            snowflake.moveSnowflake();
 
             snowflake.drawSnowflakes(20, horizon);
 
@@ -510,7 +506,7 @@ namespace L09_Part2 {
 
     }
 
-    function drawSnowflake02(_snowflakeNumber: number): void {
+    function drawSnowflake(_snowflakeNumber: number): void {
 
         //let particle: Path2D = new Path2D();
 
@@ -525,7 +521,7 @@ namespace L09_Part2 {
 
             console.log("push Snowflake");
 
-            let snowflake: Snowflakes = new Snowflakes({ x: x, y: y }, { x: 0, y: 0 }, 10, horizon);
+            let snowflake: Snowflakes = new Snowflakes({ x: x, y: y }, { x: 0, y: 0 }, 10);
 
             snowflakesArray.push(snowflake);
 

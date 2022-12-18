@@ -23,10 +23,10 @@ namespace L09_Part2 {
 
         } */
 
-        constructor( _position: Vector, _velocity: Vector, _size: number, _horizon: number) {
+        constructor( _position: Vector, _velocity: Vector, _size: number) {
 
             this.position = new Vector2(_position.x, _position.y);
-            this.velocity = new Vector2(_position.x, _position.y);
+            this.velocity = new Vector2(_velocity.x, _velocity.y);
             /* this.position = _position;
             this.velocity = _velocity; */
             this.size = _size;
@@ -80,7 +80,7 @@ namespace L09_Part2 {
 
         }
 
-        moveSnowflake(_timeslice: number): void {
+        moveSnowflake(): void {
 
             console.log("Hello Method, moveSnowflake");
 
