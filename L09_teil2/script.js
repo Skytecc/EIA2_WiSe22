@@ -16,6 +16,7 @@ var L09_Part2;
     canvas.height = window.innerHeight;
     let getImageData;
     let snowflakesArray = [];
+    let gBird = [];
     window.addEventListener("load", handleLoad);
     function handleLoad() {
         drawGradientSnow();
@@ -26,34 +27,42 @@ var L09_Part2;
         birdHouse();
         drawSnowman({ x: 800, y: 750 });
         getImageData = L09_Part2.crc2.getImageData(0, 0, canvas.width, canvas.height);
-        drawGroundBird({ x: 985, y: 810 }, "black");
+        //drawGroundBird({ x: 985, y: 810 }, "black");
         //test({ x: 985, y: 810 });
-        drawBirds();
+        //drawBirds();
         //test();
         //drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
         drawSnowflake02(20);
         /* for (let snowflake of snowflakesArray) {
 
-            let particle: Path2D = new Path2D();
+            //let particle: Path2D = new Path2D();
+   
+               //let x: number = (Math.random() - 1) * canvas.width;
+               //let y: number = - (Math.random() * horizon);
 
-            let x: number = (Math.random() - 1) * canvas.width;
-            let y: number = - (Math.random() * horizon);
-
-            snowflake.drawSnowflakes(20, horizon, particle, x, y);
+            snowflake.drawSnowflakes(20, horizon);
 
         } */
-        //drawSnowflake03();
-        generateSnowflake();
+        drawBird(15);
+        /*  for (let groundbirds of gBird) {
+             groundbirds.drawBirds("black");
+         }
+  */
         window.setInterval(update, 20);
     }
     function update() {
         console.log("Update");
+        L09_Part2.crc2.putImageData(getImageData, 0, 0);
         let particle = new Path2D();
         let x = (Math.random() - 1) * canvas.width;
         let y = -(Math.random() * horizon);
         for (let snowflake of snowflakesArray) {
             snowflake.moveSnowflake(10);
-            //snowflake.drawSnowflakes(20, horizon, particle, x, y);
+            snowflake.drawSnowflakes(20, horizon);
+        }
+        for (let groundbirds of gBird) {
+            groundbirds.drawBirds();
+            groundbirds.moveBirds();
         }
     }
     function drawGradientSnow() {
@@ -327,31 +336,29 @@ var L09_Part2;
         L09_Part2.crc2.restore();
     }
     function drawSnowflake02(_snowflakeNumber) {
-        let particle = new Path2D();
+        //let particle: Path2D = new Path2D();
         for (let i = 0; i < _snowflakeNumber; i++) {
-            let x = (Math.random() - 1) * canvas.width;
-            let y = -(Math.random() * horizon);
-            console.log("X: " + x);
-            let snowflake = new L09_Part2.Snowflakes({ x: canvas.width, y: 800 }, { x: 0, y: 0 }, 20, horizon);
+            /* let x: number = (Math.random() - 1) * canvas.width;
+            let y: number = - (Math.random() * horizon); */
+            let x = Math.floor(Math.random() * canvas.width);
+            let y = (Math.floor(Math.random() * horizon));
+            console.log("push Snowflake");
+            let snowflake = new L09_Part2.Snowflakes({ x: x, y: y }, { x: 0, y: 0 }, 10, horizon);
             snowflakesArray.push(snowflake);
         }
     }
-    function generateSnowflake(_numberParticles) {
-        for (let snowflake of snowflakesArray) {
-            let particle = new Path2D();
-            let x = (Math.random() - 1) * canvas.width;
-            let y = -(Math.random() * horizon);
-            //snowflake.drawSnowflakes(20, horizon, particle, x, y);
-            for (let i = 0; i < _numberParticles; i++) {
-                snowflake.drawSnowflakes(20, horizon, particle, x, y);
-            }
-        }
-    }
-    function moveSnowflake() {
-        for (let snowflake of snowflakesArray) {
-            for (let i = 0; i < 100; i++) {
-                snowflake.moveSnowflake(0.1);
-            }
+    function drawBird(_gbirdNumber) {
+        for (let i = 0; i < _gbirdNumber; i++) {
+            let x = getRandomInt(900, innerWidth);
+            let y = getRandomInt(horizon, 800);
+            let velocity = getRandomInt(0, 10);
+            console.log("push Bird");
+            let rgba1 = Math.floor(Math.random() * 255);
+            let rgba2 = Math.floor(Math.random() * 255);
+            let rgba3 = Math.floor(Math.random() * 255);
+            let color = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
+            let groundBirds = new L09_Part2.Birds({ x: x, y: y }, velocity, 15, color);
+            gBird.push(groundBirds);
         }
     }
 })(L09_Part2 || (L09_Part2 = {}));

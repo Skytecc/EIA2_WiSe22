@@ -20,6 +20,7 @@ namespace L09_Part2 {
 
     let snowflakesArray: Snowflakes[] = [];
 
+    let gBird: Birds[] = [];
 
     export interface Vector {
         x: number;
@@ -47,9 +48,9 @@ namespace L09_Part2 {
 
         getImageData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
-        drawGroundBird({ x: 985, y: 810 }, "black");
+        //drawGroundBird({ x: 985, y: 810 }, "black");
         //test({ x: 985, y: 810 });
-        drawBirds();
+        //drawBirds();
         //test();
         //drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
 
@@ -57,17 +58,22 @@ namespace L09_Part2 {
 
         /* for (let snowflake of snowflakesArray) {
 
-            let particle: Path2D = new Path2D();
+            //let particle: Path2D = new Path2D();
+   
+               //let x: number = (Math.random() - 1) * canvas.width;
+               //let y: number = - (Math.random() * horizon); 
 
-            let x: number = (Math.random() - 1) * canvas.width;
-            let y: number = - (Math.random() * horizon);
-
-            snowflake.drawSnowflakes(20, horizon, particle, x, y);
+            snowflake.drawSnowflakes(20, horizon);
 
         } */
-        //drawSnowflake03();
 
-        generateSnowflake();
+        drawBird(15);
+
+        /*  for (let groundbirds of gBird) {
+             groundbirds.drawBirds("black");
+         }
+  */
+
 
         window.setInterval(update, 20);
 
@@ -76,20 +82,26 @@ namespace L09_Part2 {
 
     function update(): void {
         console.log("Update");
-
-
-
+        crc2.putImageData(getImageData, 0, 0);
         let particle: Path2D = new Path2D();
 
         let x: number = (Math.random() - 1) * canvas.width;
         let y: number = - (Math.random() * horizon);
 
+
         for (let snowflake of snowflakesArray) {
 
             snowflake.moveSnowflake(10);
 
-            //snowflake.drawSnowflakes(20, horizon, particle, x, y);
+            snowflake.drawSnowflakes(20, horizon);
 
+        }
+
+        for (let groundbirds of gBird) {
+            
+            groundbirds.drawBirds();
+
+            groundbirds.moveBirds();
         }
 
     }
@@ -500,58 +512,53 @@ namespace L09_Part2 {
 
     function drawSnowflake02(_snowflakeNumber: number): void {
 
-        let particle: Path2D = new Path2D();
+        //let particle: Path2D = new Path2D();
 
 
         for (let i: number = 0; i < _snowflakeNumber; i++) {
 
-            let x: number = (Math.random() - 1) * canvas.width;
-            let y: number = - (Math.random() * horizon);
+            /* let x: number = (Math.random() - 1) * canvas.width;
+            let y: number = - (Math.random() * horizon); */
 
-            console.log("X: " + x);
+            let x: number = Math.floor(Math.random() * canvas.width);
+            let y: number = (Math.floor(Math.random() * horizon));
 
-            let snowflake: Snowflakes = new Snowflakes({ x: canvas.width, y: 800 }, { x: 0, y: 0 }, 20, horizon);
+            console.log("push Snowflake");
+
+            let snowflake: Snowflakes = new Snowflakes({ x: x, y: y }, { x: 0, y: 0 }, 10, horizon);
 
             snowflakesArray.push(snowflake);
 
         }
     }
 
-    function generateSnowflake(_numberParticles: number): void {
 
-        for (let snowflake of snowflakesArray) {
 
-            let particle: Path2D = new Path2D();
+    function drawBird(_gbirdNumber: number): void {
 
-            let x: number = (Math.random() - 1) * canvas.width;
-            let y: number = - (Math.random() * horizon);
+        for (let i: number = 0; i < _gbirdNumber; i++) {
 
-            //snowflake.drawSnowflakes(20, horizon, particle, x, y);
+            let x: number = getRandomInt(900, innerWidth);
+            let y: number = getRandomInt(horizon, 800);
 
-            for (let i: number = 0; i < _numberParticles; i++) {
-                
-                snowflake.drawSnowflakes(20, horizon, particle, x, y);
+            let velocity: number = getRandomInt(0, 10);
 
-            }
+            console.log("push Bird");
 
-        }
-    }
+            let rgba1: number = Math.floor(Math.random() * 255);
+            let rgba2: number = Math.floor(Math.random() * 255);
+            let rgba3: number = Math.floor(Math.random() * 255);
 
-    
+            let color: string = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
 
-    function moveSnowflake(): void {
+            let groundBirds: Birds = new Birds({ x: x, y: y }, velocity, 15, color);
 
-        for (let snowflake of snowflakesArray) {
-
-            for (let i: number = 0; i < 100; i++) {
-
-                snowflake.moveSnowflake(0.1);
-            }
-
+            gBird.push(groundBirds);
         }
 
-
-
     }
+
+
 
 }
+
