@@ -92,8 +92,8 @@ namespace L09_Part2 {
             offset.scale(_timeslice);
             this.position.add(offset); */
 
-            if (this.position.x > crc2.canvas.width) {
-                this.position.x -= crc2.canvas.width;
+            if (this.position.x < 0) {
+                this.position.x += crc2.canvas.width;
             }
     }
 

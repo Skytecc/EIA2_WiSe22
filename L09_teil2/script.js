@@ -32,7 +32,7 @@ var L09_Part2;
         //drawBirds();
         //test();
         //drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
-        drawSnowflake02(20);
+        drawSnowflake(20);
         /* for (let snowflake of snowflakesArray) {
 
             //let particle: Path2D = new Path2D();
@@ -53,11 +53,8 @@ var L09_Part2;
     function update() {
         console.log("Update");
         L09_Part2.crc2.putImageData(getImageData, 0, 0);
-        let particle = new Path2D();
-        let x = (Math.random() - 1) * canvas.width;
-        let y = -(Math.random() * horizon);
         for (let snowflake of snowflakesArray) {
-            snowflake.moveSnowflake(10);
+            snowflake.moveSnowflake();
             snowflake.drawSnowflakes(20, horizon);
         }
         for (let groundbirds of gBird) {
@@ -335,7 +332,7 @@ var L09_Part2;
         }
         L09_Part2.crc2.restore();
     }
-    function drawSnowflake02(_snowflakeNumber) {
+    function drawSnowflake(_snowflakeNumber) {
         //let particle: Path2D = new Path2D();
         for (let i = 0; i < _snowflakeNumber; i++) {
             /* let x: number = (Math.random() - 1) * canvas.width;
@@ -343,7 +340,7 @@ var L09_Part2;
             let x = Math.floor(Math.random() * canvas.width);
             let y = (Math.floor(Math.random() * horizon));
             console.log("push Snowflake");
-            let snowflake = new L09_Part2.Snowflakes({ x: x, y: y }, { x: 0, y: 0 }, 10, horizon);
+            let snowflake = new L09_Part2.Snowflakes({ x: x, y: y }, { x: 0, y: 0 }, 10);
             snowflakesArray.push(snowflake);
         }
     }

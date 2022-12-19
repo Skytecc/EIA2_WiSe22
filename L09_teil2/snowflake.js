@@ -18,9 +18,9 @@ var L09_Part2;
  
  
          } */
-        constructor(_position, _velocity, _size, _horizon) {
+        constructor(_position, _velocity, _size) {
             this.position = new L09_Part2.Vector2(_position.x, _position.y);
-            this.velocity = new L09_Part2.Vector2(_position.x, _position.y);
+            this.velocity = new L09_Part2.Vector2(_velocity.x, _velocity.y);
             /* this.position = _position;
             this.velocity = _velocity; */
             this.size = _size;
@@ -61,7 +61,7 @@ var L09_Part2;
             L09_Part2.crc2.fill(particle);
             L09_Part2.crc2.restore();
         }
-        moveSnowflake(_timeslice) {
+        moveSnowflake() {
             console.log("Hello Method, moveSnowflake");
             this.position.y++;
             /* let offset: Vector2 = new Vector2(this.velocity.y, 0);
