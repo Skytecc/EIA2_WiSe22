@@ -10,6 +10,14 @@ namespace L10_Part2 {
 
         }
 
+        move(): void {
+            // move methode
+        }
+
+        draw(): void {
+            //draw Methode
+        }
+
 
     }
 }

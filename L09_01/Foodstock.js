@@ -19,4 +19,4 @@ var L09_Oldfarm;
     }
     L09_Oldfarm.Foodstock = Foodstock;
 })(L09_Oldfarm || (L09_Oldfarm = {}));
-//# sourceMappingURL=Foodstock.js.map
+//# sourceMappingURL=foodstock.js.map

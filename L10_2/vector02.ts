@@ -3,7 +3,7 @@ namespace L10_Part2 {
         x: number;
         y: number;
 
-        constructor (_x: number, _y: number) {
+     /*    constructor (_x: number, _y: number) {
             this.set(_x, _y);
         }
 
@@ -12,7 +12,7 @@ namespace L10_Part2 {
             this.y = _y;
         }
 
-        scale(_factor: number): void {
+      /*   scale(_factor: number): void {
             this.x *= _factor;
             this.y *= _factor;
         }
@@ -28,6 +28,6 @@ namespace L10_Part2 {
 
             this.set(Math.cos(direction), Math.sin(direction));
             this.scale(length);
-        }
+        } */ 
     }
 }

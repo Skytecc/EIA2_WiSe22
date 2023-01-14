@@ -18,6 +18,8 @@ namespace L10_Part2 {
 
     let getImageData: ImageData;
 
+    let moveables: Moveable[] = [];
+
     let snowflakesArray: Snowflakes[] = [];
 
     let gBird: Birds[] = [];
@@ -85,19 +87,19 @@ namespace L10_Part2 {
         crc2.putImageData(getImageData, 0, 0);
 
 
-        for (let snowflake of snowflakesArray) {
+        for (let snowflake of moveables) {
 
-            snowflake.moveSnowflake();
+            snowflake.move();
 
-            snowflake.drawSnowflakes(20, horizon);
+            snowflake.draw();
 
         }
 
         for (let groundbirds of gBird) {
             
-            groundbirds.drawBirds();
+            groundbirds.draw();
 
-            groundbirds.moveBirds();
+            groundbirds.move();
         }
 
     }
@@ -474,7 +476,7 @@ namespace L10_Part2 {
 
     }
 
-    function drawSnowflakes(_position: Vector, _size: Vector): void {
+    /* function drawSnowflakes(_position: Vector, _size: Vector): void {
         console.log("snowflakes");
 
         let numberParticles: number = 100;
@@ -505,7 +507,7 @@ namespace L10_Part2 {
         crc2.restore();
 
     }
-
+ */
     function drawSnowflake(_snowflakeNumber: number): void {
 
         //let particle: Path2D = new Path2D();
@@ -521,9 +523,9 @@ namespace L10_Part2 {
 
             console.log("push Snowflake");
 
-            let snowflake: Snowflakes = new Snowflakes({ x: x, y: y }, { x: 0, y: 0 }, 10);
+            let snowflake: Snowflakes = new Snowflakes({ x: x, y: y }, 5, 10, horizon, 20);
 
-            snowflakesArray.push(snowflake);
+            moveables.push(snowflake);
 
         }
     }
@@ -549,7 +551,7 @@ namespace L10_Part2 {
 
             let groundBirds: Birds = new Birds({ x: x, y: y }, velocity, 15, color);
 
-            gBird.push(groundBirds);
+            moveables.push(groundBirds);
         }
 
     }

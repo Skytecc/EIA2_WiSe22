@@ -80,7 +80,7 @@ namespace L10_Part2 {
 
         }
 
-        moveBirds(): void {
+        move(): void {
 
             console.log("Hello Method, moveBirds");
 

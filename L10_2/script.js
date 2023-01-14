@@ -15,6 +15,7 @@ var L10_Part2;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     let getImageData;
+    let moveables = [];
     let snowflakesArray = [];
     let gBird = [];
     window.addEventListener("load", handleLoad);
@@ -53,13 +54,13 @@ var L10_Part2;
     function update() {
         console.log("Update");
         L10_Part2.crc2.putImageData(getImageData, 0, 0);
-        for (let snowflake of snowflakesArray) {
-            snowflake.moveSnowflake();
-            snowflake.drawSnowflakes(20, horizon);
+        for (let snowflake of moveables) {
+            snowflake.move();
+            snowflake.draw();
         }
         for (let groundbirds of gBird) {
-            groundbirds.drawBirds();
-            groundbirds.moveBirds();
+            groundbirds.draw();
+            groundbirds.move();
         }
     }
     function drawGradientSnow() {
@@ -310,28 +311,38 @@ var L10_Part2;
         crc2.closePath();*/
         L10_Part2.crc2.restore();
     }
-    function drawSnowflakes(_position, _size) {
+    /* function drawSnowflakes(_position: Vector, _size: Vector): void {
         console.log("snowflakes");
-        let numberParticles = 100;
-        let radiusParticle = 20;
-        let particle = new Path2D();
-        let gradientSnow = L10_Part2.crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
+
+        let numberParticles: number = 100;
+        let radiusParticle: number = 20;
+
+        let particle: Path2D = new Path2D();
+        let gradientSnow: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
+
         particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
         gradientSnow.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
         gradientSnow.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
-        L10_Part2.crc2.save();
-        L10_Part2.crc2.translate(_position.x, _position.y);
-        L10_Part2.crc2.fillStyle = gradientSnow;
-        for (let i = 0; i < numberParticles; i++) {
-            L10_Part2.crc2.save();
-            let x = (Math.random() - 1) * _position.x;
-            let y = -(Math.random() * horizon);
-            L10_Part2.crc2.translate(x, y);
-            L10_Part2.crc2.fill(particle);
-            L10_Part2.crc2.restore();
+
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+
+        crc2.fillStyle = gradientSnow;
+
+
+        for (let i: number = 0; i < numberParticles; i++) {
+            crc2.save();
+            let x: number = (Math.random() - 1) * _position.x;
+            let y: number = - (Math.random() * horizon);
+            crc2.translate(x, y);
+            crc2.fill(particle);
+            crc2.restore();
         }
-        L10_Part2.crc2.restore();
+
+        crc2.restore();
+
     }
+ */
     function drawSnowflake(_snowflakeNumber) {
         //let particle: Path2D = new Path2D();
         for (let i = 0; i < _snowflakeNumber; i++) {
@@ -340,8 +351,8 @@ var L10_Part2;
             let x = Math.floor(Math.random() * canvas.width);
             let y = (Math.floor(Math.random() * horizon));
             console.log("push Snowflake");
-            let snowflake = new L10_Part2.Snowflakes({ x: x, y: y }, { x: 0, y: 0 }, 10);
-            snowflakesArray.push(snowflake);
+            let snowflake = new L10_Part2.Snowflakes({ x: x, y: y }, 5, 10, horizon, 20);
+            moveables.push(snowflake);
         }
     }
     function drawBird(_gbirdNumber) {
@@ -355,7 +366,7 @@ var L10_Part2;
             let rgba3 = Math.floor(Math.random() * 255);
             let color = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
             let groundBirds = new L10_Part2.Birds({ x: x, y: y }, velocity, 15, color);
-            gBird.push(groundBirds);
+            moveables.push(groundBirds);
         }
     }
 })(L10_Part2 || (L10_Part2 = {}));

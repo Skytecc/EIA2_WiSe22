@@ -60,7 +60,7 @@ var L10_Part2;
             this.drawTriangle({ x: 0, y: 50 }, { x: -20, y: 40 }, { x: 0, y: 30 }, { x: 0, y: 0 }, "yellow");
             L10_Part2.crc2.restore();
         }
-        moveBirds() {
+        move() {
             console.log("Hello Method, moveBirds");
             this.position.x -= this.velocity;
             /* let offset: Vector2 = new Vector2(this.velocity.y, 0);
