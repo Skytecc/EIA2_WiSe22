@@ -4,7 +4,7 @@ namespace L10_Part2 {
         color: string;
         size: number;
 
-        constructor(_position: Vector, _velocity: number, _size: number, _color: string) {
+        constructor(_position: Vector2, _velocity: number, _size: number, _color: string) {
             super(_position, _velocity);
             this.color = _color;
             this.size = _size;
