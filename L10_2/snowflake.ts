@@ -16,9 +16,6 @@ namespace L10_Part2 {
             this.size = _size;
             this.numberParticles = _numberParticle;
 
-            //this.gradient = _gradient;
-
-
         }
 
         draw(): void {

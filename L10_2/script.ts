@@ -95,7 +95,7 @@ namespace L10_Part2 {
 
         }
 
-        for (let groundbirds of gBird) {
+        for (let groundbirds of moveables) {
             
             groundbirds.draw();
 
@@ -234,48 +234,6 @@ namespace L10_Part2 {
 
         crc2.restore();
 
-    }
-
-    function drawBirds(): void {
-
-        let nBirdsOut: number = 20;
-        let nBirdHousing: number = 1;
-
-
-        for (let drawn: number = 0; drawn <= nBirdsOut; drawn++) {
-
-            //let x: number = Math.round(Math.random() * innerWidth);
-            let x: number = getRandomInt(900, innerWidth);
-            let y: number = getRandomInt(horizon, 800);
-
-            let rgba1: number = Math.floor(Math.random() * 255);
-            let rgba2: number = Math.floor(Math.random() * 255);
-            let rgba3: number = Math.floor(Math.random() * 255);
-
-            let color1: string = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
-
-            drawGroundBird({ x: x, y: y }, color1);
-
-            crc2.restore();
-        }
-
-        for (let drawn: number = 0; drawn <= nBirdHousing; drawn++) {
-
-            let x: number = getRandomInt(500, 450);
-            let y: number = getRandomInt(650, 660);
-
-            let rgba1: number = Math.floor(Math.random() * 255);
-            let rgba2: number = Math.floor(Math.random() * 255);
-            let rgba3: number = Math.floor(Math.random() * 255);
-
-            let color1: string = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
-
-            drawGroundBird({ x: x, y: y }, color1);
-
-            crc2.restore();
-        }
-
-        crc2.restore();
     }
 
     function getRandomInt(_min: number, _max: number): number {
