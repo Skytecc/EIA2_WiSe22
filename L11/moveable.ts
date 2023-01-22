@@ -1,4 +1,4 @@
-namespace L10_Part2 {
+namespace L11 {
     export abstract class Moveable {
 
         position: Vector2;
