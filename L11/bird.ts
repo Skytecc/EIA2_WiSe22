@@ -1,6 +1,6 @@
-namespace L10_Part2 {
+namespace L11 {
 
-    export class Birds extends Moveable {
+    export class GroundBirds extends Moveable {
         color: string;
         size: number;
 

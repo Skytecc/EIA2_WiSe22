@@ -20,10 +20,6 @@ namespace L11 {
 
     let moveables: Moveable[] = [];
 
-    let snowflakesArray: Snowflakes[] = [];
-
-    let gBird: Birds[] = [];
-
     export interface Vector {
         x: number;
         y: number;
@@ -69,7 +65,7 @@ namespace L11 {
 
         } */
 
-        drawBird(15);
+        drawGroundBird(5);
 
         /*  for (let groundbirds of gBird) {
              groundbirds.drawBirds("black");
@@ -383,57 +379,6 @@ namespace L11 {
         crc2.restore();
     }
 
-    function drawGroundBird(_position: Vector, _color: string): void {
-
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-
-
-        // Bird head
-        //drawArc(1000, 850, 20, 0, 2 * Math.PI * 2, "red");
-        drawArc(15, 40, 20, 0, 2 * Math.PI * 2, _color);
-
-
-
-        // Feet
-        /*drawRect({ x: 1020, y: 880 }, { x: 3, y: 25 }, "black");
-        drawRect({ x: 1030, y: 880 }, { x: 3, y: 25 }, "black");*/
-
-        drawRect({ x: 30, y: 72 }, { x: 3, y: 25 }, "black");
-        drawRect({ x: 15, y: 70 }, { x: 3, y: 25 }, "black");
-
-
-        //crc2.fillRect(1050, 880, 3, 25);
-
-
-        // Bird Body
-        //drawEllipse(1020, 870, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, "red");
-        drawEllipse(25, 65, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, _color);
-
-
-        // Eye
-
-        //drawArc(1000, 843, 3, 0, 2 * Math.PI * 2, "black");
-        drawArc(15, 33, 3, 0, 2 * Math.PI * 2, "black");
-
-
-        drawTriangle({ x: 0, y: 50 }, { x: -20, y: 40 }, { x: 0, y: 30 }, { x: 0, y: 0 }, "yellow");
-
-
-
-        // Mouth
-        /*crc2.beginPath();
-        crc2.moveTo(0, 50);
-        crc2.lineTo(-20, 40);
-        crc2.lineTo(0, 30);
-        crc2.fillStyle = "yellow";
-        crc2.fill();
-        crc2.closePath();*/
-
-        crc2.restore();
-
-    }
-
     /* function drawSnowflakes(_position: Vector, _size: Vector): void {
         console.log("snowflakes");
 
@@ -490,7 +435,7 @@ namespace L11 {
 
 
 
-    function drawBird(_gbirdNumber: number): void {
+    function drawGroundBird(_gbirdNumber: number): void {
 
         for (let i: number = 0; i < _gbirdNumber; i++) {
 
@@ -507,7 +452,7 @@ namespace L11 {
 
             let color: string = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
 
-            let groundBirds: Birds = new Birds({ x: x, y: y }, velocity, 15, color);
+            let groundBirds: GroundBirds = new GroundBirds({ x: x, y: y }, velocity, 15, color);
 
             moveables.push(groundBirds);
         }
