@@ -10,7 +10,6 @@ var L10_Part2;
             this.horizon = _horizon;
             this.size = _size;
             this.numberParticles = _numberParticle;
-            //this.gradient = _gradient;
         }
         draw() {
             console.log("Hello Method drawSnowflake");

@@ -58,7 +58,7 @@ var L10_Part2;
             snowflake.move();
             snowflake.draw();
         }
-        for (let groundbirds of gBird) {
+        for (let groundbirds of moveables) {
             groundbirds.draw();
             groundbirds.move();
         }
@@ -152,32 +152,6 @@ var L10_Part2;
         L10_Part2.crc2.fill();
         L10_Part2.crc2.stroke();
         L10_Part2.crc2.closePath();
-        L10_Part2.crc2.restore();
-    }
-    function drawBirds() {
-        let nBirdsOut = 20;
-        let nBirdHousing = 1;
-        for (let drawn = 0; drawn <= nBirdsOut; drawn++) {
-            //let x: number = Math.round(Math.random() * innerWidth);
-            let x = getRandomInt(900, innerWidth);
-            let y = getRandomInt(horizon, 800);
-            let rgba1 = Math.floor(Math.random() * 255);
-            let rgba2 = Math.floor(Math.random() * 255);
-            let rgba3 = Math.floor(Math.random() * 255);
-            let color1 = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
-            drawGroundBird({ x: x, y: y }, color1);
-            L10_Part2.crc2.restore();
-        }
-        for (let drawn = 0; drawn <= nBirdHousing; drawn++) {
-            let x = getRandomInt(500, 450);
-            let y = getRandomInt(650, 660);
-            let rgba1 = Math.floor(Math.random() * 255);
-            let rgba2 = Math.floor(Math.random() * 255);
-            let rgba3 = Math.floor(Math.random() * 255);
-            let color1 = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
-            drawGroundBird({ x: x, y: y }, color1);
-            L10_Part2.crc2.restore();
-        }
         L10_Part2.crc2.restore();
     }
     function getRandomInt(_min, _max) {

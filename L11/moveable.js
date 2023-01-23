@@ -1,6 +1,6 @@
 "use strict";
-var L10_Part2;
-(function (L10_Part2) {
+var L11;
+(function (L11) {
     class Moveable {
         position;
         velocity;
@@ -9,12 +9,12 @@ var L10_Part2;
             this.velocity = _velocitiy;
         }
         move() {
-            // move methode
+            //move Methode 
         }
         draw() {
             //draw Methode
         }
     }
-    L10_Part2.Moveable = Moveable;
-})(L10_Part2 || (L10_Part2 = {}));
+    L11.Moveable = Moveable;
+})(L11 || (L11 = {}));
 //# sourceMappingURL=moveable.js.map

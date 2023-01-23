@@ -46,32 +46,12 @@ namespace L11 {
 
         getImageData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
-        //drawGroundBird({ x: 985, y: 810 }, "black");
-        //test({ x: 985, y: 810 });
-        //drawBirds();
-        //test();
-        //drawSnowflakes({ x: canvas.width, y: 800 }, { x: 200, y: 200 });
-
         drawSnowflake(20);
-
-        /* for (let snowflake of snowflakesArray) {
-
-            //let particle: Path2D = new Path2D();
-   
-               //let x: number = (Math.random() - 1) * canvas.width;
-               //let y: number = - (Math.random() * horizon); 
-
-            snowflake.drawSnowflakes(20, horizon);
-
-        } */
 
         drawGroundBird(5);
 
-        /*  for (let groundbirds of gBird) {
-             groundbirds.drawBirds("black");
-         }
-  */
-
+        drawFlyingBird(5);
+        
 
         window.setInterval(update, 20);
 
@@ -92,11 +72,20 @@ namespace L11 {
         }
 
         for (let groundbirds of moveables) {
-            
+
             groundbirds.draw();
 
             groundbirds.move();
         }
+
+        
+        for (let flyingBirds of moveables) {
+
+            flyingBirds.draw();
+
+            flyingBirds.move();
+        }
+
 
     }
 
@@ -379,38 +368,6 @@ namespace L11 {
         crc2.restore();
     }
 
-    /* function drawSnowflakes(_position: Vector, _size: Vector): void {
-        console.log("snowflakes");
-
-        let numberParticles: number = 100;
-        let radiusParticle: number = 20;
-
-        let particle: Path2D = new Path2D();
-        let gradientSnow: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
-
-        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
-        gradientSnow.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
-        gradientSnow.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
-
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-
-        crc2.fillStyle = gradientSnow;
-
-
-        for (let i: number = 0; i < numberParticles; i++) {
-            crc2.save();
-            let x: number = (Math.random() - 1) * _position.x;
-            let y: number = - (Math.random() * horizon);
-            crc2.translate(x, y);
-            crc2.fill(particle);
-            crc2.restore();
-        }
-
-        crc2.restore();
-
-    }
- */
     function drawSnowflake(_snowflakeNumber: number): void {
 
         //let particle: Path2D = new Path2D();
@@ -431,6 +388,32 @@ namespace L11 {
             moveables.push(snowflake);
 
         }
+    }
+
+
+    function drawFlyingBird(_fbirdNumber: number): void {
+
+        for (let i: number = 0; i < _fbirdNumber; i++) {
+
+            let x: number = getRandomInt(900, innerWidth);
+            let y: number = getRandomInt(horizon / 2, 0);
+
+            let velocity: number = getRandomInt(1, 5);
+
+            console.log("push Bird");
+
+            let rgba1: number = Math.floor(Math.random() * 255);
+            let rgba2: number = Math.floor(Math.random() * 255);
+            let rgba3: number = Math.floor(Math.random() * 255);
+
+            let color: string = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
+
+            let flyingBirds: FlyingBirds = new FlyingBirds({ x: x, y: y }, velocity, 15, color);
+
+            moveables.push(flyingBirds);
+        }
+
+
     }
 
 
@@ -458,8 +441,6 @@ namespace L11 {
         }
 
     }
-
-
 
 }
 

@@ -9,7 +9,7 @@ var L10_Part2;
             this.velocity = _velocitiy;
         }
         move() {
-            // move methode
+            //move Methode 
         }
         draw() {
             //draw Methode

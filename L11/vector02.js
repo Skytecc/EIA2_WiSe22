@@ -1,10 +1,10 @@
 "use strict";
-var L10_Part2;
-(function (L10_Part2) {
+var L11;
+(function (L11) {
     class Vector2 {
         x;
         y;
     }
-    L10_Part2.Vector2 = Vector2;
-})(L10_Part2 || (L10_Part2 = {}));
+    L11.Vector2 = Vector2;
+})(L11 || (L11 = {}));
 //# sourceMappingURL=vector02.js.map

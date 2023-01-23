@@ -1,17 +1,13 @@
 "use strict";
 var L11;
 (function (L11) {
-    class GroundBirds extends L11.Moveable {
+    class FlyingBirds extends L11.Moveable {
         color;
         size;
         constructor(_position, _velocity, _size, _color) {
             super(_position, _velocity);
             this.color = _color;
             this.size = _size;
-            /* this.position = new Vector2(_position.x, _position.y);
-            this.velocity = _velocity;
-            this.color = _color;
-            this.size = _size; */
         }
         drawArc(_x, _y, _radius, _startAngle, _endAngle, _color) {
             L11.crc2.beginPath();
@@ -49,9 +45,6 @@ var L11;
             L11.crc2.translate(this.position.x, this.position.y);
             // Bird Head
             this.drawArc(15, 40, 20, 0, 2 * Math.PI * 2, this.color);
-            //Feet
-            this.drawRect({ x: 30, y: 72 }, { x: 3, y: 25 }, "black");
-            this.drawRect({ x: 15, y: 70 }, { x: 3, y: 25 }, "black");
             //Body
             this.drawEllipse(25, 65, 30, 20, Math.PI * 0.20, 0, Math.PI * 360, false, this.color);
             //Eye
@@ -63,14 +56,11 @@ var L11;
         move() {
             console.log("Hello Method, moveBirds");
             this.position.x -= this.velocity;
-            /* let offset: Vector2 = new Vector2(this.velocity.y, 0);
-            offset.scale(_timeslice);
-            this.position.add(offset); */
             if (this.position.x < 0) {
                 this.position.x += L11.crc2.canvas.width;
             }
         }
     }
-    L11.GroundBirds = GroundBirds;
+    L11.FlyingBirds = FlyingBirds;
 })(L11 || (L11 = {}));
-//# sourceMappingURL=bird.js.map
+//# sourceMappingURL=flyingBird.js.map
