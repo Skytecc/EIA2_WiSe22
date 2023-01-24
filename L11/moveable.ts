@@ -3,6 +3,7 @@ namespace L11 {
 
         position: Vector2;
         velocity: number;
+        expendable: boolean = false;
 
         constructor(_position: Vector2, _velocitiy: number) {
             this.position = _position;

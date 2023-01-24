@@ -29,6 +29,7 @@ var L11;
         drawSnowflake(20);
         drawGroundBird(5);
         drawFlyingBird(5);
+        canvas.addEventListener("click", drawNewBird);
         window.setInterval(update, 20);
     }
     function update() {
@@ -197,30 +198,6 @@ var L11;
         L11.crc2.fill();
         L11.crc2.closePath();
     }
-    function drawEllipse(_x, _y, _radiusX, _radiusY, _rotation, _startAngle, _endAngle, _counterclockwise, _color) {
-        L11.crc2.beginPath();
-        L11.crc2.ellipse(_x, _y, _radiusX, _radiusY, _rotation, _startAngle, _endAngle, _counterclockwise);
-        L11.crc2.fillStyle = _color;
-        L11.crc2.fill();
-        L11.crc2.closePath();
-    }
-    function drawRect(_position, _size, _color) {
-        L11.crc2.beginPath();
-        L11.crc2.fillStyle = _color;
-        L11.crc2.fillRect(_position.x, _position.y, _size.x, _size.y);
-        L11.crc2.fill();
-        L11.crc2.closePath();
-    }
-    function drawTriangle(_moveTo, _lineTo1, _lineTo2, _lineTo3, _color) {
-        L11.crc2.beginPath();
-        L11.crc2.moveTo(_moveTo.x, _moveTo.y);
-        L11.crc2.lineTo(_lineTo1.x, _lineTo1.y);
-        L11.crc2.lineTo(_lineTo2.x, _lineTo2.y);
-        L11.crc2.lineTo(_lineTo3.x, _lineTo3.y);
-        L11.crc2.fillStyle = _color;
-        L11.crc2.fill();
-        L11.crc2.closePath();
-    }
     function drawSnowman(_position) {
         L11.crc2.save();
         L11.crc2.translate(_position.x, _position.y);
@@ -278,6 +255,20 @@ var L11;
             let color = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
             let groundBirds = new L11.GroundBirds({ x: x, y: y }, velocity, 15, color);
             moveables.push(groundBirds);
+        }
+    }
+    function drawNewBird(_event) {
+        let velocity = getRandomInt(1, 5);
+        let rgba1 = Math.floor(Math.random() * 255);
+        let rgba2 = Math.floor(Math.random() * 255);
+        let rgba3 = Math.floor(Math.random() * 255);
+        let color = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
+        let newPos = new L11.Vector2(_event.clientX - L11.crc2.canvas.offsetLeft, _event.clientY - L11.crc2.canvas.offsetTop);
+        if (newPos.y < 450) {
+            moveables.push(new L11.FlyingBirds({ x: newPos.x, y: newPos.y }, velocity, 15, color));
+        }
+        else {
+            moveables.push(new L11.GroundBirds({ x: newPos.x, y: newPos.y }, velocity, 15, color));
         }
     }
 })(L11 || (L11 = {}));

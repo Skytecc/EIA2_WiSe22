@@ -52,6 +52,7 @@ namespace L11 {
 
         drawFlyingBird(5);
         
+        canvas.addEventListener("click", drawNewBird);
 
         window.setInterval(update, 20);
 
@@ -304,38 +305,6 @@ namespace L11 {
         crc2.closePath();
     }
 
-    function drawEllipse(_x: number, _y: number, _radiusX: number, _radiusY: number, _rotation: number, _startAngle: number, _endAngle: number, _counterclockwise: boolean, _color: string): void {
-
-        crc2.beginPath();
-        crc2.ellipse(_x, _y, _radiusX, _radiusY, _rotation, _startAngle, _endAngle, _counterclockwise);
-        crc2.fillStyle = _color;
-        crc2.fill();
-        crc2.closePath();
-
-    }
-
-    function drawRect(_position: Vector, _size: Vector, _color: string): void {
-
-        crc2.beginPath();
-        crc2.fillStyle = _color;
-        crc2.fillRect(_position.x, _position.y, _size.x, _size.y);
-        crc2.fill();
-        crc2.closePath();
-    }
-
-    function drawTriangle(_moveTo: Vector, _lineTo1: Vector, _lineTo2: Vector, _lineTo3: Vector, _color: string): void {
-
-        crc2.beginPath();
-        crc2.moveTo(_moveTo.x, _moveTo.y);
-        crc2.lineTo(_lineTo1.x, _lineTo1.y);
-        crc2.lineTo(_lineTo2.x, _lineTo2.y);
-        crc2.lineTo(_lineTo3.x, _lineTo3.y);
-        crc2.fillStyle = _color;
-        crc2.fill();
-        crc2.closePath();
-
-    }
-
 
     function drawSnowman(_position: Vector): void {
 
@@ -383,7 +352,7 @@ namespace L11 {
 
             console.log("push Snowflake");
 
-            let snowflake: Snowflakes = new Snowflakes({ x: x, y: y }, 5, 10, horizon, 20);
+            let snowflake: Snowflakes = new Snowflakes({x: x, y: y}, 5, 10, horizon, 20);
 
             moveables.push(snowflake);
 
@@ -408,7 +377,7 @@ namespace L11 {
 
             let color: string = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
 
-            let flyingBirds: FlyingBirds = new FlyingBirds({ x: x, y: y }, velocity, 15, color);
+            let flyingBirds: FlyingBirds = new FlyingBirds({x: x, y: y}, velocity, 15, color);
 
             moveables.push(flyingBirds);
         }
@@ -435,11 +404,33 @@ namespace L11 {
 
             let color: string = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
 
-            let groundBirds: GroundBirds = new GroundBirds({ x: x, y: y }, velocity, 15, color);
+            let groundBirds: GroundBirds = new GroundBirds({x: x, y: y}, velocity, 15, color);
 
             moveables.push(groundBirds);
         }
 
+    }
+
+    function drawNewBird(_event: MouseEvent): void {
+
+        let velocity: number = getRandomInt(1, 5);
+
+        let rgba1: number = Math.floor(Math.random() * 255);
+        let rgba2: number = Math.floor(Math.random() * 255);
+        let rgba3: number = Math.floor(Math.random() * 255);
+
+        let color: string = "RGB" + "(" + rgba1 + "," + rgba2 + "," + rgba3 + ")";
+        
+        let newPos: Vector2 = new Vector2(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
+
+        if (newPos.y < 450) {
+
+            moveables.push(new FlyingBirds({x: newPos.x, y: newPos.y}, velocity, 15, color));
+        } else {
+
+            moveables.push(new GroundBirds({x: newPos.x, y: newPos.y}, velocity, 15, color));
+
+        }
     }
 
 }

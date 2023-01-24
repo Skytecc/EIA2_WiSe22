@@ -4,6 +4,7 @@ var L11;
     class Moveable {
         position;
         velocity;
+        expendable = false;
         constructor(_position, _velocitiy) {
             this.position = _position;
             this.velocity = _velocitiy;
