@@ -11,13 +11,9 @@ namespace L11 {
 
         }
 
-        move(): void {
-            //move Methode 
-        }
+        abstract move(): void;
 
-        draw(): void {
-            //draw Methode
-        }
+        abstract draw(): void;
 
 
     }
