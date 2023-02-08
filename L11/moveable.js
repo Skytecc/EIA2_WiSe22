@@ -9,12 +9,6 @@ var L11;
             this.position = _position;
             this.velocity = _velocitiy;
         }
-        move() {
-            //move Methode 
-        }
-        draw() {
-            //draw Methode
-        }
     }
     L11.Moveable = Moveable;
 })(L11 || (L11 = {}));

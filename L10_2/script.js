@@ -325,7 +325,7 @@ var L10_Part2;
             let x = Math.floor(Math.random() * canvas.width);
             let y = (Math.floor(Math.random() * horizon));
             console.log("push Snowflake");
-            let snowflake = new Snowflakes({ x: x, y: y }, 5, 10, horizon, 20);
+            let snowflake = new L10_Part2.Snowflakes({ x: x, y: y }, 5, 10, horizon, 20);
             moveables.push(snowflake);
         }
     }
